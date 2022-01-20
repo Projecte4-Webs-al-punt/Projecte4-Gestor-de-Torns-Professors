@@ -1,0 +1,36 @@
+<mxfile host="65bd71144e">
+    <diagram id="5fB7lTT71ByQ_cDv8cXV" name="Page-1">
+        <mxGraphModel dx="1038" dy="740" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="Portada per Professors" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.window;align=left;verticalAlign=top;spacingLeft=8;strokeColor2=#008cff;strokeColor3=#c4c4c4;mainText=;fontSize=17;labelBackgroundColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="20" y="20" width="790" height="900" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Navbar" style="html=1;shadow=0;dashed=0;fillColor=#E3F3FD;strokeColor=none;fontSize=16;fontColor=#161819;align=left;spacing=15;" vertex="1" parent="1">
+                    <mxGeometry x="20" y="50" width="790" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="Dashboard" style="fillColor=none;strokeColor=none;fontSize=14;fontColor=#161819;align=center;" vertex="1" parent="3">
+                    <mxGeometry width="70" height="40" relative="1" as="geometry">
+                        <mxPoint x="80" y="10" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="5" value="" style="verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;strokeWidth=1;shape=mxgraph.mockup.containers.userMale;strokeColor=#666666;strokeColor2=#008cff;" vertex="1" parent="3">
+                    <mxGeometry x="719.1025641025641" width="60.76923076923077" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="" style="verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;strokeWidth=1;shape=mxgraph.mockup.graphics.simpleIcon;strokeColor=#999999;" vertex="1" parent="3">
+                    <mxGeometry x="10.128205128205128" width="60.76923076923077" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="Dubtes a Resoldre" style="fillColor=none;strokeColor=none;fontSize=14;fontColor=#161819;align=center;" vertex="1" parent="3">
+                    <mxGeometry x="151.9230769230769" y="10" width="121.53846153846153" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="Usuari" style="fillColor=none;strokeColor=none;fontSize=14;fontColor=#161819;align=center;" vertex="1" parent="3">
+                    <mxGeometry x="660" y="10" width="59.1" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="" style="verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;strokeWidth=1;shape=mxgraph.mockup.graphics.simpleIcon;strokeColor=#999999;" vertex="1" parent="1">
+                    <mxGeometry x="20" y="110" width="790" height="260" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
