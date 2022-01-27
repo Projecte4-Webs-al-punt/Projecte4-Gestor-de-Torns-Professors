@@ -15,3 +15,10 @@ use App\Http\Controllers\indexController;
 */
 
 Route::get("/", [indexController::class, 'index'])->name("index");
+
+Route::get('/', function () {
+    return view('home');
+});
+Route::get('/contact', function () {
+    return view('contact');
+});
