@@ -17,7 +17,7 @@ class CreaTablas extends Migration
         Schema::create('Usuari', function (Blueprint $table) {
             $table->id('codi');
             $table->string('usuari')->unique();
-            $table->string('contrasenya')->unique();
+            $table->string('contrasenya');
             $table->string('rol')->default('alumne');
             $table->string('nom');
             $table->string('cognoms');
