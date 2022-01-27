@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\indexController;
+use App\Http\Controllers\homeController;
+use App\Http\Controllers\administracioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,4 +15,8 @@ use App\Http\Controllers\indexController;
 |
 */
 
-Route::get("/", [indexController::class, 'index'])->name("index");
+Route::get('/', [homeController::class, "index"])->name("home");
+
+Route::get('/dashboard', [administracioController::class, "admin"])->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
