@@ -14,119 +14,94 @@ class CreaTablas extends Migration
     public function up()
     {
         //
-        Schema::create('Usuari', function (Blueprint $table) {
-            $table->id('codi');
-            $table->string('usuari')->unique();
-            $table->string('contrasenya');
-            $table->string('rol')->default('alumne');
-            $table->string('nom');
-            $table->string('cognoms');
-            $table->string('email')->unique();
-            $table->timestamp('email_verificat')->nullable();
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('lastname');
+            $table->string('user')->unique();
+            $table->string('role')->default('alumne');
             $table->string('telefon')->nullable();
-            $table->timestamps();
         });
-        Schema::create('Professor', function (Blueprint $table) {
-            $table->id('codi_prof');
-            $table->string('estat')->default('Disponible');
-            $table->unsignedBigInteger('codi');
-            $table->foreign('codi')
-            ->references('codi')
-            ->on('Usuari')
+        Schema::create('Teacher', function (Blueprint $table) {
+            $table->id();
+            $table->string('status')->default('Disponible');
+            $table->foreignId('users_id')
+            ->constrained('users')
             ->onUpdate('cascade')
             ->onDelete('cascade');
         });
-        Schema::create('Alumne', function (Blueprint $table) {
-            $table->id('codi_alumn');
-            $table->unsignedBigInteger('codi');
-            $table->foreign('codi')
-            ->references('codi')
-            ->on('Usuari')
+        Schema::create('Student', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('users_id')
+            ->constrained('users')
             ->onUpdate('cascade')
             ->onDelete('cascade');
         });
-        Schema::create('Dubte', function (Blueprint $table) {
-            $table->id('id_dubte');
-            $table->string('estat')->default('Pendent');
-            $table->string('assumpte')->default('Sense assumpte');
-            $table->string('missatge');
-            $table->timestamp('data_obertura')->useCurrent();
-            $table->timestamp('data_resolucio')->nullable();
-            $table->unsignedBigInteger('codi_alumn');
-            $table->foreign('codi_alumn')
-            ->references('codi_alumn')
-            ->on('Alumne');
-            $table->unsignedBigInteger('codi_prof');
-            $table->foreign('codi_prof')
-            ->references('codi_prof')
-            ->on('Professor');
+        Schema::create('Doubt', function (Blueprint $table) {
+            $table->id();
+            $table->string('status')->default('Pendent');
+            $table->string('matter')->default('Sense assumpte');
+            $table->string('message');
+            $table->timestamp('data_opening')->useCurrent();
+            $table->timestamp('data_resolution')->nullable();
+            $table->foreignId('student_id')
+            ->constrained('Student');
+            $table->foreignId('teacher_id')
+            ->constrained('Teacher');
         });
-        Schema::create('Grupclasse', function (Blueprint $table) {
+        //acronym of Class Group 
+        Schema::create('CG', function (Blueprint $table) {
             $table->id('id_classe');
-            $table->string('nom');
-            $table->string('curs');
+            $table->string('name');
+            $table->string('grade');
         });
-        Schema::create('Grupclasse_prof', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_classe');
-            $table->foreign('id_classe')
-            ->references('id_classe')
-            ->on('Grupclasse')
+        //acronym of Class Group Teacher
+        Schema::create('CGT', function (Blueprint $table) {
+            $table->foreignId('CG_id')
+            ->constrained('Teacher')
             ->onUpdate('cascade')
             ->onDelete('cascade');
-            $table->unsignedBigInteger('codi_prof');
-            $table->foreign('codi_prof')
-            ->references('codi_prof')
-            ->on('Professor');
+            $table->foreignId('teacher_id')
+            ->constrained('Teacher');
             $table->string('tutor')->nullable();
-            $table->unique(['id_classe','codi_prof']);
+            $table->unique(['CG_id','teacher_id']);
         });
-        Schema::create('Grupclasse_alumn', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_classe');
-            $table->foreign('id_classe')
-            ->references('id_classe')
-            ->on('Grupclasse')
+        //acronym of Class Group Student
+        Schema::create('CGS', function (Blueprint $table) {
+            $table->foreignId('CG_id')
+            ->constrained('Teacher')
             ->onUpdate('cascade')
             ->onDelete('cascade');
-            $table->unsignedBigInteger('codi_alumn');
-            $table->foreign('codi_alumn')
-            ->references('codi_alumn')
-            ->on('Alumne');
-            $table->string('tutoria')->nullable();
-            $table->string('delegat')->nullable();
-            $table->unique(['id_classe','codi_alumn']);
+            $table->foreignId('student_id')
+            ->constrained('Student');
+            $table->string('tutorship')->nullable();
+            $table->string('delegate')->nullable();
+            $table->unique(['CG_id','student_id']);
         });
-        Schema::create('Assignatura', function (Blueprint $table) {
-            $table->id('id_assign');
-            $table->string('nom');
-            $table->string('curs');
+        //Acronym of Subject
+        Schema::create('S', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('grade');
         });
-        Schema::create('Assignatura_prof', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_assign');
-            $table->foreign('id_assign')
-            ->references('id_assign')
-            ->on('Assignatura')
+        //Acronym of Subject Teacher
+        Schema::create('ST', function (Blueprint $table) {
+            $table->foreignId('subject_id')
+            ->constrained('S')
             ->onUpdate('cascade')
             ->onDelete('cascade');
-            $table->unsignedBigInteger('codi_prof');
-            $table->foreign('codi_prof')
-            ->references('codi_prof')
-            ->on('Professor');
-
-            $table->unique(['id_assign','codi_prof']);
+            $table->foreignId('teacher_id')
+            ->constrained('Teacher');
+            $table->unique(['subject_id','teacher_id']);
         });
-        Schema::create('Assignatura_alumn', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_assign');
-            $table->foreign('id_assign')
-            ->references('id_assign')
-            ->on('Assignatura')
+        //Acronym Of Subject Student
+        Schema::create('SS', function (Blueprint $table) {
+            $table->foreignId('subject_id')
+            ->constrained('S')
             ->onUpdate('cascade')
             ->onDelete('cascade');
-            $table->unsignedBigInteger('codi_alumn');
-            $table->foreign('codi_alumn')
-            ->references('codi_alumn')
-            ->on('Alumne');
-            $table->string('presentacio')->nullable();
-            $table->unique(['id_assign','codi_alumn']);
+            $table->foreignId('student_id')
+            ->constrained('Student');
+            $table->string('Presentation')->nullable();
+            $table->unique(['subject_id','student_id']);
         });
     }
 
@@ -138,15 +113,14 @@ class CreaTablas extends Migration
     public function down()
     {
         //
-        Schema::dropIfExists('Usuari');
-        Schema::dropIfExists('Professor');
-        Schema::dropIfExists('Alumne');
-        Schema::dropIfExists('Dubte');
-        Schema::dropIfExists('Grupclasse');
-        Schema::dropIfExists('Grupclasse_prof');
-        Schema::dropIfExists('Grupclasse_alumn');
-        Schema::dropIfExists('Assignatura');
-        Schema::dropIfExists('Assignatura_prof');
-        Schema::dropIfExists('Assignatura_alumn');
+        Schema::dropIfExists('Teacher');
+        Schema::dropIfExists('Student');
+        Schema::dropIfExists('Doubt');
+        Schema::dropIfExists('CG');
+        Schema::dropIfExists('CGT');
+        Schema::dropIfExists('CGS');
+        Schema::dropIfExists('S');
+        Schema::dropIfExists('ST');
+        Schema::dropIfExists('SS');
     }
 }
