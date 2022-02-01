@@ -1,8 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
-<h1>Pàgina Dashboard</h1>
-<div id="app">
-    <example-component></example-component>
-</div>
+
+<p>Hola</p>
+
 @endsection
