@@ -16,6 +16,12 @@ use App\Http\Controllers\PageController;
 
 Route::get('/', [PageController::class, "index"])->name("home");
 
+Route::get('/contact', [PageController::class, "contact"])->name("contact");
+
+Route::get('/about', [PageController::class, "about"])->name("about");
+
+
+
 Route::get('/dashboard', [PageController::class, "admin"])->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';

@@ -3,7 +3,6 @@
 @section('content')
 
     <div class="main-content">
-
         <div class="section-light contact" id="contact">
             <div class="container">
                 <div
@@ -13,7 +12,7 @@
                 >
                     <div class="column is-12 about-me">
                         <h1 class="title has-text-centered section-title">
-                            Get in touch
+                            Formulari de contacte
                         </h1>
                     </div>
                     <div class="column is-8 is-offset-2">
