@@ -1,9 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
-
-    <body>
     <div class="main-content">
         <div class="section-light about-me">
             <div class="container">

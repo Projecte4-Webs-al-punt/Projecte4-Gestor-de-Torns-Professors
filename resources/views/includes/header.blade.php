@@ -14,37 +14,28 @@
         </div>
         <div id="navbarMenu" class="navbar-menu">
             <div class="navbar-end">
-                <a class="navbar-item is-active">
-                        Home
+                <a href="{{ route('home') }}"  class="navbar-item is-active">
+                        Inici
                     </a>
-                <a class="navbar-item">
-                        Examples
+                <a href="{{ route('contact') }}" class="navbar-item">
+                        Contacte
                     </a>
-                <a class="navbar-item">
-                        Features
-                    </a>
-                <a class="navbar-item">
-                        Team
-                    </a>
-                <a class="navbar-item">
-                        Archives
-                    </a>
-                <a class="navbar-item">
-                        Help
-                    </a>
+                <a href="{{ route('about') }}" class="navbar-item">
+                    Sobre nosaltres
+                </a>
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">
-                            Account
+                            Compte
                         </a>
                     <div class="navbar-dropdown">
-                        <a class="navbar-item">
-                                Dashboard
+                        <a href="{{ route('dashboard') }}" class="navbar-item">
+                                Panell de control
                             </a>
                         <a class="navbar-item">
-                                Profile
+                                Perfil
                             </a>
                         <a class="navbar-item">
-                                Settings
+                                Parametres
                             </a>
                         <hr class="navbar-divider">
                         <div class="navbar-item">
