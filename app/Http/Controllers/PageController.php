@@ -25,4 +25,11 @@ class PageController extends Controller
         return view("dashboard");
     }
 
+    /*Tests */
+
+    public function test()
+    {
+        return view("test");
+    }
+
 }
