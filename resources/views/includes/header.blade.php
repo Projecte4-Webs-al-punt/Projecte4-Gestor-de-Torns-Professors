@@ -4,7 +4,7 @@
     <div class="container">
         <div class="navbar-brand">
             <a class="navbar-item" href="../">
-                <img src="" alt="Logo">
+                <img src="https://i.ibb.co/QnxXzXj/Copia-de-Tutory-cat-1.png" alt="Logo">
             </a>
             <span class="navbar-burger burger" data-target="navbarMenu">
                     <span></span>
@@ -56,4 +56,5 @@
     </div>
 </nav>
 </header>
+
 <!-- END NAV -->

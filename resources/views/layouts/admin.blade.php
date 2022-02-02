@@ -16,14 +16,17 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <!-- Bulma Version 0.9.0-->
         <link rel="stylesheet" type="text/css" href="css/app.css">
+    <link rel="stylesheet" type="text/css" href="css/admin.css">
+
 </head>
 <body>
-    @include('includes.header')
 
     @yield('content')
+    @include('includes.headeradmin')
 
+    @include('includes.sidebar')
 
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.9.1/js/OverlayScrollbars.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.9.1/js/OverlayScrollbars.min.js'></script>
         <script>
         document.addEventListener("DOMContentLoaded", function() {
         //The first argument are the elements to which the plugin shall be initialized
