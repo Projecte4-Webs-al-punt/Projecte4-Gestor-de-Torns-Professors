@@ -13,93 +13,92 @@ class CreaTablas extends Migration
      */
     public function up()
     {
-        //
         Schema::table('users', function (Blueprint $table) {
+            $table->string('firstname');
             $table->string('lastname');
-            $table->string('user')->unique();
-            $table->string('role')->default('alumne');
+            $table->string('role')->default('student');
             $table->string('telefon')->nullable();
         });
-        Schema::create('Teacher', function (Blueprint $table) {
+        Schema::create('Teachers', function (Blueprint $table) {
             $table->id();
-            $table->string('status')->default('Disponible');
-            $table->foreignId('users_id')
+            $table->string('status')->default('Available');
+            $table->foreignId('user_id')
             ->constrained('users')
             ->onUpdate('cascade')
             ->onDelete('cascade');
         });
-        Schema::create('Student', function (Blueprint $table) {
+        Schema::create('Students', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('users_id')
+            $table->foreignId('user_id')
             ->constrained('users')
             ->onUpdate('cascade')
             ->onDelete('cascade');
         });
-        Schema::create('Doubt', function (Blueprint $table) {
+        Schema::create('Doubts', function (Blueprint $table) {
             $table->id();
-            $table->string('status')->default('Pendent');
-            $table->string('matter')->default('Sense assumpte');
-            $table->string('message');
-            $table->timestamp('data_opening')->useCurrent();
-            $table->timestamp('data_resolution')->nullable();
+            $table->string('status')->default('Pending');
+            $table->string('matter')->default('Not Matter');
+            $table->string('message')->nullable();
             $table->foreignId('student_id')
-            ->constrained('Student');
+            ->constrained('Students');
+            $table->timestamp('date_opening')->useCurrent();
             $table->foreignId('teacher_id')
-            ->constrained('Teacher');
+            ->constrained('Teachers');
+            $table->timestamp('date_resolution')->nullable();
         });
         //acronym of Class Group 
-        Schema::create('CG', function (Blueprint $table) {
-            $table->id('id_classe');
+        Schema::create('ClassGroups', function (Blueprint $table) {
+            $table->id();
             $table->string('name');
             $table->string('grade');
         });
         //acronym of Class Group Teacher
-        Schema::create('CGT', function (Blueprint $table) {
-            $table->foreignId('CG_id')
-            ->constrained('Teacher')
+        Schema::create('Teacher_ClassGroup', function (Blueprint $table) {
+            $table->foreignId('classGroup_id')
+            ->constrained('ClassGroups')
             ->onUpdate('cascade')
             ->onDelete('cascade');
             $table->foreignId('teacher_id')
-            ->constrained('Teacher');
+            ->constrained('Teachers');
             $table->string('tutor')->nullable();
-            $table->unique(['CG_id','teacher_id']);
+            $table->unique(['classGroup_id','teacher_id']);
         });
         //acronym of Class Group Student
-        Schema::create('CGS', function (Blueprint $table) {
-            $table->foreignId('CG_id')
-            ->constrained('Teacher')
+        Schema::create('Student_ClassGroup', function (Blueprint $table) {
+            $table->foreignId('classGroup_id')
+            ->constrained('ClassGroups')
             ->onUpdate('cascade')
             ->onDelete('cascade');
             $table->foreignId('student_id')
-            ->constrained('Student');
+            ->constrained('Students');
             $table->string('tutorship')->nullable();
             $table->string('delegate')->nullable();
-            $table->unique(['CG_id','student_id']);
+            $table->unique(['classGroup_id','student_id']);
         });
         //Acronym of Subject
-        Schema::create('S', function (Blueprint $table) {
+        Schema::create('Subjects', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('grade');
         });
         //Acronym of Subject Teacher
-        Schema::create('ST', function (Blueprint $table) {
+        Schema::create('Teacher_Subject', function (Blueprint $table) {
             $table->foreignId('subject_id')
-            ->constrained('S')
+            ->constrained('Subjects')
             ->onUpdate('cascade')
             ->onDelete('cascade');
             $table->foreignId('teacher_id')
-            ->constrained('Teacher');
+            ->constrained('Teachers');
             $table->unique(['subject_id','teacher_id']);
         });
         //Acronym Of Subject Student
-        Schema::create('SS', function (Blueprint $table) {
+        Schema::create('Student_Subject', function (Blueprint $table) {
             $table->foreignId('subject_id')
-            ->constrained('S')
+            ->constrained('Subjects')
             ->onUpdate('cascade')
             ->onDelete('cascade');
             $table->foreignId('student_id')
-            ->constrained('Student');
+            ->constrained('Students');
             $table->string('Presentation')->nullable();
             $table->unique(['subject_id','student_id']);
         });
@@ -112,15 +111,14 @@ class CreaTablas extends Migration
      */
     public function down()
     {
-        //
-        Schema::dropIfExists('Teacher');
-        Schema::dropIfExists('Student');
-        Schema::dropIfExists('Doubt');
-        Schema::dropIfExists('CG');
-        Schema::dropIfExists('CGT');
-        Schema::dropIfExists('CGS');
-        Schema::dropIfExists('S');
-        Schema::dropIfExists('ST');
-        Schema::dropIfExists('SS');
+        Schema::dropIfExists('Teachers');
+        Schema::dropIfExists('Students');
+        Schema::dropIfExists('Doubts');
+        Schema::dropIfExists('ClassGroups');
+        Schema::dropIfExists('Teacher_ClassGroup');
+        Schema::dropIfExists('Student_ClassGroup');
+        Schema::dropIfExists('Subjects');
+        Schema::dropIfExists('Teacher_Subject');
+        Schema::dropIfExists('Student_Subject');
     }
 }
