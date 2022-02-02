@@ -45,4 +45,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function teacher()
+    {
+        return $this->belongsTo(Teacher::class);
+    }
+
+    public function student()
+    {
+        return $this->belongsTo(Student::class);
+    }
 }
+
+
+//ManyToMany ambdos costat
+
+//https://laravel.com/docs/8.x/eloquent-relationships#one-to-one
