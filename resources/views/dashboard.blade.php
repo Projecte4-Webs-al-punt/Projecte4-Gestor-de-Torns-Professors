@@ -43,7 +43,7 @@
 
                 <header class="is-clearfix">
                     <div class="cats is-pulled-right has-text-right">
-                        <small>Dashboard Theme<br>Bulma Elements<br> <span class="has-text-weight-bold has-text-white">v.7.2</span></small>
+                        <small> <span class="has-text-weight-bold has-text-white"></span></small>
                     </div>
                     <div>
                         <h2>Bulma Elements</h2>
