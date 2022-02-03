@@ -21,6 +21,6 @@ class Student extends Model
 
     public function classGroup()
     {
-        return $this->belongsToMany(ClassGroup::class, "Student_ClassGroup");
+        return $this->belongsToMany(ClassGroup::class);
     }
 }

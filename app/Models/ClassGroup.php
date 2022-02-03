@@ -11,11 +11,11 @@ class ClassGroup extends Model
 
     public function teacher()
     {
-        return $this->belongsToMany(Teacher::class, "Teacher_ClassGroup");
+        return $this->belongsToMany(Teacher::class)->withPivot("tutor");
     }
 
     public function students()
     {
-        return $this->belongsToMany(Student::class, "Student_ClassGroup");
+        return $this->belongsToMany(Student::class)->withPivot("tutorship", "delegate");   
     }
 }
