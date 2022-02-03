@@ -18,4 +18,9 @@ class Teacher extends Model
     {
         return $this->hasMany(Doubt::class);
     }
+
+    public function classGroup()
+    {
+        return $this->belongsToMany(ClassGroup::class, "Teacher_ClassGroup");
+    }
 }
