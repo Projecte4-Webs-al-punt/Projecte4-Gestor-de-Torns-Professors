@@ -22,6 +22,7 @@
 <body>
 
     @yield('content')
+
     @include('includes.headeradmin')
 
     @include('includes.sidebar')

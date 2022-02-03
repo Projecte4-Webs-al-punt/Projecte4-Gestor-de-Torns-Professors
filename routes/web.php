@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,5 +26,11 @@ Route::get('/test', [PageController::class, "test"])->name("test");
 
 
 Route::get('/dashboard', [PageController::class, "admin"])->middleware(['auth'])->name('dashboard');
+
+/* Routes of users */
+
+Route::get('/users', [UserController::class, "index"])->name("index");
+
+
 
 require __DIR__.'/auth.php';
