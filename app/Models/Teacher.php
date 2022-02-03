@@ -21,6 +21,11 @@ class Teacher extends Model
 
     public function classGroup()
     {
-        return $this->belongsToMany(ClassGroup::class);
+        return $this->belongsToMany(ClassGroup::class)->withPivot("tutor");
+    }
+
+    public function subject()
+    {
+        return $this->belongsToMany(Subject::class);
     }
 }
