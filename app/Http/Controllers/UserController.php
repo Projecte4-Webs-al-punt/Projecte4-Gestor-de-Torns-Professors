@@ -15,12 +15,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = Student::all();
+        $users = User::all();
 
-        $num = $users->count();
-
-
-        return view ('users.index', [
+        return view ('users.index',[
             'users' => $users
         ]);
     }

@@ -15,19 +15,18 @@
         </tr>
         </thead>
         <tbody>
-
-        </tbody>
-    </table>
-        @foreach($users as $user)
+        @foreach($users as $item)
             <tr>
-                <th>1</th>
-                <td>mbourarach</td>
-                <td>mbourarach@gmail.com</td>
-                <td>Moha</td>
-                <td>Bou</td>
-                <td>6666666666</td>
+                <th>{{ $item -> id }}</th>
+                <td>{{ $item -> name }}</td>
+                <td>{{ $item -> email }}</td>
+                <td>{{ $item -> firstname }}</td>
+                <td>{{ $item -> lastname }}</td>
+                <td>{{ $item -> telefon }}</td>
             </tr>
         @endforeach
+    </table>
+
     </main>
 
 
