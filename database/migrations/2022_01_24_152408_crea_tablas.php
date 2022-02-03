@@ -14,10 +14,9 @@ class CreaTablas extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('firstname');
             $table->string('lastname');
             $table->string('role')->default('student');
-            $table->string('telefon')->nullable();
+            $table->string('phone')->nullable();
         });
         Schema::create('Teachers', function (Blueprint $table) {
             $table->id();
