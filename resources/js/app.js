@@ -4,6 +4,6 @@ import Component from './components/ExampleComponent.vue';
 
 const app = createApp({});
 
-app.component('example-component', Component);
+app.component('ExampleComponent', Component);
 
 app.mount('#app');

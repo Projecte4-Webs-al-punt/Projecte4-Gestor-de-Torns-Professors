@@ -13,12 +13,17 @@
                     </div>
                     <hr></hr>
                 </header>
+
                 <div class="tile is-ancestor">
+
                     <div class="tile is-parent">
-                        <article class="tile is-child box accent">
+                        <a class="tile is-child box accent" href="{{ route('users') }}">
+                        <article >
                             <p class="title">329</p>
                             <p class="subtitle"><i class="fas fa-user"></i> Total Alumnes</p>
                         </article>
+                        </a>
+
                     </div>
                     <div class="tile is-parent">
                         <article class="tile is-child box warning">
@@ -59,3 +64,9 @@
     </div>
 
 @endsection
+ <script>
+     import ExampleComponent from "../js/components/ExampleComponent";
+     export default {
+         components: {ExampleComponent}
+     }
+ </script>

@@ -25,11 +25,13 @@ Route::get('/about', [PageController::class, "about"])->name("about");
 Route::get('/test', [PageController::class, "test"])->name("test");
 
 
-Route::get('/dashboard', [PageController::class, "admin"])->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', [PageController::class, "admin"])->middleware(['isTeacher'])->name('dashboard');
 
 /* Routes of users */
 
-Route::get('/users', [UserController::class, "index"])->name("index");
+Route::get('/users', [UserController::class, "index"])->name("users");
+
+Route::delete('/users/{user}', [UserController::class, "destroy"])->name("delete");
 
 
 
