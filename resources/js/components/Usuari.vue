@@ -54,7 +54,7 @@
         </tr>
       </tbody>
     </table>
-    <button v-on:click="obtenirUsuaris">
+    <button v-on:click.native="obtenirUsuaris">
         {{ msg }}
     </button>
   </div>
@@ -70,6 +70,9 @@ export default {
       msg: 'Hola Mon'
     }
   }, 
+  mounted() {
+    //obtenirUsuaris();
+  },
   methods: {
     obtenirUsuaris() {
       console.log(1);
