@@ -1,9 +1,9 @@
 import { createApp } from 'vue';
 
-import Component from './components/ExampleComponent.vue';
+import Usuari from './components/Usuari.vue';
 
-const app = createApp({});
+const crudUser = createApp({});
 
-app.component('ExampleComponent', Component);
+crudUser.component('crud-users', Usuari);
 
-app.mount('#app');
+crudUser.mount('#AppCrudUser');
