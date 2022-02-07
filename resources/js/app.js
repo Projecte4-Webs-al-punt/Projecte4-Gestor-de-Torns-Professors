@@ -4,6 +4,6 @@ import Usuari from './components/Usuari.vue';
 
 const crudUser = createApp({});
 
-crudUser.component('crud-users', Usuari);
+crudUser.component('usuari', Usuari);
 
 crudUser.mount('#AppCrudUser');
