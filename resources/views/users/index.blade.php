@@ -8,7 +8,7 @@
                 <div class="b-table has-pagination">
                     <div class="table-wrapper has-mobile-cards">
                         <div id="AppCrudUser">
-                            <usuari></usuari>
+                            <exemple></exemple>
                         </div>
                     </div>
                     <div class="notification">
