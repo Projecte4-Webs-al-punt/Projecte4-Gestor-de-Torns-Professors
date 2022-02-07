@@ -2,10 +2,14 @@
 
 @section('content')
 
+
             <main class="main">
                 <header class="is-clearfix">
                     <div class="cats is-pulled-right has-text-right">
                         <small>Tutory.cat<br>Dashboard<br> <span class="has-text-weight-bold has-text-white">v.0.1</span></small>
+                    </div>
+                    <div id="app">
+                        <ExampleComponent></ExampleComponent>
                     </div>
                     <div>
                         <h2>Administració</h2>
