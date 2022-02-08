@@ -8,7 +8,7 @@
                 <div class="b-table has-pagination">
                     <div class="table-wrapper has-mobile-cards">
                         <div id="app">
-                            <exemple></exemple>
+                            <usuari></usuari>
                         </div>
                     </div>
                     <div class="notification">
@@ -33,7 +33,5 @@
             </div>
         </section>
     </main>
-    <script src="{{ asset('/js/app.js') }}"></script>
-
 
 @endsection

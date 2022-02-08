@@ -1,11 +1,9 @@
 import { createApp } from 'vue';
 
-// import Usuari from './components/Usuari.vue';
-
-import Exemple from "./components/Exemple.vue";
+import Usuari from './components/Usuari.vue';
 
 const app = createApp({});
 
-app.component('exemple', Exemple);
+app.component('usuari', Usuari);
 
 app.mount('#app');
