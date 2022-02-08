@@ -29,7 +29,7 @@ class PageController extends Controller
 
     public function test()
     {
-        return view("users.index");
+        return view("test");
     }
 
     public function profile()

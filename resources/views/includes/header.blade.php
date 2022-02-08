@@ -4,14 +4,7 @@
          <div class="container">
              <div class="navbar-brand">
                  <a class="navbar-item" href="../">
-                    @if (Auth::check())
-                     @if (Auth::user()->image)
-                         <img class="image rounded-circle" src="{{ asset('/storage/images/' . Auth::user()->image) }}"
-                             alt="profile_image" style="width: 80px;height: 80px; padding: 10px; margin: 0px; ">
-                     @endif
-                     @endif
-                     
-                     <!--<img src="https://i.ibb.co/QnxXzXj/Copia-de-Tutory-cat-1.png" alt="Logo">-->
+                     <img src="https://i.ibb.co/QnxXzXj/Copia-de-Tutory-cat-1.png" alt="Logo">
                  </a>
                  <span class="navbar-burger burger" data-target="navbarMenu">
                      <span></span>
@@ -34,8 +27,19 @@
                          <div class="navbar-item has-dropdown is-hoverable">
                              <a class="navbar-link">
                                  <figure class="navbar-end image ">
-                                     <img class="is-rounded is-32x32"
-                                         src="https://bulma.io/images/placeholders/128x128.png">
+                                     @if (Auth::check())
+                                         @if (Auth::user()->image)
+                                             <img class="is-rounded is-32x32"
+                                                 src="{{ asset('/storage/avatar/' . Auth::user()->image) }}">
+                                         @else
+                                             <img class="is-rounded is-32x32"
+                                                 src="https://bulma.io/images/placeholders/128x128.png">
+
+                                         @endif
+                                     @else
+                                         <img class="is-rounded is-32x32"
+                                             src="https://bulma.io/images/placeholders/128x128.png">
+                                     @endif
                                  </figure>
                              </a>
                              <div class="navbar-dropdown">
