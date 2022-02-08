@@ -7,7 +7,7 @@
             <div class="container">
                 <div class="b-table has-pagination">
                     <div class="table-wrapper has-mobile-cards">
-                        <div id="AppCrudUser">
+                        <div id="app">
                             <exemple></exemple>
                         </div>
                     </div>
