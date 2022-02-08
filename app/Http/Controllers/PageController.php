@@ -32,4 +32,9 @@ class PageController extends Controller
         return view("users.index");
     }
 
+    public function profile()
+    {
+        return view("profile");
+    }
+
 }

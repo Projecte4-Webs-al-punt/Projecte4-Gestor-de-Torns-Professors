@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
-
+use App\Http\Controllers\UserAvatarController;
+use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,7 @@ Route::get('/about', [PageController::class, "about"])->name("about");
 
 Route::get('/test', [PageController::class, "test"])->name("test");
 
+Route::get('/profile', [PageController::class, "profile"])->name("profile");
 
 Route::get('/dashboard', [PageController::class, "admin"])->middleware(['isTeacher'])->name('dashboard');
 
@@ -34,5 +36,7 @@ Route::get('/users', [UserController::class, "index"])->name("users");
 Route::delete('/users/{user}', [UserController::class, "destroy"])->name("delete");
 
 
+
+Route::post('/upload',[UserAvatarController::class, 'upload'])->name("upload");
 
 require __DIR__.'/auth.php';
