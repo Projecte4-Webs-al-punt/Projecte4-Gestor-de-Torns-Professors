@@ -1,42 +1,16 @@
-<footer class="footer has-background-danger-dark">
-    <div class="content has-text-centered has-text-white">
-      <h1>Loremipusm</h1>
-      <div class="columns">
-        <div class="column">
-          <h6>About Us</h6>
-          <p class="has-text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.
-          </p>
-        </div>
-        <div class="column">
-          <h6>Important</h6>
-          <ul>
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
-          </ul>
-        </div>
-        <div class="column">
-          <h6>Important</h6>
-          <ul>
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
-          </ul>
-        </div>
-        <div class="column">
-          <h6>Subscribe</h6>
-          <div class="control has-icons-left has-icons-right">
-            <input class="input is-medium" type="email" placeholder="Email">
-            <span class="icon is-left">
-            <i class="fa fa-envelope"></i>
-            </span>
-          </div>
-          <a class="button is-success is-rounded">Subscribe</a>
-        </div>
-      </div>
-    </div>
-
+<footer class="footer has-background-dark">
+  <div class="content has-text-centered is-dark has-text-link-light	">
+    <p>
+      Creat per <a href="https://google.es">KMJ</a>. Tots els drets resrervats
+      <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+      is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+    </p>
+  </div>
+  <div class="rounded-social-buttons">
+    <a class="social-button facebook" href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a class="social-button twitter" href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a class="social-button linkedin" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a class="social-button youtube" href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a class="social-button instagram" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+  </div>
 </footer>
