@@ -4,7 +4,14 @@
          <div class="container">
              <div class="navbar-brand">
                  <a class="navbar-item" href="../">
-                     <img src="https://i.ibb.co/QnxXzXj/Copia-de-Tutory-cat-1.png" alt="Logo">
+                    @if (Auth::check())
+                     @if (Auth::user()->image)
+                         <img class="image rounded-circle" src="{{ asset('/storage/images/' . Auth::user()->image) }}"
+                             alt="profile_image" style="width: 80px;height: 80px; padding: 10px; margin: 0px; ">
+                     @endif
+                     @endif
+                     
+                     <!--<img src="https://i.ibb.co/QnxXzXj/Copia-de-Tutory-cat-1.png" alt="Logo">-->
                  </a>
                  <span class="navbar-burger burger" data-target="navbarMenu">
                      <span></span>
@@ -38,7 +45,7 @@
                                      </a>
                                  @endif
 
-                                 <a class="navbar-item">
+                                 <a class="navbar-item" href="{{ route('profile') }}">
                                      Perfil
                                  </a>
                                  <a class="navbar-item">
@@ -60,7 +67,7 @@
                      @else
                          <div class="navbar-item">
                              <a href="{{ route('login') }}" class="navbar-item ">
-                                 Iniciar Sessió  <i class="fa fa-sign-in" ></i>
+                                 Iniciar Sessió <i class="fa fa-sign-in"></i>
                              </a>
                          </div>
                          <div class="navbar-item">

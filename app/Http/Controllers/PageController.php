@@ -32,4 +32,9 @@ class PageController extends Controller
         return view("test");
     }
 
+    public function profile()
+    {
+        return view("profile");
+    }
+
 }
