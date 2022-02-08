@@ -4,8 +4,8 @@ import { createApp } from 'vue';
 
 import Exemple from "./components/Exemple.vue";
 
-const crudUser = createApp({});
+const app = createApp({});
 
-crudUser.component('exemple', Exemple);
+app.component('exemple', Exemple);
 
-crudUser.mount('#AppCrudUser');
+app.mount('#app');
