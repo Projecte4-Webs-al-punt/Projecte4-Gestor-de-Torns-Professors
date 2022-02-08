@@ -35,8 +35,6 @@ Route::get('/users', [UserController::class, "index"])->name("users");
 
 Route::delete('/users/{user}', [UserController::class, "destroy"])->name("delete");
 
-
-
 Route::post('/upload',[UserAvatarController::class, 'upload'])->name("upload");
 
 require __DIR__.'/auth.php';
