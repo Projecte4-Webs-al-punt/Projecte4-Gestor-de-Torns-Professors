@@ -1,20 +1,23 @@
 <template>
   <div>
     <table class="table is-fullwidth is-striped is-hoverable is-fullwidth">
-    <thead>
-    <tr>
-      <th><abbr title="Avatar"></abbr></th>
-      <th><abbr title="Codi identificador">Id</abbr></th>
-      <th><abbr title="Codi d'usuari">Usuari</abbr></th>
-      <th><abbr title="Correu electrònic">Email</abbr></th>
-      <th><abbr title="Nom de l'alumne">Nom i cognom</abbr></th>
-      <th><abbr title="Numero de Telefón">Telefón</abbr></th>
-      <th class="has-text-right"><abbr  title="Accions">Accions</abbr></th>
-    </tr>
-    </thead>
-    <tbody>
+      <thead>
       <tr>
-        <td class="is-image-cell">
+        <th><abbr title="Avatar"></abbr></th>
+        <th><abbr title="Codi identificador">Id</abbr></th>
+        <th><abbr title="Codi d'usuari">Usuari</abbr></th>
+        <th><abbr title="Correu electrònic">Email</abbr></th>
+        <th><abbr title="Nom de l'alumne">Nom i cognom</abbr></th>
+        <th><abbr title="Numero de Telefón">Telefón</abbr></th>
+        <th class="has-text-right"><abbr  title="Accions">Accions</abbr></th>
+      </tr>
+      </thead>
+      <tbody>
+        //
+      </tbody>
+    </table>
+
+    <!-- <td class="is-image-cell">
           <div class="image">
               <img src="https://bulma.io/images/placeholders/128x128.png" class="is-rounded">
           </div>
@@ -25,7 +28,7 @@
         <td>1</td>
         <td>1</td>
         <td>1</td>
-          <!-- <td class="is-image-cell">
+            <td class="is-image-cell">
               <div class="image">
                   <img src="https://bulma.io/images/placeholders/128x128.png" class="is-rounded">
               </div>
@@ -51,12 +54,12 @@
                   </form>
               </div>
           </td> -->
-        </tr>
-      </tbody>
-    </table>
-    <button v-on:click.native="obtenirUsuaris">
-        {{ msg }}
-    </button>
+
+          <ul>
+            <li v-for="(user, index) in users.data" :key="index">
+              <p>{{ user.id }}</p>
+            </li>
+          </ul>
   </div>
 </template>
 
@@ -67,16 +70,21 @@ export default {
   name: "Usuari", 
   data() {
     return {
-      msg: 'Hola Mon'
+      users: {
+        type: Object, 
+        default: null
+      }
     }
   }, 
+  mounted() {
+    this.setUsers
+  }, 
   methods: {
-    obtenirUsuaris() {
-      axios({
-        method: "get", 
-        url: "/api/users?page=1"
-      }).then(function(response) {
-        console.table(response.data);
+    setUsers() {
+      axios.get("/api/users?page=1")
+      .then(function(response) {
+        console.log(response);
+        this.users = response.data;
       });
     }
   }
