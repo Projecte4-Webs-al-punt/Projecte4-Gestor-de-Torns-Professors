@@ -70,17 +70,13 @@ export default {
       msg: 'Hola Mon'
     }
   }, 
-  mounted() {
-    //obtenirUsuaris();
-  },
   methods: {
     obtenirUsuaris() {
-      console.log(1);
       axios({
         method: "get", 
         url: "/api/users?page=1"
       }).then(function(response) {
-        console.log(response);
+        console.table(response.data);
       });
     }
   }
