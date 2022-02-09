@@ -1,28 +1,29 @@
 <template>
+<!-- v-if="users && users.total > 0" -->
   <div class="b-table has-pagination">
     <div class="table-wrapper has-mobile-cards">
-      <table class="table is-fullwidth is-striped is-hoverable is-fullwidth">
+      <table class="table is-fullwidth is-striped is-hoverable">
         <thead>
-        <tr>
-          <th><abbr title="Avatar"></abbr>#</th>
-          <th><abbr title="Codi identificador">Id</abbr></th>
-          <th><abbr title="Nom de l'alumne">Nom i cognom</abbr></th>
-          <th><abbr title="Correu Electrònic">Email</abbr></th>
-          <th><abbr title="Numero de Telefón">Telefón</abbr></th>
-          <th class="has-text-right"><abbr  title="Accions">Accions</abbr></th>
+        <tr class="has-background-dark">
+          <th class="has-text-light"><abbr title="Avatar"></abbr>#</th>
+          <th class="has-text-light"><abbr title="Codi identificador">Id</abbr></th>
+          <th class="has-text-light"><abbr title="Nom de l'alumne">Nom i cognom</abbr></th>
+          <th class="has-text-light"><abbr title="Correu Electrònic">Email</abbr></th>
+          <th class="has-text-light"><abbr title="Numero de Telefón">Telefón</abbr></th>
+          <th class="has-text-light has-text-right"><abbr  title="Accions">Accions</abbr></th>
         </tr>
         </thead>
-        <tbody v-if="users && users.data.length > 0">
+        <tbody>
           <tr v-for="(user, index) in users.data" :key="index">
             <td class="is-image-cell">
               <div class="image">
                   <img src="https://bulma.io/images/placeholders/128x128.png" class="is-rounded">
               </div>
             </td>
-            <td data-label="Id">{{ user.id }}</td>
-            <td data-label="Nom">{{ user.name }} {{ user.lastname }}</td>
-            <td data-label="Email">{{ user.email }}</td>
-            <td data-label="Phone">{{ user.phone }}</td>
+            <td data-label="Id"><p>{{ user.id }}</p></td>
+            <td data-label="Nom"><p>{{ user.name }} {{ user.lastname }}</p></td>
+            <td data-label="Email"><a :href="'mailto:'+user.email">{{ user.email }}</a></td>
+            <td data-label="Phone"><a :href="'tel:'+user.phone">{{ user.phone }}</a></td>
             <td class="is-actions-cell">
               <div class="buttons is-right">                                         
                 <button class="button is-small is-primary" type="button">
@@ -35,27 +36,23 @@
             </td>
           </tr>
         </tbody>
-        <body v-else>
-          <tr>
-            <td>No hi han Registres</td>
-          </tr>
-        </body>
       </table>
     </div>
-    <div class="notification">
+    <div class="notification is-light">
       <div class="level">
           <div class="level-left">
               <div class="level-item">
                   <div class="buttons has-addons">
-                      <button type="button" class="button" @click="list(1)">1</button>
-                      <button type="button" class="button" @click="list(2)">2</button>
-                      <button type="button" class="button" @click="list(4)">3</button>
+                      <div v-for="item in this.totalPages" :key="item">
+                        <button type="button" class="button is-warning" @click="list(item)" v-if="currentPage == item">{{ item }}</button>
+                        <button type="button" class="button is-dark" @click="list(item)" v-else>{{ item }}</button>
+                      </div>
                   </div>
               </div>
           </div>
           <div class="level-right">
               <div class="level-item">
-                  <small>Page 1 of 3</small>
+                  <small class="is-size-5">Pàgina {{ currentPage }} de {{ totalPages }}</small>
               </div>
           </div>
       </div>
@@ -77,7 +74,9 @@ export default {
       users: {
         type: Object, 
         default: null
-      }
+      }, 
+      currentPage: 0, 
+      totalPages: 0
     }
   }, 
   mounted() {
@@ -86,19 +85,12 @@ export default {
   methods: {
     list(page=1) {
       axios.get(`/api/users?page=${ page }`)
-      .then(({data}) => {
-        this.users = data;
+      .then((response) => {
+        this.currentPage = response.data.current_page;
+        this.totalPages = response.data.last_page;
+        this.users = response.data;
       });
     }
   }
 }
 </script>
-
-<style>
-</style>
-
-<style scoped>
-    .pagination{
-        margin-bottom: 0;
-    }
-</style>
