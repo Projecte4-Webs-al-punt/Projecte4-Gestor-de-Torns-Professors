@@ -5,30 +5,11 @@
     <main class="main">
         <section class="section">
             <div class="container">
-                <div class="b-table has-pagination">
-                    <div class="table-wrapper has-mobile-cards">
-                        <div id="app">
-                            <usuari></usuari>
-                        </div>
-                    </div>
-                    <div class="notification">
-                        <div class="level">
-                            <div class="level-left">
-                                <div class="level-item">
-                                    <div class="buttons has-addons">
-                                        <button type="button" class="button is-active">1</button>
-                                        <button type="button" class="button">2</button>
-                                        <button type="button" class="button">3</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="level-right">
-                                <div class="level-item">
-                                    <small>Page 1 of 3</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="is-flex is-justify-content-center">
+                    <a class="button is-warning mb-5" href="">Crear Alumne <span class="icon is-size-5 ml-1"><i class="fas fa-folder-plus"></i></span></a>
+                </div>
+                <div id="app">
+                    <crud-usuari></crud-usuari>
                 </div>
             </div>
         </section>
