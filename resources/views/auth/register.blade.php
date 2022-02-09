@@ -36,10 +36,10 @@
 
 
                                         <div class="field">
-                                            <x-label for="name" :value="__('Name')" />
+                                            <x-label for="name" :value="__('Nom')" />
                                             <div class="control has-icons-left">
                                                 <x-input class="input" id="name" class="input is-warning"
-                                                    type="name" placeholder="e.g. Benito" type="text" name="name"
+                                                    type="name" placeholder="e.g. Aaron" type="text" name="name"
                                                     :value="old('name')" required autofocus />
                                                 <span class="icon is-small is-left">
                                                     <i class="fa fa-user"></i>
@@ -50,10 +50,10 @@
                                     <!-- lastname -->
                                     <div>
                                         <div class="field">
-                                            <x-label for="lastname" :value="__('Lastname')" />
+                                            <x-label for="lastname" :value="__('Cognom')" />
                                             <div class="control has-icons-left">
                                                 <x-input class="input" id="lastname" class="input is-warning"
-                                                    type="lastname" placeholder="e.g. Camelas" type="text"
+                                                    type="lastname" placeholder="e.g. Gameiro" type="text"
                                                     name="lastname" :value="old('lastname')" required autofocus />
                                                 <span class="icon is-small is-left">
                                                     <i class="fa fa-user"></i>
@@ -65,7 +65,7 @@
                                     <!-- Email Address -->
                                     <div>
                                         <div class="field">
-                                            <x-label for="email" class="label" :value="__('Email')" />
+                                            <x-label for="email" :value="__('Email')" />
                                             <div class="control has-icons-left">
                                                 <x-input class="input" id="email" class="input is-warning"
                                                     type="email" placeholder="e.g. exemple@cendrassos.net" type="email"
@@ -79,7 +79,7 @@
 
                                     <!-- Password -->
                                     <div class="field">
-                                        <x-label for="password" :value="__('Password')" class="label" />
+                                        <x-label for="password" class="mt-6" :value="__('Password')" />
 
                                         <div class="control has-icons-left">
                                             <x-input id="password" class="block mt-1 w-full" type="password"
@@ -93,7 +93,7 @@
 
                                     <!-- Confirm Password -->
                                     <div class="field">
-                                        <x-label for="password_confirmation" :value="__('Confirm Password')" />
+                                        <x-label for="password_confirmation" :value="__('Confirmar Password')" />
 
                                         <div class="control has-icons-left">
                                             <x-input id="password_confirmation" class="block mt-1 w-full"
@@ -109,11 +109,11 @@
                                     <div class="flex items-center justify-end mt-4">
                                         <a class="underline text-sm text-gray-600 hover:text-gray-900"
                                             href="{{ route('login') }}">
-                                            {{ __('Already registered?') }}
+                                            {{ __('Ja tens un compte?') }}
                                         </a>
 
                                         <x-button class="ml-4">
-                                            {{ __('Register') }}
+                                            {{ __('Registrar') }}
                                         </x-button>
                                     </div>
                                 </form>

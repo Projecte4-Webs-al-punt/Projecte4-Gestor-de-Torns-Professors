@@ -37,4 +37,8 @@ class PageController extends Controller
         return view("profile");
     }
 
+    public function doubts()
+    {
+        return view("doubt.index");
+    }
 }
