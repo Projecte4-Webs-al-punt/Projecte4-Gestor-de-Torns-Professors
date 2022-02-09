@@ -90,6 +90,9 @@
                                             <x-button class="button is-success">
                                                 {{ __('Log in') }}
                                             </x-button>
+                                            <a href="{{ route('register') }}" class="button is-danger">
+                                                {{ __('Fer registre') }}
+                                            </a>
                                         </div>
                                     </div>
                                 </form>
