@@ -12,7 +12,7 @@ class UserSeeder extends Seeder
     public $users = [
         ["id" => 1,"name" => "Daniel","lastname" => "Prados","email" => "dprados@cendrassos.net", "role" => "teacher", "phone" => "606 715 502"], 
         ["id" => 2,"name" => "Xavier","lastname" => "Vallejo","email" => "xvallejo@cendrassos.net","role" => "teacher","phone" => "672 112 335"], 
-        ["id" => 3,"name" => "Josep Maria","lastname" => "Serrainat","email" => "jserrainat@cendrassos.net","role" => "teacher","phone" => "662 225 115"], 
+        ["id" => 3,"name" => "Josep Maria","lastname" => "Serrainat","email" => "jserrain@cendrassos.net","role" => "teacher","phone" => "662 225 115"], 
         ["id" => 4,"name" => "Josep Maria","lastname" => "Tolsa","email" => "jtolsa@cendrassos.net","role" => "teacher", "phone" => "664 350 024"], 
         ["id" => 5,"name" => "Angel","lastname" => "Bosch","email" => "abosch@cendrassos.net","role" => "teacher","phone" => "604 112 965"], 
         ["id" => 6,"name" => "Àlex","lastname" => "Aguilera Ullés","email" => "aaguilera@cendrassos.net","role" => "student","phone" => "600 216 357"], 
@@ -33,7 +33,7 @@ class UserSeeder extends Seeder
         ["id" => 21,"name" => "Eric","lastname" => "Moreno Pou","email" => "emoreno@cendrassos.net","role" => "student","phone" => "608 896 541"], 
         ["id" => 22,"name" => "Adrián","lastname" => "Pons Luengo","email" => "apons@cendrassos.net","role" => "student","phone" => "604 551 111"], 
         ["id" => 23,"name" => "Iker","lastname" => "Ramajo Sancho","email" => "iramajo@cendrassos.net","role" => "student","phone" => "609 998 541"], 
-        ["id" => 24,"name" => "Àlex Ramon","lastname" => "Martinez","email" => "amartinez@cendrassos.net","role" => "student","phone" => "611 216 489"], 
+        ["id" => 24,"name" => "Àlex Ramon","lastname" => "Martinez","email" => "aramon@cendrassos.net","role" => "student","phone" => "611 216 489"], 
         ["id" => 25,"name" => "Bernat","lastname" => "Ruiz Cros","email" => "bruiz@cendrassos.net","role" => "student","phone" => "554 112 350"], 
         ["id" => 26,"name" => "Eduard","lastname" => "Sellas Lleo","email" => "esellas@cendrassos.net","role" => "student","phone" => "502 021 115"], 
     ];
