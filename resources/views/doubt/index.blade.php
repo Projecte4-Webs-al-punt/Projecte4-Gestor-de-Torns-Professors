@@ -6,7 +6,7 @@
         <section class="section">
             <div class="container">
                 <div id="app">
-                    <doubt></doubt>
+                    <crud-doubts></crud-doubts>
                 </div>
             </div>
         </section>
