@@ -121,10 +121,6 @@ html {
     color: #1f2c6c;
 }
 
-.main-content .section-dark.my-work {
-    padding: 120px;
-}
-
 @media (max-width: 599px) {
     .main-content .section-dark.my-work {
         padding: 75px 20px;
@@ -407,9 +403,6 @@ html {
     text-transform: uppercase;
 }
 
-.main-content .section-dark.my-work {
-    padding: 120px;
-}
 
 @media (max-width: 599px) {
     .main-content .section-dark.my-work {
