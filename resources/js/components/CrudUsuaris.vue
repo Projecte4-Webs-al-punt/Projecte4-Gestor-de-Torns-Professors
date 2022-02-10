@@ -87,7 +87,7 @@
                 <button v-on:click="hideModal" class="delete" aria-label="close"></button>
             </header>
             <section class="modal-card-body">
-                Hola Mon
+                <input type="hidden" name="idalumn" v-bind:value="this.dataUser.id">
             </section>
             <footer class="modal-card-foot is-flex is-justify-content-end">
                 <button class="button is-link">Desar els Canvis <span class="icon is-size-5 ml-1"><i class="fas fa-save"></i></span></button>
@@ -103,7 +103,7 @@
                 <button v-on:click="hideModal" class="delete" aria-label="close"></button>
             </header>
             <section class="modal-card-body">
-                Hola Mon
+                <input type="hidden" name="idalumn" v-bind:value="this.dataUser.id">
             </section>
             <footer class="modal-card-foot is-flex is-justify-content-end">
                 <button class="button is-danger">Esborrar Alumne <span class="icon is-size-5 ml-1"><i class="fas fa-trash"></i></span></button>
@@ -136,7 +136,7 @@ export default {
       currentPage: 0, 
       totalPages: 0, 
       openModal: false, 
-      actionModal: ''
+      actionModal: '', 
     }
   }, 
   mounted() {
@@ -162,10 +162,16 @@ export default {
 
           axios.get(`/api/users/${ id }`)
           .then((response) => {
-            console.log(response.data);
+            this.dataUser = response.data[0];
+            console.log(response.data[0]);
           });
         } else if (accions == "3") {
           document.getElementById("ModalEsborrarUsuaris").classList.add("is-active");
+
+          axios.get(`/api/users/${ id }`)
+          .then((response) => {
+            this.dataUser = response.data[0];
+          });
         }
       }
     }, 
