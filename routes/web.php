@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\UserAvatarController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Storage;
 
 /*
@@ -35,6 +35,6 @@ Route::get('/users', [UserController::class, "index"])->name("users");
 
 Route::delete('/users/{user}', [UserController::class, "destroy"])->name("delete");
 
-Route::post('/upload',[UserAvatarController::class, 'upload'])->name("upload");
+Route::post('/update',[ProfileController::class, 'update'])->name("update");
 
 require __DIR__.'/auth.php';
