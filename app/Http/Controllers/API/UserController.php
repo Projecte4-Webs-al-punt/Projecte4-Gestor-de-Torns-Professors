@@ -41,7 +41,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        return User::where("id", $id)->get();
     }
 
     /**
