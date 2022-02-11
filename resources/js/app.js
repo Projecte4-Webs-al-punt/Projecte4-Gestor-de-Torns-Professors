@@ -21,10 +21,6 @@ app.component('list-doubts', ListDoubts);
 
 app.component('SliderComponent', SliderComponent);
 
-
-<<<<<<< HEAD
 app.component('teacher', Teacher);
-=======
-app.mount('#app');
->>>>>>> feature-Test
 
+app.mount('#app');
