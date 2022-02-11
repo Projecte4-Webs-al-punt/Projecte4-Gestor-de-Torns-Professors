@@ -152,25 +152,26 @@
                 <p class="modal-card-title"><span class="icon is-size-5 mr-1"><i class="fas fa-trash"></i></span> Avís!</p>
                 <button v-on:click="hideModal" class="delete" aria-label="close"></button>
             </header>
-              <section class="modal-card-body">
-                  <article class="message is-dark">
-                    <div class="message-body">
-                      Estàs Segur que vols esborrar l'alumne {{ this.dataUser.name }} {{ this.dataUser.lastname }} ?
-                    </div>
-                  </article>
-              </section>
-              <footer class="modal-card-foot is-flex is-justify-content-end">
-                  <button class="button is-danger" @click="formDelete(this.dataUser.id)">Esborrar Alumne <span class="icon is-size-5 ml-1"><i class="fas fa-trash"></i></span></button>
-                  <button class="button is-light" v-on:click="hideModal">Cancel·la</button>
-              </footer>
-            </div>
-        </div>
+            <section class="modal-card-body">
+                <article class="message is-dark">
+                  <div class="message-body">
+                    Estàs Segur que vols esborrar l'alumne {{ this.dataUser.name }} {{ this.dataUser.lastname }} ?
+                  </div>
+                </article>
+            </section>
+            <footer class="modal-card-foot is-flex is-justify-content-end">
+                <button class="button is-danger" v-on:click="formDelete(this.dataUser.id)">Esborrar Alumne <span class="icon is-size-5 ml-1"><i class="fas fa-trash"></i></span></button>
+                <button class="button is-light" v-on:click="hideModal">Cancel·la</button>
+            </footer>
+          </div>
+      </div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
 import pagination from "laravel-vue-pagination";
+import { onMounted } from '@vue/runtime-core';
 
 export default {
   name: "CrudUsuaris", 
@@ -191,7 +192,7 @@ export default {
       totalPages: 0, 
       openModal: false, 
       actionModal: '', 
-      formupdate: {
+      formupdatearray: {
         "name": '', 
         "lastname": '', 
         "email": '', 
@@ -246,14 +247,15 @@ export default {
           document.getElementById("ModalEsborrarUsuaris").classList.remove("is-active");
         }
       }
-    }, 
-    formDelete($id) {
-      axios.delete(`/api/users/destroy/${ $id }`)
-      .then((response) => {
-        this.hideModal();
-        this.list(this.currentPage);
-      });
       this.actionModal = '';
+    }, 
+    formDelete(id) {
+      axios.delete(`/api/users/${ id }`)
+      .then((response) => {
+        document.getElementById("ModalEsborrarUsuaris").classList.remove("is-active");
+        this.openModal = false;
+        this.list();
+      });
     }
   }
 }
