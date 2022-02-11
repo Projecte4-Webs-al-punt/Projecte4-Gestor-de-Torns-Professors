@@ -21,7 +21,7 @@ Tutory.cat is a web application Project with expressive, elegant syntax. We beli
 
 Tutory.cat is accessible, powerful, and provides tools required for large, robust applications.
 
-## Tutory.cat Authors
+## Authors Tutory.cat
 
 - Juan José Gómez Villegas
 - Mohamed Bourarach
