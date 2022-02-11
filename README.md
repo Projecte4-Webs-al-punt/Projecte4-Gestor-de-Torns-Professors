@@ -9,7 +9,7 @@
 
 ## About Tutory.cat
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Tutory.cat is a web application Project with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Tutory.cat takes the pain out of development by easing common tasks used in many web projects, such as:
 
 - [Simple, fast routing engine](https://laravel.com/docs/routing).
 - [Powerful dependency injection container](https://laravel.com/docs/container).
@@ -19,13 +19,7 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 - [Robust background job processing](https://laravel.com/docs/queues).
 - [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Tutory.cat
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Tutory.cat is accessible, powerful, and provides tools required for large, robust applications.
 
 ## Tutory.cat Authors
 
@@ -35,15 +29,20 @@ If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Lar
 
 ## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Thank you for considering contributing to the Tutory.cat Project!
 
 ## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+In order to ensure that the Tutory.cat community is welcoming to all, please review and abide by the Code of Conduct.
+
+- Participants will be tolerant of opposing views.
+- Participants must ensure that their language and actions are free of personal attacks and disparaging personal remarks.
+- When interpreting the words and actions of others, participants should always assume good intentions.
+- Behavior that can be reasonably considered harassment will not be tolerated.
 
 ## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within Tutory.cat, please send an e-mail to Juan José Gómez Villegas via [juanjogomvil@gmail.com](mailto:juanjogomvil@gmail.com). All security vulnerabilities will be promptly addressed.
 
 ## License
 
