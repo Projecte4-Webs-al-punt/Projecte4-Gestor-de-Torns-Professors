@@ -111,9 +111,8 @@
                 <p class="modal-card-title"><span class="icon is-size-5 mr-1"><i class="fas fa-user-edit"></i></span> {{ this.dataUser.name }} {{ this.dataUser.lastname }}</p>
                 <button v-on:click="hideModal" class="delete" aria-label="close"></button>
             </header>
-            <form action="" method="POST">
+            <form v-bind:action="'/api/users/update/'+this.dataUser.id" method="POST">
               <section class="modal-card-body">
-                <input type="hidden" name="idalumn" v-bind:value="this.dataUser.id">
                 <div class="field">
                   <label class="label">Nom</label>
                   <div class="control">
@@ -153,9 +152,7 @@
                 <p class="modal-card-title"><span class="icon is-size-5 mr-1"><i class="fas fa-trash"></i></span> Avís!</p>
                 <button v-on:click="hideModal" class="delete" aria-label="close"></button>
             </header>
-            <form v-bind:action="'/users/'+this.dataUser.id" method="DELETE">
               <section class="modal-card-body">
-                  <input type="hidden" name="idalumn" v-bind:value="this.dataUser.id">
                   <article class="message is-dark">
                     <div class="message-body">
                       Estàs Segur que vols esborrar l'alumne {{ this.dataUser.name }} {{ this.dataUser.lastname }} ?
@@ -163,10 +160,9 @@
                   </article>
               </section>
               <footer class="modal-card-foot is-flex is-justify-content-end">
-                  <button class="button is-danger">Esborrar Alumne <span class="icon is-size-5 ml-1"><i class="fas fa-trash"></i></span></button>
+                  <button class="button is-danger" @click="formDelete(this.dataUser.id)">Esborrar Alumne <span class="icon is-size-5 ml-1"><i class="fas fa-trash"></i></span></button>
                   <button class="button is-light" v-on:click="hideModal">Cancel·la</button>
               </footer>
-            </form>
             </div>
         </div>
   </div>
@@ -195,6 +191,12 @@ export default {
       totalPages: 0, 
       openModal: false, 
       actionModal: '', 
+      formupdate: {
+        "name": '', 
+        "lastname": '', 
+        "email": '', 
+        "phone": ''
+      }
     }
   }, 
   mounted() {
@@ -244,6 +246,13 @@ export default {
           document.getElementById("ModalEsborrarUsuaris").classList.remove("is-active");
         }
       }
+    }, 
+    formDelete($id) {
+      axios.delete(`/api/users/destroy/${ $id }`)
+      .then((response) => {
+        this.hideModal();
+        this.list(this.currentPage);
+      });
       this.actionModal = '';
     }
   }
