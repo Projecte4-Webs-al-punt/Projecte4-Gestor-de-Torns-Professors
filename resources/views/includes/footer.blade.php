@@ -5,6 +5,20 @@
       <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
       is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
     </p>
+    <div class="columns">
+      <div class="column">
+        <img class="image" src="https://i.ibb.co/jhch1hd/Senyal-de-la-Generalitat-de-Catalunya-svg.png">
+      </div>
+      <div class="column">
+        <img class="image" src="https://i.ibb.co/L0NDZNJ/logo-dinahosting.png">
+      </div>
+      <div class="column">
+        <img class="image" src="https://i.ibb.co/d2v8Kvn/logo-wapps.png">
+      </div>
+      <div class="column">
+        <img class="image" src="https://i.ibb.co/THwftvW/88x31.png">
+      </div>
+    </div>
   </div>
   <div class="rounded-social-buttons">
     <a class="social-button facebook" href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>

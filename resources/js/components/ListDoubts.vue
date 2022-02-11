@@ -91,6 +91,7 @@ export default {
   mounted() {
     this.list();
   },
+
   methods: {
     list(page=1) {
       axios.get(`/api/doubts?page=${ page }`)
