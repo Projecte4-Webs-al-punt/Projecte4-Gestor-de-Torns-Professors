@@ -78,6 +78,9 @@
                     </div>
                 </div>
             </section>
+            <div id="app">
+                <SliderComponent></SliderComponent>
+            </div>
             <div class="section-color services">
                 <div class="container">
                     <div class="columns is-multiline">
