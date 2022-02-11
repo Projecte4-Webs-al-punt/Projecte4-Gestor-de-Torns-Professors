@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\DoubtController;
 use App\Http\Controllers\API\UserController;
+use App\Http\Controllers\API\TeacherController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,3 +23,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/users',[UserController::class,'index']);
 
 Route::get('/doubts',[DoubtController::class,'index']);
+
+Route::get('/teachers',[TeacherController::class,'list']);

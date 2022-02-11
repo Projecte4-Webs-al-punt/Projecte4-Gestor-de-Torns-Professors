@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\API\TeacherController;
 use Illuminate\Support\Facades\Storage;
 
 /*
@@ -33,6 +34,7 @@ Route::get('/doubts', [PageController::class, "doubts"])->name('doubts');
 
 
 /* Routes of users */
+
 
 Route::get('/users', [UserController::class, "index"])->name("users");
 
