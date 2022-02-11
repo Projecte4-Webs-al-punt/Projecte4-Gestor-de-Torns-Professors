@@ -17,8 +17,14 @@ class isTeacher
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->role == "teacher"){
-            return $next($request);
+
+        if (Auth::check()){
+            if (Auth::user()->role == "teacher"){
+                return $next($request);
+            }
+            else{
+                return redirect("/");
+            }
         }
         else{
             return redirect("/");

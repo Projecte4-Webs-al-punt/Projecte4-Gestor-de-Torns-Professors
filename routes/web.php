@@ -29,12 +29,12 @@ Route::get('/profile', [PageController::class, "profile"])->name("profile");
 
 Route::get('/dashboard', [PageController::class, "admin"])->middleware(['isTeacher'])->name('dashboard');
 
-Route::get('/doubts', [PageController::class, "doubts"])->name('doubts');
+Route::get('/doubts', [PageController::class, "doubts"])->middleware(['isTeacher'])->name('doubts');
 
 
 /* Routes of users */
 
-Route::get('/users', [UserController::class, "index"])->name("users");
+Route::get('/users', [UserController::class, "index"])->middleware(['isTeacher'])->name("users");
 
 Route::delete('/users/{user}', [UserController::class, "destroy"])->name("delete");
 

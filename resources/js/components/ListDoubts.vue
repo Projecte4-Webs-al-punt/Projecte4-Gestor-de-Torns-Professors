@@ -8,7 +8,7 @@
       >
 
           <div v-for="(doubt, index) in doubts.data" :key="index" class="column is-12">
-            <a :href="'/api/doubts/'+ doubt.id ">
+            <a @click="modal(doubt.id)">
               <div class="card is-2by1 work-item has-text-centered">
 
                 <div class="card-content">
@@ -55,6 +55,17 @@
       </div>
     </div>
   </div>
+  <div>
+    <div class="modal" id="modal">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <div class="box">
+          Hola
+        </div>
+      </div>
+      <button class="modal-close" @click="hidemodal"></button>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -63,6 +74,7 @@ import pagination from "laravel-vue-pagination";
 
 export default {
   name: "ListDoubts",
+  showModal: false,
   components: {
     pagination
   },
@@ -87,6 +99,16 @@ export default {
             this.totalPages = response.data.last_page;
             this.doubts = response.data;
           });
+    },
+    modal(id){
+      document.getElementById("modal").classList.add("is-active");
+      axios.get(`/api/doubts/${ id }`)
+          .then((response) => {
+            console.log(response.data);
+          });
+    },
+    hidemodal(){
+      document.getElementById("modal").classList.remove("is-active");
     }
   }
 }
