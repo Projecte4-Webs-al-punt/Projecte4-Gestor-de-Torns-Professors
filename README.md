@@ -29,9 +29,9 @@ If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Lar
 
 ## Tutory.cat Authors
 
-- **Juan José Gómez Villegas
-- **Mohamed Bourarach
-- **Kirill Lupenkov
+- Juan José Gómez Villegas
+- Mohamed Bourarach
+- Kirill Lupenkov
 
 ## Contributing
 
