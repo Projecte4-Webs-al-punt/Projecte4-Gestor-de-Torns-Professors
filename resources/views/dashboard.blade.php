@@ -8,9 +8,6 @@
                     <div class="cats is-pulled-right has-text-right">
                         <small>Tutory.cat<br>Dashboard<br> <span class="has-text-weight-bold has-text-white">v.0.1</span></small>
                     </div>
-                    <div id="app">
-                        <ExampleComponent></ExampleComponent>
-                    </div>
                     <div>
                         <h2>Administració</h2>
                         <small>Pagina dasboard</small>
@@ -30,10 +27,12 @@
 
                     </div>
                     <div class="tile is-parent">
-                        <article class="tile is-child box warning">
+                        <a class="tile is-child box warning" href="{{ route('doubts') }}">
+                        <article>
                             <p class="title">100</p>
                             <p class="subtitle"><i class="far fa-question-circles"></i> Total Dubtes</p>
                         </article>
+                        </a>
                     </div>
                     <div class="tile is-parent">
                         <article class="tile is-child box danger">
