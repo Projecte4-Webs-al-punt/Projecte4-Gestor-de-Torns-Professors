@@ -57,11 +57,11 @@ class UserSeeder extends Seeder
                 'phone' => $items["phone"], 
             ]);
             if ($items["role"] === "teacher") {
-                DB::table('Teachers')->insert([
+                DB::table('teachers')->insert([
                     'user_id' => $items["id"], 
                 ]);
             } elseif ($items["role"] === "student") {
-                DB::table('Students')->insert([
+                DB::table('students')->insert([
                     'user_id' => $items["id"], 
                 ]);
             }

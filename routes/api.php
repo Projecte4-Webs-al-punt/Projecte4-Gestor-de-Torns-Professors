@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\DoubtController;
 use App\Http\Controllers\API\UserController;
+use App\Http\Controllers\API\TeacherController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +22,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::get('/users',[UserController::class,'index']);
 
+Route::get('/users/{id}',[UserController::class,'show']);
+
+Route::post('/users/update/{id}', [UserController::class, "update"]);
+
+Route::delete('/users/destroy/{id}', [UserController::class, "destroy"]);
+
 Route::get('/doubts',[DoubtController::class,'index']);
 
-Route::get('/users/{id}',[UserController::class,'show']);
+Route::get('/doubts/{id}',[DoubtController::class,'show']);
+
+Route::get('/teachers',[TeacherController::class,'list']);

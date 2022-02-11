@@ -4,7 +4,9 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Doubt;
+use App\Models\Teacher;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DoubtController extends Controller
 {
@@ -16,6 +18,9 @@ class DoubtController extends Controller
     public function index()
     {
         $doubts = Doubt::paginate(10);
+
+       // $doubts = Doubt::where('id',Auth::user()>id);
+
         return response()->json($doubts);
     }
 
@@ -48,7 +53,8 @@ class DoubtController extends Controller
      */
     public function show($id)
     {
-        //
+        return Doubt::where('id',$id)->get();
+
     }
 
     /**

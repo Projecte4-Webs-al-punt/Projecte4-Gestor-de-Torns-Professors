@@ -53,7 +53,12 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        $name = $request->input("nomalumn", $user->name);
+        $lastname = $request->input("cognomsalumn", $user->lastname);
+        $email = $request->input("emailalumn", $user->email);
+        $phone = $request->input("phonealumn", $user->phone);
     }
 
     /**
@@ -64,6 +69,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        $user->delete();
+
+        return redirect('/users');
     }
 }

@@ -15,10 +15,15 @@ class ProfileController extends Controller
      */
     public function update(Request $request)
     {
-        $request->validate([
-            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-            'nom' => 'required|'
-        ]);
+        $request->validate(
+            [
+                'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+                'name' => 'required|max:255',
+                'lastname' => 'required|max:255',
+                'email' => 'required|max:255',
+                'telefon' => 'nullable|max:255'
+            ]
+        );
         //el nombre del avatar es el id de usuario para que en caso de que se cambie 
         //el avatar se sobreescriba en lugar de ser guardado a parte
         $path = $request->file('image')->storeAs(
@@ -31,4 +36,5 @@ class ProfileController extends Controller
         $user->save();
 
         return view("profile");
+    }
 }

@@ -20,7 +20,7 @@
             <tr v-for="(user, index) in users.data" :key="index">
               <td class="is-image-cell">
                 <div class="image">
-                    <img src="https://bulma.io/images/placeholders/128x128.png" class="is-rounded">
+                    <img v-bind:src="'/storage/avatar/'+user.image" class="is-rounded">
                 </div>
               </td>
               <td data-label="Id"><p>{{ user.id }}</p></td>
@@ -67,48 +67,102 @@
             <div class="modal-background"></div>
             <div class="modal-card">
             <header class="modal-card-head">
-                <p class="modal-card-title"><span class="icon is-size-5 mr-1"><i class="fas fa-user-plus"></i></span> Crea un Alumne Nou</p>
+                <p class="modal-card-title"><span class="icon is-size-5 mr-1"><i class="fas fa-user-plus"></i></span> Afegir un Alumne Nou</p>
                 <button v-on:click="hideModal" class="delete" aria-label="close"></button>
             </header>
-            <section class="modal-card-body">
-                Hola Mon
-            </section>
-            <footer class="modal-card-foot is-flex is-justify-content-end">
-                <button class="button is-link">Crear Alumne <span class="icon is-size-5 ml-1"><i class="fas fa-folder-plus"></i></span></button>
-                <button class="button is-light" v-on:click="hideModal">Cancel·la</button>
-            </footer>
+            <form action="" method="POST">
+              <section class="modal-card-body">
+                <div class="field">
+                    <label class="label">Nom</label>
+                    <div class="control">
+                      <input class="input" type="text" name="nomalumn" placeholder="Nom de l'Alumne">
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label class="label">Cognoms</label>
+                    <div class="control">
+                      <input class="input" type="text" name="cognomsalumn" placeholder="Cognoms de l'Alumne">
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label class="label">Correu Electronic</label>
+                    <div class="control">
+                      <input class="input" type="email" name="emailalumn" placeholder="exemple@gmail.com">
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label class="label">Telèfon</label>
+                    <div class="control">
+                      <input class="input" type="text" name="phonealumn" placeholder="000 000 000">
+                    </div>
+                  </div>
+              </section>
+              <footer class="modal-card-foot is-flex is-justify-content-end">
+                  <button class="button is-link">Crear Alumne <span class="icon is-size-5 ml-1"><i class="fas fa-folder-plus"></i></span></button>
+                  <button class="button is-light" v-on:click="hideModal">Cancel·la</button>
+              </footer>
+            </form>
             </div>
         </div>
         <div class="modal" id="ModalEditarUsuaris">
             <div class="modal-background"></div>
             <div class="modal-card">
             <header class="modal-card-head">
-                <p class="modal-card-title"><span class="icon is-size-5 mr-1"><i class="fas fa-user-edit"></i></span> Edita un Alumne</p>
+                <p class="modal-card-title"><span class="icon is-size-5 mr-1"><i class="fas fa-user-edit"></i></span> {{ this.dataUser.name }} {{ this.dataUser.lastname }}</p>
                 <button v-on:click="hideModal" class="delete" aria-label="close"></button>
             </header>
-            <section class="modal-card-body">
-                <input type="hidden" name="idalumn" v-bind:value="this.dataUser.id">
+            <form v-bind:action="'/api/users/update/'+this.dataUser.id" method="POST">
+              <section class="modal-card-body">
+                <div class="field">
+                  <label class="label">Nom</label>
+                  <div class="control">
+                    <input class="input" type="text" name="nomalumn" v-bind:value="this.dataUser.name" placeholder="Nom de l'Alumne">
+                  </div>
+                </div>
+                <div class="field">
+                  <label class="label">Cognoms</label>
+                  <div class="control">
+                    <input class="input" type="text" name="cognomsalumn" v-bind:value="this.dataUser.lastname" placeholder="Cognoms de l'Alumne">
+                  </div>
+                </div>
+                <div class="field">
+                  <label class="label">Correu Electronic</label>
+                  <div class="control">
+                    <input class="input" type="email" name="emailalumn" v-bind:value="this.dataUser.email" placeholder="exemple@gmail.com">
+                  </div>
+                </div>
+                <div class="field">
+                  <label class="label">Telèfon</label>
+                  <div class="control">
+                    <input class="input" type="text" name="phonealumn" v-bind:value="this.dataUser.phone" placeholder="000 000 000">
+                  </div>
+                </div>
             </section>
             <footer class="modal-card-foot is-flex is-justify-content-end">
                 <button class="button is-link">Desar els Canvis <span class="icon is-size-5 ml-1"><i class="fas fa-save"></i></span></button>
                 <button class="button is-light" v-on:click="hideModal">Cancel·la</button>
             </footer>
+            </form>
             </div>
         </div>
         <div class="modal" id="ModalEsborrarUsuaris">
             <div class="modal-background"></div>
             <div class="modal-card">
             <header class="modal-card-head">
-                <p class="modal-card-title"><span class="icon is-size-5 mr-1"><i class="fas fa-trash"></i></span> Esborra un Alumne</p>
+                <p class="modal-card-title"><span class="icon is-size-5 mr-1"><i class="fas fa-trash"></i></span> Avís!</p>
                 <button v-on:click="hideModal" class="delete" aria-label="close"></button>
             </header>
-            <section class="modal-card-body">
-                <input type="hidden" name="idalumn" v-bind:value="this.dataUser.id">
-            </section>
-            <footer class="modal-card-foot is-flex is-justify-content-end">
-                <button class="button is-danger">Esborrar Alumne <span class="icon is-size-5 ml-1"><i class="fas fa-trash"></i></span></button>
-                <button class="button is-light" v-on:click="hideModal">Cancel·la</button>
-            </footer>
+              <section class="modal-card-body">
+                  <article class="message is-dark">
+                    <div class="message-body">
+                      Estàs Segur que vols esborrar l'alumne {{ this.dataUser.name }} {{ this.dataUser.lastname }} ?
+                    </div>
+                  </article>
+              </section>
+              <footer class="modal-card-foot is-flex is-justify-content-end">
+                  <button class="button is-danger" @click="formDelete(this.dataUser.id)">Esborrar Alumne <span class="icon is-size-5 ml-1"><i class="fas fa-trash"></i></span></button>
+                  <button class="button is-light" v-on:click="hideModal">Cancel·la</button>
+              </footer>
             </div>
         </div>
   </div>
@@ -137,6 +191,12 @@ export default {
       totalPages: 0, 
       openModal: false, 
       actionModal: '', 
+      formupdate: {
+        "name": '', 
+        "lastname": '', 
+        "email": '', 
+        "phone": ''
+      }
     }
   }, 
   mounted() {
@@ -186,6 +246,13 @@ export default {
           document.getElementById("ModalEsborrarUsuaris").classList.remove("is-active");
         }
       }
+    }, 
+    formDelete($id) {
+      axios.delete(`/api/users/destroy/${ $id }`)
+      .then((response) => {
+        this.hideModal();
+        this.list(this.currentPage);
+      });
       this.actionModal = '';
     }
   }
