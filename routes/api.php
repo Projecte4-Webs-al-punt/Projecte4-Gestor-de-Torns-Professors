@@ -26,7 +26,7 @@ Route::get('/users/{id}',[UserController::class,'show']);
 
 Route::post('/users/update/{id}', [UserController::class, "update"]);
 
-Route::delete('/users/destroy/{id}', [UserController::class, "destroy"]);
+Route::delete('/users/{id}', [UserController::class, "destroy"])->name("delete");
 
 Route::get('/doubts',[DoubtController::class,'index']);
 
