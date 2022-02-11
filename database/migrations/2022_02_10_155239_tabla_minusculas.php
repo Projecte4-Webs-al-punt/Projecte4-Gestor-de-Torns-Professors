@@ -22,6 +22,10 @@ class TablaMinusculas extends Migration
         Schema::rename('Subjects', 'subjects');
         Schema::rename('Teacher_Subject', 'teacher_subject');
         Schema::rename('Student_Subject', 'student_subject');
+        Schema::table('Doubts', function (Blueprint $table){
+            $table->string('status')->default('Pendent');
+            $table->string('matter')->default('Sense assumpte');
+        });
     }
 
     /**
