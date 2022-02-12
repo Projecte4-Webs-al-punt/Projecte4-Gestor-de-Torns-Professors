@@ -37,10 +37,10 @@
 
 
                                         <div class="field">
-                                            <x-label for="email" class="label" :value="__('Email')"/>
+                                            <x-label for="email" class="label" :value="__('Correu Electrònic')"/>
                                             <div class="control has-icons-left">
                                                 <x-input class="input" id="email" class="input is-warning" type="email"
-                                                         placeholder="e.g. exemple@cendrassos.net" type="email"
+                                                         placeholder="exemple@cendrassos.net" type="email"
                                                          name="email" :value="old('email', $request->email)" required autofocus/>
                                                 <span class="icon is-small is-left">
                   <i class="fa fa-envelope"></i>
@@ -51,7 +51,7 @@
 
                                     <!-- Password -->
                                     <div class="field">
-                                        <x-label for="password" :value="__('Password')" class="label"/>
+                                        <x-label for="password" :value="__('Contrasenya')" class="label"/>
 
                                         <div class="control has-icons-left">
                                             <x-input id="password" class="block mt-1 w-full"
@@ -68,7 +68,7 @@
 
                                     <!-- Confirm Password -->
                                     <div class="field">
-                                        <x-label for="password_confirmation" :value="__('Confirmar Password')"/>
+                                        <x-label for="password_confirmation" :value="__('Confirma la Contrasenya')"/>
 
                                         <div class="control has-icons-left">
                                             <x-input id="password_confirmation" class="block mt-1 w-full"
@@ -85,7 +85,7 @@
 
                                     <div class="flex items-center justify-end mt-4">
                                         <x-button>
-                                            {{ __('Recuperar password') }}
+                                            {{ __('Recuperar Contrasenya') }}
                                         </x-button>
                                     </div>
                                 </form>
