@@ -24,6 +24,8 @@ Route::get('/users',[UserController::class,'index']);
 
 Route::get('/doubts',[DoubtController::class,'index']);
 
+Route::get('/senddoubt',[DoubtController::class,'store']);
+
 Route::get('/users/{id}',[UserController::class,'show']);
 
 Route::get('/teachers',[TeacherController::class,'list']);

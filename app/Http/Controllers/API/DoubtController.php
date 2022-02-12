@@ -42,7 +42,8 @@ class DoubtController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $doubt = Doubt::create($request->all());
+        dd($doubt);
     }
 
     /**
