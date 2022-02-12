@@ -67,10 +67,15 @@
                                     Tutory.cat <span id="typewriter"></span>
                                 </h1>
                                 <h2 class="subtitle subtitled">
-                                    Cansat de que els professors ignorin els teus emails? O ets un professor cansat dels
-                                    emails?
-                                    Amb tutory aquests problemes s'han acabat
+                                    Cansat d'estar tota l'estona donant voltes per tota la classe responent qualsevol dubte?<br>
+                                    Cansat d'estar tota l'estona amb el braç aixecat esperant que arribi el professor?<br>
+                                    Amb tutory.cat aquests problemes s'han acabat per sempre.<br>
+                                    Com que la vida és massa curta. No dubtis més i utilitza Tutory.cat<br>
                                 </h2>
+                                <div>
+                                    <a class="button is-warning" href="{{ route('contact') }}">Contacta amb Nosaltres</a>
+                                    <p class="content mt-2">Si trobes algun error a l'aplicació, no ho dubtis més. Contacta amb Nosaltres.</p>
+                                </div>
                             </div>
                         </div>
 
@@ -80,6 +85,7 @@
             <div id="app">
                 <SliderComponent></SliderComponent>
             </div>
+            
             <div class="section-color services">
                 <div class="container">
                     <div class="columns is-multiline">
@@ -101,8 +107,8 @@
                                 <i class="fad fa-meteor fa-3x"></i>
                                 <hr/>
                                 <h2>
-                                    Fiablitat ,ràpidesa i a prova dels atacs més comuns.
-                                    Visualment lleugera per qualsevol navegador modern
+                                    Fiabilitat, rapidesa i a prova dels atacs més comuns.
+                                    Visualment lleugera per qualsevol navegador modern.
 
                                 </h2>
                             </div>
@@ -114,8 +120,8 @@
                                 <i class="fas fa-paint-brush fa-3x"></i>
                                 <hr/>
                                 <h2>
-                                    Personalització amb interfaç neta i visualment, modificable.
-                                    Pulida fins al últim detall per millorar l'experiencia del usuari
+                                    Interfície neta i visualment, modificable.
+                                    Polida fins a l'últim detall per millorar l'experiència de l'usuari
 
                                 </h2>
                             </div>
@@ -127,7 +133,7 @@
                                 <i class="fas fa-rocket fa-3x"></i>
                                 <hr/>
                                 <h2>
-                                    Navegació lleugera, i liviana, olividat de precarregues inutils.
+                                    Navegació lleugera, i Laviana, oblidat de precàrregues inútils.
                                 </h2>
                             </div>
                         </div>
@@ -141,7 +147,7 @@
                                 <i class="fas fa-upload fa-3x"></i>
                                 <hr/>
                                 <h2>
-                                    Capacitat de pujar imatges, gestionar usuaris, o afegirlos.
+                                    Capacitat de pujar imatges, gestionar usuaris, o afegir-los.
                                     Gràcies al nostre panell de control.
                                 </h2>
                             </div>
@@ -154,7 +160,7 @@
                                 <hr/>
                                 <h2>
                                     Funcionalitats pensades per qualsevol centre educatiu.
-                                    Especialitzat en la simplicitat de fer anar el nostre projecte
+                                    Especialitzat en la simplicitat de fer anar el nostre projecte.
                                 </h2>
                             </div>
                             <div
@@ -165,8 +171,7 @@
                                 <i class="fas fa-code fa-3x"></i>
                                 <hr/>
                                 <h2>
-                                    Codi fet amb les ultimes tecnologies en seguretat
-                                    i fidabilitat. Tecnologies últimes del mercat
+                                    Codi fet amb les últimes tecnologies en seguretat i fiabilitat. Tecnologies últimes del mercat.
                                 </h2>
                             </div>
                         </div>
@@ -174,6 +179,7 @@
                 </div>
             </div>
 
+            @include('includes.about')
     @endif
 
     <!-- End About Me Content -->
