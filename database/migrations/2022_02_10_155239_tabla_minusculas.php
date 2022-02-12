@@ -25,6 +25,8 @@ class TablaMinusculas extends Migration
         Schema::table('Doubts', function (Blueprint $table){
             $table->string('status')->default('Pendent');
             $table->string('matter')->default('Sense assumpte');
+            $table->renameColumn('date_opening', 'created_at');
+            $table->renameColumn('date_resolution', 'updated_at');
         });
     }
 
