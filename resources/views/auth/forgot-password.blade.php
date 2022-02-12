@@ -10,7 +10,7 @@
             crossorigin="anonymous"
     ></script>
 </head>
-<section class="hero is-primary is-fullheight">
+<section class="hero is-warning is-fullheight">
     <div class="hero-body">
         <div class="container">
             <div class="columns is-centered">
@@ -20,7 +20,7 @@
                             <x-auth-card>
                                 <x-slot name="logo">
                                     <a href="/">
-                                        <x-application-logo/>
+                                        <img src="https://i.ibb.co/QnxXzXj/Copia-de-Tutory-cat-1.png" alt="Logo">
                                     </a>
                                 </x-slot>
 
@@ -34,20 +34,19 @@
                                 @csrf
                                     <div class="mb-4">
 
-                                        <b>Has olvidat el password?</b>
+                                        <b>Has oblidat la teva Contrasenya?</b>
                                         <p>
-                                        Cap problema, posa el email i t'envierem un link per reseteijar el password
-                                    </p>
+                                        Si Has Oblidat la teva Contrasenya, posa el teu correu electrònic i t'enviarem un enllaç per reiniciar-la.</p>
                                     </div>
                                 <!-- Email Address -->
                                     <div>
 
 
                                         <div class="field">
-                                            <x-label for="email" class="label" :value="__('Email')"/>
+                                            <x-label for="email" class="label" :value="__('Correu Electrònic')"/>
                                             <div class="control has-icons-left">
                                                 <x-input class="input" id="email" class="input is-warning" type="email"
-                                                         placeholder="e.g. exemple@cendrassos.net" type="email"
+                                                         placeholder="exemple@cendrassos.net" type="email"
                                                          name="email" :value="old('email')" required autofocus/>
                                                 <span class="icon is-small is-left">
                   <i class="fa fa-envelope"></i>
@@ -57,10 +56,10 @@
                                     </div>
                                         <div class="field mt-4">
                                             <x-button class="button">
-                                                {{ __('Enviar link') }}
+                                                {{ __('Enviar') }}
                                             </x-button>
                                             <a class="button is-danger" href="{{ route('login') }}">
-                                                Tornar al login
+                                                Tornar a Inicia Sessió
                                             </a>
                                         </div>
                                 </form>

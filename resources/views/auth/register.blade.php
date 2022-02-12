@@ -8,7 +8,7 @@
         integrity="sha384-WAsFbnLEQcpCk8lM1UTWesAf5rGTCvb2Y+8LvyjAAcxK1c3s5c0L+SYOgxvc6PWG" crossorigin="anonymous">
     </script>
 </head>
-<section class="hero is-primary is-fullheight">
+<section class="hero is-warning is-fullheight">
     <div class="hero-body">
         <div class="container">
             <div class="columns is-centered">
@@ -18,7 +18,7 @@
                             <x-auth-card>
                                 <x-slot name="logo">
                                     <a href="/">
-                                        <x-application-logo />
+                                        <img src="https://i.ibb.co/QnxXzXj/Copia-de-Tutory-cat-1.png" alt="Logo">
                                     </a>
                                 </x-slot>
 
@@ -36,10 +36,10 @@
 
 
                                         <div class="field">
-                                            <x-label for="name" :value="__('Nom')" />
+                                            <x-label for="name" class="has-text-weight-bold" :value="__('Nom')" />
                                             <div class="control has-icons-left">
                                                 <x-input class="input" id="name" class="input is-warning"
-                                                    type="name" placeholder="e.g. Aaron" type="text" name="name"
+                                                    type="name" placeholder="Albert" type="text" name="name"
                                                     :value="old('name')" required autofocus />
                                                 <span class="icon is-small is-left">
                                                     <i class="fa fa-user"></i>
@@ -50,10 +50,10 @@
                                     <!-- lastname -->
                                     <div>
                                         <div class="field">
-                                            <x-label for="lastname" :value="__('Cognom')" />
+                                            <x-label for="lastname" class="has-text-weight-bold" :value="__('Cognoms')" />
                                             <div class="control has-icons-left">
                                                 <x-input class="input" id="lastname" class="input is-warning"
-                                                    type="lastname" placeholder="e.g. Gameiro" type="text"
+                                                    type="lastname" placeholder="Ibiza Areu" type="text"
                                                     name="lastname" :value="old('lastname')" required autofocus />
                                                 <span class="icon is-small is-left">
                                                     <i class="fa fa-user"></i>
@@ -65,10 +65,10 @@
                                     <!-- Email Address -->
                                     <div>
                                         <div class="field">
-                                            <x-label for="email" :value="__('Email')" />
+                                            <x-label for="email" class="has-text-weight-bold" :value="__('Correu Electrònic')" />
                                             <div class="control has-icons-left">
                                                 <x-input class="input" id="email" class="input is-warning"
-                                                    type="email" placeholder="e.g. exemple@cendrassos.net" type="email"
+                                                    type="email" placeholder="exemple@cendrassos.net" type="email"
                                                     name="email" :value="old('email')" required autofocus />
                                                 <span class="icon is-small is-left">
                                                     <i class="fa fa-envelope"></i>
@@ -79,11 +79,11 @@
 
                                     <!-- Password -->
                                     <div class="field">
-                                        <x-label for="password" class="mt-6" :value="__('Password')" />
+                                        <x-label for="password" class="has-text-weight-bold" :value="__('Contrasenya')" />
 
                                         <div class="control has-icons-left">
                                             <x-input id="password" class="block mt-1 w-full" type="password"
-                                                name="password" placeholder="*******" class="input is-warning" required
+                                                name="password" placeholder="********" class="input is-warning" required
                                                 autocomplete="current-password" />
                                             <span class="icon is-small is-left">
                                                 <i class="fa fa-lock"></i>
@@ -93,11 +93,11 @@
 
                                     <!-- Confirm Password -->
                                     <div class="field">
-                                        <x-label for="password_confirmation" :value="__('Confirmar Password')" />
+                                        <x-label for="password_confirmation" class="has-text-weight-bold" :value="__('Confirma la Contrasenya')" />
 
                                         <div class="control has-icons-left">
                                             <x-input id="password_confirmation" class="block mt-1 w-full"
-                                                type="password" name="password_confirmation" placeholder="*******"
+                                                type="password" name="password_confirmation" placeholder="********"
                                                 class="input is-warning" required autocomplete="current-password" />
                                             <span class="icon is-small is-left">
                                                 <i class="fa fa-lock"></i>
@@ -106,15 +106,15 @@
                                     </div>
 
 
-                                    <div class="flex items-center justify-end mt-4">
+                                    <div class="flex is-align-items-stretch is-justify-content-center mt-4">
+                                        <x-button class="mr-4">
+                                            {{ __('Registrar-se') }}
+                                        </x-button>
+
                                         <a class="underline text-sm text-gray-600 hover:text-gray-900"
                                             href="{{ route('login') }}">
                                             {{ __('Ja tens un compte?') }}
                                         </a>
-
-                                        <x-button class="ml-4">
-                                            {{ __('Registrar') }}
-                                        </x-button>
                                     </div>
                                 </form>
                             </x-auth-card>

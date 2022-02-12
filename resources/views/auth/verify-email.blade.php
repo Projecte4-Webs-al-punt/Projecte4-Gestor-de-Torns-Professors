@@ -1,39 +1,61 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register | Tutory</title>
 
-        <div class="mb-4 text-sm text-gray-600">
-            {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
-        </div>
+    <script src="https://kit.fontawesome.com/2828f7885a.js"
+        integrity="sha384-WAsFbnLEQcpCk8lM1UTWesAf5rGTCvb2Y+8LvyjAAcxK1c3s5c0L+SYOgxvc6PWG" crossorigin="anonymous">
+    </script>
+</head>
+<section class="hero is-warning is-fullheight">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+                    <div class="box">                 
+                    <x-guest-layout>
+                        <x-auth-card>
+                            <x-slot name="logo">
+                                <a href="/">
+                                    <img src="https://i.ibb.co/QnxXzXj/Copia-de-Tutory-cat-1.png" alt="Logo">
+                                </a>
+                            </x-slot>
 
-        @if (session('status') == 'verification-link-sent')
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ __('A new verification link has been sent to the email address you provided during registration.') }}
-            </div>
-        @endif
+                            <div class="mb-4 text-sm text-gray-600">
+                                {{ __('Gràcies per registrar-te! Abans de començar, podríeu verificar la vostra adreça de correu electrònic fent clic a l`enllaç que us acabem d`enviar per correu electrònic? Si no has rebut el correu electrònic, t`enviarem un altre amb molt de gust.') }}
+                            </div>
 
-        <div class="mt-4 flex items-center justify-between">
-            <form method="POST" action="{{ route('verification.send') }}">
-                @csrf
+                            @if (session('status') == 'verification-link-sent')
+                                <div class="mb-4 font-medium text-sm text-green-600">
+                                    {{ __('S`ha enviat un nou enllaç de verificació a l`adreça de correu electrònic que vau proporcionar durant el registre. ') }}
+                                </div>
+                            @endif
 
-                <div>
-                    <x-button>
-                        {{ __('Resend Verification Email') }}
-                    </x-button>
+                            <div class="mt-4 flex items-center justify-between">
+                                <form method="POST" action="{{ route('verification.send') }}">
+                                    @csrf
+
+                                    <div>
+                                        <x-button>
+                                            {{ __('Reenviar la Verificació') }}
+                                        </x-button>
+                                    </div>
+                                </form>
+
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+
+                                    <button type="submit" class="button is-danger">
+                                        {{ __('Tanca la Sessió') }}
+                                    </button>
+                                </form>
+                            </div>
+                        </x-auth-card>
+                    </x-guest-layout>
+                    </div>
                 </div>
-            </form>
-
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
-
-                <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900">
-                    {{ __('Log Out') }}
-                </button>
-            </form>
+            </div>
         </div>
-    </x-auth-card>
-</x-guest-layout>
+    </div>
+</section>

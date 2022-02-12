@@ -26,6 +26,7 @@
                      @if (Auth::check())
                          <div class="navbar-item has-dropdown is-hoverable">
                              <a class="navbar-link">
+                             {{ Auth::user()->name }} {{ Auth::user()->lastname }}
                                  <figure class="navbar-end image ">
                                      @if (Auth::check())
                                          @if (Auth::user()->image)
@@ -74,7 +75,7 @@
                      <span class = "icon is-small">
                         <i class = "fas fa-sign-in-alt"></i>
                      </span>
-                                 <span>Connexió</span>
+                                 <span>Inicia Sessió</span>
                              </a>
 
                          </div>

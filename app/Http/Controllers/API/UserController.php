@@ -30,7 +30,13 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $name = $request->input("name", "");
+        $lastname = $request->input("lastname", "");
+        $email = $request->input("email", "");
+        $phone = $request->input("phone", "");
+        $modality = $request->input("modality", "");
+
+        dd($name . " " . $lastname . " " . $email . " " . $phone . " " . $modality);
     }
 
     /**
