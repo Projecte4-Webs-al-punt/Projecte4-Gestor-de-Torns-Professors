@@ -10,7 +10,7 @@
             crossorigin="anonymous"
     ></script>
 </head>
-<section class="hero is-primary is-fullheight">
+<section class="hero is-warning is-fullheight">
     <div class="hero-body">
         <div class="container">
             <div class="columns is-centered">
@@ -20,7 +20,7 @@
                             <x-auth-card>
                                 <x-slot name="logo">
                                     <a href="/">
-                                        <x-application-logo/>
+                                        <img src="https://i.ibb.co/QnxXzXj/Copia-de-Tutory-cat-1.png" alt="Logo">
                                     </a>
                                 </x-slot>
 

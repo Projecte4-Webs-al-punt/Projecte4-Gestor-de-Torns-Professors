@@ -10,7 +10,7 @@
             crossorigin="anonymous"
     ></script>
 </head>
-<section class="hero is-primary is-fullheight">
+<section class="hero is-warning is-fullheight">
     <div class="hero-body">
         <div class="container">
             <div class="columns is-centered">
@@ -20,7 +20,7 @@
                             <x-auth-card>
                                 <x-slot name="logo">
                                     <a href="/">
-                                        <x-application-logo/>
+                                        <img src="https://i.ibb.co/QnxXzXj/Copia-de-Tutory-cat-1.png" alt="Logo">
                                     </a>
                                 </x-slot>
 
@@ -38,10 +38,10 @@
 
 
                                         <div class="field">
-                                            <x-label for="email" class="label" :value="__('Email')"/>
+                                            <x-label for="email" class="label" :value="__('Correu Electrònic')"/>
                                             <div class="control has-icons-left">
                                                 <x-input class="input" id="email" class="input is-warning" type="email"
-                                                         placeholder="e.g. exemple@cendrassos.net" type="email"
+                                                         placeholder="exemple@cendrassos.net" type="email"
                                                          name="email" :value="old('email')" required autofocus/>
                                                 <span class="icon is-small is-left">
                   <i class="fa fa-envelope"></i>
@@ -53,7 +53,7 @@
                                     <!-- Password -->
 
                                     <div class="field">
-                                        <x-label for="password" :value="__('Password')" class="label"/>
+                                        <x-label for="password" :value="__('Contrasenya')" class="label"/>
 
                                         <div class="control has-icons-left">
                                             <x-input id="password" class="block mt-1 w-full"
@@ -83,15 +83,15 @@
                                     <div class="flex items-center justify-end mt-4">
                                         @if (Route::has('password.request'))
                                             <a class="is-size-7 mt-2" href="{{ route('password.request') }}">
-                                                {{ __('Forgot your password?') }}
+                                                {{ __('Has oblidat la teva contrasenya?') }}
                                             </a>
                                         @endif
                                         <div class="field mt-4">
-                                            <x-button class="button is-success">
-                                                {{ __('Log in') }}
+                                            <x-button class="button is-warning">
+                                                {{ __('Inicia Sessió') }}
                                             </x-button>
-                                            <a href="{{ route('register') }}" class="button is-danger">
-                                                {{ __('Fer registre') }}
+                                            <a href="{{ route('register') }}" class="button is-light">
+                                                {{ __('Registrar-se') }}
                                             </a>
                                         </div>
                                     </div>

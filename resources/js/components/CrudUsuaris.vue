@@ -13,6 +13,7 @@
             <th class="has-text-light"><abbr title="Nom de l'alumne">Nom i cognom</abbr></th>
             <th class="has-text-light"><abbr title="Correu Electrònic">Email</abbr></th>
             <th class="has-text-light"><abbr title="Numero de Telefón">Telefón</abbr></th>
+            <th class="has-text-light"><abbr title="Presencial, Telemàtic o Híbrid">Modalitat</abbr></th>
             <th class="has-text-light has-text-right"><abbr  title="Accions">Accions</abbr></th>
           </tr>
           </thead>
@@ -27,6 +28,7 @@
               <td data-label="Nom"><p>{{ user.name }} {{ user.lastname }}</p></td>
               <td data-label="Email"><a :href="'mailto:'+user.email">{{ user.email }}</a></td>
               <td data-label="Phone"><a :href="'tel:'+user.phone">{{ user.phone }}</a></td>
+              <td data-label="Modality">{{ user.modality }}</td>
               <td class="is-actions-cell">
                 <div class="buttons is-right">
                   <ModalComponent :actions="1" :id="user.id"></ModalComponent>
@@ -70,38 +72,48 @@
                 <p class="modal-card-title"><span class="icon is-size-5 mr-1"><i class="fas fa-user-plus"></i></span> Afegir un Alumne Nou</p>
                 <button v-on:click="hideModal" class="delete" aria-label="close"></button>
             </header>
-            <form action="" method="POST">
               <section class="modal-card-body">
                 <div class="field">
                     <label class="label">Nom</label>
                     <div class="control">
-                      <input class="input" type="text" name="nomalumn" placeholder="Nom de l'Alumne">
+                      <input class="input" type="text" name="nomalumn" v-model="formcreatearray.name" placeholder="Nom de l'Alumne">
                     </div>
                   </div>
                   <div class="field">
                     <label class="label">Cognoms</label>
                     <div class="control">
-                      <input class="input" type="text" name="cognomsalumn" placeholder="Cognoms de l'Alumne">
+                      <input class="input" type="text" name="cognomsalumn" v-model="formcreatearray.lastname" placeholder="Cognoms de l'Alumne">
                     </div>
                   </div>
                   <div class="field">
                     <label class="label">Correu Electronic</label>
                     <div class="control">
-                      <input class="input" type="email" name="emailalumn" placeholder="exemple@gmail.com">
+                      <input class="input" type="email" name="emailalumn" v-model="formcreatearray.email" placeholder="exemple@gmail.com">
                     </div>
                   </div>
                   <div class="field">
                     <label class="label">Telèfon</label>
                     <div class="control">
-                      <input class="input" type="text" name="phonealumn" placeholder="000 000 000">
+                      <input class="input" type="text" name="phonealumn" v-model="formcreatearray.phone" placeholder="000 000 000">
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label class="label">Modalitat</label>
+                    <div class="control">
+                      <div class="select">
+                        <select name="modalityalumn" v-model="formcreatearray.modality">
+                          <option value="Presencial">Presencial</option>
+                          <option value="Telemàtic">Telemàtic</option>
+                          <option value="Híbrid">Híbrid</option>
+                        </select>
+                      </div>
                     </div>
                   </div>
               </section>
               <footer class="modal-card-foot is-flex is-justify-content-end">
-                  <button class="button is-link">Crear Alumne <span class="icon is-size-5 ml-1"><i class="fas fa-folder-plus"></i></span></button>
+                  <button class="button is-link" v-on:click="formCreate">Crear Alumne <span class="icon is-size-5 ml-1"><i class="fas fa-folder-plus"></i></span></button>
                   <button class="button is-light" v-on:click="hideModal">Cancel·la</button>
               </footer>
-            </form>
             </div>
         </div>
         <div class="modal" id="ModalEditarUsuaris">
@@ -111,8 +123,9 @@
                 <p class="modal-card-title"><span class="icon is-size-5 mr-1"><i class="fas fa-user-edit"></i></span> {{ this.dataUser.name }} {{ this.dataUser.lastname }}</p>
                 <button v-on:click="hideModal" class="delete" aria-label="close"></button>
             </header>
-            <form v-bind:action="'/api/users/update/'+this.dataUser.id" method="POST">
+            <!-- <form v-bind:action="'/api/users/update/'+this.dataUser.id" method="POST"> -->
               <section class="modal-card-body">
+                <input type="hidden" name="idalumn" v-bind:value="this.dataUser.id">
                 <div class="field">
                   <label class="label">Nom</label>
                   <div class="control">
@@ -137,12 +150,24 @@
                     <input class="input" type="text" name="phonealumn" v-bind:value="this.dataUser.phone" placeholder="000 000 000">
                   </div>
                 </div>
+                <div class="field">
+                  <label class="label">Modalitat</label>
+                  <div class="control">
+                    <div class="select">
+                      <select name="modalityalumn">
+                        <option v-bind:value="this.dataUser.modality" selected>{{ this.dataUser.modality }}</option>
+                        <option value="Presencial">Presencial</option>
+                        <option value="Telemàtic">Telemàtic</option>
+                        <option value="Híbrid">Híbrid</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
             </section>
             <footer class="modal-card-foot is-flex is-justify-content-end">
-                <button class="button is-link">Desar els Canvis <span class="icon is-size-5 ml-1"><i class="fas fa-save"></i></span></button>
+                <button class="button is-link" v-on:click="formUpdate">Desar els Canvis <span class="icon is-size-5 ml-1"><i class="fas fa-save"></i></span></button>
                 <button class="button is-light" v-on:click="hideModal">Cancel·la</button>
             </footer>
-            </form>
             </div>
         </div>
         <div class="modal" id="ModalEsborrarUsuaris">
@@ -171,7 +196,6 @@
 <script>
 import axios from "axios";
 import pagination from "laravel-vue-pagination";
-import { onMounted } from '@vue/runtime-core';
 
 export default {
   name: "CrudUsuaris", 
@@ -192,11 +216,12 @@ export default {
       totalPages: 0, 
       openModal: false, 
       actionModal: '', 
-      formupdatearray: {
+      formcreatearray: {
         "name": '', 
         "lastname": '', 
         "email": '', 
-        "phone": ''
+        "phone": '', 
+        "modality": ''
       }
     }
   }, 
@@ -255,6 +280,22 @@ export default {
         document.getElementById("ModalEsborrarUsuaris").classList.remove("is-active");
         this.openModal = false;
         this.list();
+      });
+    }, 
+    formUpdate() {
+      //
+    }, 
+    formCreate() {
+      axios.post(`/api/users/store/`, {
+        "name": this.formcreatearray.name, 
+        "lastname": this.formcreatearray.lastname, 
+        "email": this.formcreatearray.email, 
+        "phone": this.formcreatearray.phone, 
+        "modality": this.formcreatearray.modality
+      }).then((response) => {
+        //document.getElementById("ModalCrearUsuaris").classList.remove("is-active");
+        //this.openModal = false;
+        //this.list();
       });
     }
   }

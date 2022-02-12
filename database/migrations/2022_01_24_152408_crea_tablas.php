@@ -18,6 +18,7 @@ class CreaTablas extends Migration
             $table->string('role')->default('student');
             $table->string('phone')->nullable();
             $table->string('image')->default('user.png');
+            $table->string('modality')->default('Presencial');
         });
         Schema::create('Teachers', function (Blueprint $table) {
             $table->id();
