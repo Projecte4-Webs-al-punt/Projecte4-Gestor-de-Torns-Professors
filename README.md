@@ -9,17 +9,13 @@
 
 ## About Tutory.cat
 
-Tutory.cat is a web application Project with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Tutory.cat takes the pain out of development by easing common tasks used in many web projects, such as:
+Tutory.cat és una aplicació web destinada a millorar la vida d'alumnes i professors amb una interfície accessible per a qualsevol usuari. A Tutory.cat creiem que l'aprenentatge ha de ser una experiència divertida i creativa perquè sigui realment satisfactòria. Tutory.cat elimina el dolor d'haver de preguntar dubtes o resoldre'ls de qualsevol manera, i millorar la vida d'alumnes i professors, facilitant les tasques habituals que es donen a una classe com:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Resoldre els dubtes que vaguin sorgint de tots els alumnes.
+- Escollir un alumne perquè surti a la Pissarra.
+- Mirar quins alumnes queden per fer tutoria.
 
-Tutory.cat is accessible, powerful, and provides tools required for large, robust applications.
+Tutory.cat és accessible, potent i ofereix les eines necessàries per millorar la vida dels alumnes i els professors d'arreu del món.
 
 ## Authors Tutory.cat
 
