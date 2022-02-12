@@ -5,9 +5,8 @@ import CrudUsuaris from './components/CrudUsuaris.vue';
 import CrudDoubts from './components/CrudDoubts.vue';
 
 import ListDoubts from "./components/ListDoubts.vue";
+
 import Teacher from './components/Teacher.vue';
-
-
 
 import SliderComponent from "./components/SliderComponent.vue";
 
