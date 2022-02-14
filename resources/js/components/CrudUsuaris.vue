@@ -31,7 +31,6 @@
               <td data-label="Modality">{{ user.modality }}</td>
               <td class="is-actions-cell">
                 <div class="buttons is-right">
-                  <ModalComponent :actions="1" :id="user.id"></ModalComponent>
                   <button v-on:click="showModal('2', user.id)" class="button is-small is-primary" type="button">
                     <span class="icon"><i class="fas fa-edit"></i></span>
                   </button>
@@ -236,7 +235,7 @@ export default {
         this.totalPages = response.data.last_page;
         this.users = response.data;
       });
-    }, 
+    },
     showModal(accions, id) {
       this.actionModal = accions;
       if (!this.openModal) {

@@ -1,6 +1,5 @@
 <template>
-  <div>
-      <div class="section-dark my-work" id="my-work">
+  <div class="section-dark my-work" id="my-work">
     <div class="container">
       <div
           class="columns is-multiline"
@@ -18,14 +17,18 @@
 
                     </div>
                     <div class="media-content ">
-                      <h3 class="title is-3 m-2">{{ doubt.matter }}</h3>
-                      <h6 class="subtitle is-6 m-2">Estat: {{ doubt.status }}</h6>
+                      <p class="title m-2">Pregunta generica</p>
+                      <p class="subtitle is-6 m-2">Estat: {{ doubt.status }}</p>
                     </div>
                   </div>
+<<<<<<< HEAD
                   <div class="content" v-if="doubt.message.length > 50">
                     {{ doubt.message.substring(0, 50) }} ...
                   </div>
                   <div class="content" v-else>
+=======
+                  <div class="content">
+>>>>>>> 13e7f7baa71836c80fd69fe05d420f565ab10c99
                     {{ doubt.message }}
                   </div>
                 </div>
@@ -36,39 +39,59 @@
     </div>
   </div>
       </div>
+
+
+  <div class="notification is-light">
+    <div class="level">
+      <div class="level-left">
+        <div class="level-item">
+          <div class="buttons has-addons">
+            <div v-for="item in this.totalPages" :key="item">
+              <button type="button" class="button is-warning" @click="list(item)" v-if="currentPage == item">{{ item }}</button>
+              <button type="button" class="button is-dark" @click="list(item)" v-else>{{ item }}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="level-right">
+        <div class="level-item">
+          <small class="is-size-5">Pàgina {{ currentPage }} de {{ totalPages }}</small>
+        </div>
+      </div>
+    </div>
+  </div>
   <div>
     <div class="modal" id="modal">
-      <div class="modal-background" @click="hidemodal"></div>
+      <div class="modal-background"></div>
       <div class="modal-content">
         <div class="box">
-          <h3 class="title has-text-centered is-3">{{ this.dataDoubt.matter }}</h3>
-          <p class="content">
-            {{ this.dataDoubt.message }}
-          </p>
+          Hola
         </div>
       </div>
       <button class="modal-close" @click="hidemodal"></button>
     </div>
   </div>
-  </div>
+
 </template>
 
 <script>
 import axios from "axios";
+import pagination from "laravel-vue-pagination";
 
 export default {
-  name: "ListDoubts", 
+  name: "ListDoubts",
+  showModal: false,
+  components: {
+    pagination
+  },
   data() {
     return {
       doubts: {
         type: Object,
         default: null
-      }, 
-      dataDoubt: {
-        type: Object, 
-        default: null
-      }, 
-      showModal: false
+      },
+      currentPage: 0,
+      totalPages: 0
     }
   },
   mounted() {
@@ -77,9 +100,11 @@ export default {
 
   methods: {
     list(page=1) {
-      axios.get(`/doubts/user`)
+      axios.get(`/api/doubts?page=${ page }`)
           .then((response) => {
-            this.doubts = response;
+            this.currentPage = response.data.current_page;
+            this.totalPages = response.data.last_page;
+            this.doubts = response.data;
           });
     },
     modal(id){
