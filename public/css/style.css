@@ -594,7 +594,12 @@ html {
 .rounded-social-buttons .fa-twitter, .fa-facebook-f, .fa-linkedin, .fa-youtube, .fa-instagram {
     font-size: 25px;
 }
-
+.tager{
+    background-color: transparent!important;
+    display: inline-flex;
+    line-height: 1.5;
+    padding-left: 0.75em;
+}
 .rounded-social-buttons .social-button.facebook {
     background: #3b5998;
 }

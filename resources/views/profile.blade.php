@@ -1,64 +1,99 @@
 @extends('layouts.app')
 @section('content')
-    <form method="POST" enctype="multipart/form-data" id="upload-image" action="{{ url('update') }}">
-        <div class="container rounded bg-white mt-5 mb-5">
-            <div class="row">
-                <div class="col-md-3 border-right">
-                    <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5"
-                            width="150px" src="{{ asset('/storage/avatar/' . Auth::user()->image) }}">
-                        <div class="row">
 
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <input type="file" name="image" placeholder="Choose image" id="image">
-                                    @error('image')
-                                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                                    @enderror
+    <section class="main-content">
+        <div class="column is-8 is-offset-2">
+            <!-- START ARTICLE -->
+            <div class="card article">
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-content has-text-centered">
+                            <div class="tag tager">
+                                <figure class="image is-128x128">
+                                    <img class="is-rounded" src="{{ asset('/storage/avatar/' . $user->image) }}">
+                                </figure>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content article-body">
+                        <form method="POST" enctype="multipart/form-data" id="upload-image"
+                              action="{{ url('update') }}">
+                            <div class="container rounded bg-white mt-5 mb-5">
+                                <div class="row">
+                                    <div>
+                                        <div>
+                                            <img class="rounded-circle mt-5"
+                                                 width="150px">
+                                            <div class="row">
+
+                                                <div>
+                                                    <div>
+                                                        <div class="file has-name is-boxed">
+                                                            <label class="file-label">
+                                                                <input class="file-input" type="file" name="resume"
+                                                                       type="file" name="image"
+                                                                       placeholder="Choose image" id="image">
+                                                                <span class="file-cta">
+                                                          <span class="file-icon">
+                                                            <i class="fas fa-upload"></i>
+                                                          </span>
+                                                          <span class="file-label">
+                                                            Choose a file…
+                                                          </span>
+                                                        </span>
+                                                                <span class="file-name">
+                                                          Puja la imatge des de aquí
+                                                        </span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="m-4"><label
+                                                                    class="labels">Rol: </label><span>{{ $user ->role }} </span>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5 border-right">
+                                        <div class="p-3 py-5">
+                                            <div class="mb-3">
+                                                <h4 class="text-right">Les teves dades</h4>
+                                            </div>
+                                            <div class="row mt-2">
+                                                <div class="m-4"><label class="labels">Nom</label>
+                                                    <input type="text" class="input is-warning" id="name"
+                                                           placeholder="Jhon" value={{ $user->name }}>
+                                                </div>
+                                                <div class="m-4"><label class="labels">Cognom</label>
+                                                    <input type="text" class="input is-warning" id="lastname"
+                                                           value="{{ $user->lastname }}"
+                                                           placeholder="Doe"></div>
+                                            </div>
+                                            <div class="row mt-3">
+                                                <div class="m-4"><label class="labels">Email:</label>
+                                                    <input type="text" class="input is-warning" id="email"
+                                                           placeholder="alumne@correu.edu"
+                                                           value="{{ $user->email }}">
+                                                </div>
+                                                <div class="m-4"><label class="labels">Telefon: </label>
+                                                    <input type="text" class="input is-warning" id="phone"
+                                                           placeholder="655420666"
+                                                           value="{{ $user->phone }}"></div>
+                                            </div>
+                                            <div class="mt-5 text-center">
+                                                <button class="button is-fullwidth is-warning">Guardar</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
-                <div class="col-md-5 border-right">
-                    <div class="p-3 py-5">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h4 class="text-right">Les teves dades</h4>
-                        </div>
-                        <div class="row mt-2">
-                            <div class="col-md-6"><label class="labels">Nom</label><input type="text"
-                                    class="form-control" id="name" placeholder="Jhon" value={{ Auth::user()->name }}>
-                            </div>
-                            <div class="col-md-6"><label class="labels">Cognom</label><input type="text"
-                                    class="form-control" id="lastname" value="{{ Auth::user()->lastname }}"
-                                    placeholder="Doe"></div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-md-12"><label class="labels">Email:</label><input type="text"
-                                    class="form-control" id="email" placeholder="alumne@correu.edu"
-                                    value="{{ Auth::user()->email }}">
-                            </div>
-                            <div class="col-md-12"><label class="labels">Telefon: </label><input type="text"
-                                    class="form-control" id="phone" placeholder="655420666"
-                                    value="{{ Auth::user()->phone }}"></div>
-                        </div>
-                        <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit">Guardar
-                                canvis</button></div>
-                    </div>
-                </div>
-    </form>
-    <div class="col-md-4">
-        <div class="p-3 py-5">
-            <div class="col-md-12"><label class="labels">Rol: </label>{{ Auth::user()->role }}</div>
-            <div class="col-md-12"><label class="labels">Data registre:
-                </label>{{ Auth::user()->created_at }}</div>
-            <div class="col-md-12"><label class="labels">Ultima modificació:
-                </label>{{ Auth::user()->updated_at }}</div>
-            <div class="col-md-12"><label class="labels">Email confirmat:
-                </label>{{ Auth::user()->email_verified_at }}</div>
+            </div>
         </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
+    </section>
 @endsection

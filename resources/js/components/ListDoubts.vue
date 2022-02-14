@@ -66,6 +66,7 @@
       <button class="modal-close" @click="hidemodal"></button>
     </div>
   </div>
+
 </template>
 
 <script>
