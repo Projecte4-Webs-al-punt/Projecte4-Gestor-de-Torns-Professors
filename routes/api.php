@@ -34,4 +34,7 @@ Route::get('/doubts',[DoubtController::class,'index']);
 
 Route::get('/doubts/{id}',[DoubtController::class,'show']);
 
+Route::delete('/doubts/{id}', [DoubtController::class, "destroy"])->name("delete");
+
+
 Route::get('/teachers',[TeacherController::class,'list']);
