@@ -42,8 +42,11 @@ class DoubtController extends Controller
      */
     public function store(Request $request)
     {
-        $doubt = $request->all();
-        dd($doubt);
+        $teacher = $request->input("teacher", "");
+        $subject = $request->input("subject", "");
+        $message = $request->input("message", "");
+
+        return $message;
     }
 
     /**
