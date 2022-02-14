@@ -1,31 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-
     <div class="main-content">
         @if (Auth::check())
             @if (Auth::user()->role == 'student')
                 <div id="app">
-                    <div class="section-dark resume">
-                        <div class="container">
-                            <div
-                                class="columns is-multiline"
-                                data-aos="fade-in"
-                                data-aos-easing="linear">
-                            <div class="column is-12 about-me">
-                                <h1 class="title has-text-centered section-title">
-                                    Fer una pregunta
-                                </h1>
-                            </div>
-                            <div class="column is-10 has-text-centered is-offset-1">
-                                <teacher></teacher>
-                            </div>
-                        </div>
-                        </div>
-                        <div class="section-dark my-work" id="my-work">  
-                            <list-doubts></list-doubts>
-                        </div>
-                    </div>
+                    <home-student></home-student>
                 </div>
             @elseif (Auth::user()->role == 'teacher')
                 <div>Professor</div>

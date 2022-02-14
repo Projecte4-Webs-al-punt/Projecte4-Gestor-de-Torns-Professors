@@ -31,9 +31,7 @@ class UserController extends Controller
      */
     public function indexStudent()
     {
-        $doubts = Doubt::where('student_id', Auth::user()->id)->get();
-
-        return $doubts;
+        return Doubt::where('student_id', Auth::user()->id)->get();
     }
 
     /**

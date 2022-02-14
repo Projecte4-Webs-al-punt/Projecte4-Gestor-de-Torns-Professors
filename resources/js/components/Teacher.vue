@@ -55,8 +55,13 @@ export default {
         subject: this.subject,
         message: this.message
       }).then(function (response) {
-        this.list();
+        //append html
+        console.log(1);
       });
+      tinymce.get("myeditorinstance").setContent('');
+      this.teacher = 'Selecciona el Professor';
+      this.subject = '';
+      this.message = '';
     },
   }
 };

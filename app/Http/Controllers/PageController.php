@@ -37,6 +37,16 @@ class PageController extends Controller
         return view("profile");
     }
 
+    public function question()
+    {
+        return view("question");
+    }
+
+    public function questionlist()
+    {
+        return view("questionlist");
+    }
+
     public function doubts()
     {
         return view("doubt.index");

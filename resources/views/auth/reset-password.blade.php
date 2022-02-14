@@ -2,7 +2,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Register | Tutory</title>
+    <title>Canviar Contrasenya | Tutory</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="https://i.ibb.co/QnxXzXj/Copia-de-Tutory-cat-1.png">
 
     <script
             src="https://kit.fontawesome.com/2828f7885a.js"

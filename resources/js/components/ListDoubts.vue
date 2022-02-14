@@ -24,13 +24,9 @@
                   </div>
                   <div class="content" v-if="doubt.message.length > 50">
                     {{ doubt.message.substring(0, 50) }} ...
-                    <br>
-                    <time datetime="{{ doubt.date_opening }}">{{ doubt.date_opening }}</time>
                   </div>
                   <div class="content" v-else>
                     {{ doubt.message }}
-                    <br>
-                    <time datetime="{{ doubt.date_opening }}">{{ doubt.date_opening }}</time>
                   </div>
                 </div>
 
@@ -90,6 +86,7 @@ export default {
       document.getElementById("modal").classList.add("is-active");
       axios.get(`/api/doubts/${ id }`)
           .then((response) => {
+            console.log(response);
             this.dataDoubt = response.data[0];
           });
     },

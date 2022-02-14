@@ -5,6 +5,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\API\TeacherController;
+use App\Http\Controllers\API\DoubtController;
 use Illuminate\Support\Facades\Storage;
 
 /*
@@ -31,6 +32,10 @@ Route::get('/profile', [PageController::class, "profile"])->name("profile");
 Route::get('/dashboard', [PageController::class, "admin"])->middleware(['isTeacher'])->name('dashboard');
 
 Route::get('/doubts', [PageController::class, "doubts"])->middleware(['isTeacher'])->name('doubts');
+
+Route::get('/question',[PageController::class,'question'])->name('question');
+
+Route::get('/question-list',[PageController::class,'questionlist'])->name('questionlist');
 
 Route::get('/doubts/user',[UserController::class,'indexStudent']);
 
