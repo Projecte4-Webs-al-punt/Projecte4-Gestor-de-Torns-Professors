@@ -37,8 +37,9 @@ class PageController extends Controller
         return view("profile");
     }
 
-    public function doubts()
+    public function doubts(Request $request)
     {
-        return view("doubt.index");
+        $status=$request->get("status");
+        return view("doubt.index", ["status"=>$status]);
     }
 }

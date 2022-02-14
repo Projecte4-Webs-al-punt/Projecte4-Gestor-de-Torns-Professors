@@ -20,7 +20,6 @@ class DoubtController extends Controller
         $doubts = Doubt::paginate(10);
 
        // $doubts = Doubt::where('id',Auth::user()>id);
-
         return response()->json($doubts);
     }
 
@@ -56,6 +55,11 @@ class DoubtController extends Controller
     {
         return Doubt::where('id',$id)->get();
 
+    }
+    public function status($status)
+    {
+        $doubts = Doubt::where('status', $status)->paginate(10);
+        return response()->json($doubts);
     }
 
     /**

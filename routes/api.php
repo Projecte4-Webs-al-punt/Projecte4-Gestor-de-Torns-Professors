@@ -34,6 +34,8 @@ Route::get('/doubts',[DoubtController::class,'index']);
 
 Route::get('/doubts/{id}',[DoubtController::class,'show']);
 
+Route::get('/doubts/status/{status}',[DoubtController::class,'status']);
+
 Route::get('/teachers',[TeacherController::class,'list']);
 
 Route::post('/senddoubt',[DoubtController::class,'store']);
