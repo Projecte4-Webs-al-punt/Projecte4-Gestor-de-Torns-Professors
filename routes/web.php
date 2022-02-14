@@ -32,6 +32,9 @@ Route::get('/dashboard', [PageController::class, "admin"])->middleware(['isTeach
 
 Route::get('/doubts', [PageController::class, "doubts"])->middleware(['isTeacher'])->name('doubts');
 
+Route::get('/doubts/user',[UserController::class,'indexStudent']);
+
+Route::post('/senddoubt',[UserController::class,'indexStudentAdd']);
 
 /* Routes of users */
 

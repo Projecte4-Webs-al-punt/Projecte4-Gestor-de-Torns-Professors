@@ -49,13 +49,13 @@ export default {
     },
     formSubmit(e) {
       e.preventDefault();
-      console.log(this.teacher+" "+this.message+" "+this.subject);
-      axios.post('/api/senddoubt', {
+      this.message = tinymce.get("myeditorinstance").getContent(self.value);
+      axios.post('/senddoubt', {
         teacher: this.teacher,
         subject: this.subject,
         message: this.message
       }).then(function (response) {
-        console.log(response.data);
+        this.list();
       });
     },
   }
