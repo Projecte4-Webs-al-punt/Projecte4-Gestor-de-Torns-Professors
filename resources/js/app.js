@@ -8,7 +8,6 @@ import ListDoubts from "./components/ListDoubts.vue";
 
 import Teacher from './components/Teacher.vue';
 
-import SliderComponent from "./components/SliderComponent.vue";
 
 const app = createApp({});
 
@@ -16,9 +15,7 @@ app.component('crud-usuari', CrudUsuaris);
 
 app.component('crud-doubts', CrudDoubts);
 
-app.component('list-doubts', ListDoubts);
-
-app.component('SliderComponent', SliderComponent);
+app.component('ListDoubts', ListDoubts);
 
 app.component('teacher', Teacher);
 
