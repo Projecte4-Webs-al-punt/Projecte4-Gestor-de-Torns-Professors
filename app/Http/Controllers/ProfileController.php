@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\ProfileRequest;
 
 class ProfileController extends Controller
 {
@@ -13,26 +14,22 @@ class ProfileController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+
+    public function update(ProfileRequest $request)
     {
-        $request->validate(
-            [
-                'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-                'name' => 'required|max:255',
-                'lastname' => 'required|max:255',
-                'email' => 'required|max:255',
-                'telefon' => 'nullable|max:255'
-            ]
-        );
-        //el nombre del avatar es el id de usuario para que en caso de que se cambie 
-        //el avatar se sobreescriba en lugar de ser guardado a parte
-        $path = $request->file('image')->storeAs(
+        //$path = $request->file('image')->store('public/avatar');
+        
+        $user = Auth::user();
+        if($request->file('image') != null){
+        $user->image = basename($request->file('image')->storeAs(
             'public/avatar',
             $request->user()->id
-        );
-        //$path = $request->file('image')->store('public/avatar');
-        $user = Auth::user();
-        $user->image = basename($path);
+        ));
+    }
+        $user->name = $request->input('name');
+        $user->lastname = $request->input('lastname');
+        $user->email = $request->input('email');
+        $user->phone = $request->input('phone');
         $user->save();
 
         return view("profile");

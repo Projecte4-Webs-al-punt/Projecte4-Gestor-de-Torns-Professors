@@ -39,6 +39,6 @@ Route::get('/users', [UserController::class, "index"])->middleware(['isTeacher']
 
 Route::delete('/users/{user}', [UserController::class, "destroy"])->name("delete");
 
-Route::post('/update',[ProfileController::class, 'update'])->name("update");
+Route::post('/update',[ProfileController::class, "update"])->name("update");
 
 require __DIR__.'/auth.php';
