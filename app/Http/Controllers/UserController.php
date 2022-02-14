@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Doubt;
 
 class UserController extends Controller
 {
@@ -20,6 +22,38 @@ class UserController extends Controller
         return view ('users.index',[
             'users' => $users
         ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexStudent()
+    {
+        $doubts = Doubt::where('student_id', Auth::user()->id)->get();
+
+        return $doubts;
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexStudentAdd(Request $request)
+    {
+        $teacher = $request->input("teacher", "");
+        $subject = $request->input("subject", "");
+        $message = $request->input("message", "");
+
+        $doubt = new Doubt;
+        $doubt->matter = $subject;
+        $doubt->message = $message;
+        $doubt->student_id = Auth::user()->id;
+        $doubt->teacher_id = $teacher;
+
+        $doubt->save();
     }
 
     /**

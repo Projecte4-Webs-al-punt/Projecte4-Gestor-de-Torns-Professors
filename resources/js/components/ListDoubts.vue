@@ -81,9 +81,9 @@ export default {
 
   methods: {
     list(page=1) {
-      axios.get(`/api/doubts`)
+      axios.get(`/doubts/user`)
           .then((response) => {
-            this.doubts = response.data;
+            this.doubts = response;
           });
     },
     modal(id){
