@@ -21,14 +21,10 @@
                       <p class="subtitle is-6 m-2">Estat: {{ doubt.status }}</p>
                     </div>
                   </div>
-<<<<<<< HEAD
                   <div class="content" v-if="doubt.message.length > 50">
                     {{ doubt.message.substring(0, 50) }} ...
                   </div>
                   <div class="content" v-else>
-=======
-                  <div class="content">
->>>>>>> 13e7f7baa71836c80fd69fe05d420f565ab10c99
                     {{ doubt.message }}
                   </div>
                 </div>
