@@ -1,5 +1,6 @@
 <template>
-  <div class="section-dark my-work" id="my-work">
+  <div>
+    <div class="section-dark my-work" id="my-work">
     <div class="container">
       <div
           class="columns is-multiline"
@@ -35,37 +36,17 @@
     </div>
   </div>
       </div>
-
-
-  <div class="notification is-light">
-    <div class="level">
-      <div class="level-left">
-        <div class="level-item">
-          <div class="buttons has-addons">
-            <div v-for="item in this.totalPages" :key="item">
-              <button type="button" class="button is-warning" @click="list(item)" v-if="currentPage == item">{{ item }}</button>
-              <button type="button" class="button is-dark" @click="list(item)" v-else>{{ item }}</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="level-right">
-        <div class="level-item">
-          <small class="is-size-5">Pàgina {{ currentPage }} de {{ totalPages }}</small>
-        </div>
-      </div>
-    </div>
-  </div>
   <div>
     <div class="modal" id="modal">
       <div class="modal-background"></div>
       <div class="modal-content">
         <div class="box">
-          Hola
+          {{ this.dataDoubt.message }}
         </div>
       </div>
       <button class="modal-close" @click="hidemodal"></button>
     </div>
+  </div>
   </div>
 
 </template>
@@ -83,6 +64,10 @@ export default {
   data() {
     return {
       doubts: {
+        type: Object,
+        default: null
+      },
+      dataDoubt: {
         type: Object,
         default: null
       },
@@ -107,7 +92,6 @@ export default {
       document.getElementById("modal").classList.add("is-active");
       axios.get(`/api/doubts/${ id }`)
           .then((response) => {
-            console.log(response);
             this.dataDoubt = response.data[0];
           });
     },
