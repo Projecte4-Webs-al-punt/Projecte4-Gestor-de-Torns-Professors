@@ -11,7 +11,7 @@
                             Què és Tutory.cat?
                         </p>
                         <br />
-                        <p>
+                        <p class="has-text-justified">
                             Tutory.cat és una aplicació pensada per fer-la servir en un centre educatiu d'estudis tant primaris com superiors o un curs en particular.
                             L'Aplicació està pensada perquè els alumnes puguin preguntar dubtes als seus professors, i que els professors puguin resoldre els dubtes dels seus alumnes d'una manera més eficient que la manera tradicional.
                             A part de la funcionalitat de gestionar els dubtes, l'aplicació també incorpora altres funcionalitats pensades per millorar la feina dels professors com tenir una llista dels alumnes amb els quals ha de fer tutoria o generar aleatòriament a un alumne perquè surti a la pissarra.
@@ -20,28 +20,17 @@
                         <hr class="is-divider" />
                         <div class="columns about-links">
                             <div class="column">
-                                <p class="heading has-text-weight-bold">
-                                    Telèfon
-                                </p>
-                                <p class="subheading">
-                                    674 979 133
+                                <p class="heading">
+                                    Juan José Gómez Villegas
                                 </p>
                             </div>
                             <div class="column">
-                                <p class="heading has-text-weight-bold">
-                                    Correu Electrònic
-                                </p>
-                                <p class="subheading">
-                                    juanjogomvil@gmail.com
+                                <p class="heading">
+                                    Mohamed Bourarach
                                 </p>
                             </div>
                             <div class="column">
-                                <p class="heading has-text-weight-bold">
-                                    Creadors
-                                </p>
-                                <p class="subheading">
-                                    Juan José Gómez Villegas<br>
-                                    Mohamed Bourarach<br>
+                                <p class="heading">
                                     Kirill Lupenkov
                                 </p>
                             </div>

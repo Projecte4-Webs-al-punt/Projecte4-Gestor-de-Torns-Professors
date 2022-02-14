@@ -20,7 +20,7 @@
                             <div class="column is-10 has-text-centered is-offset-1">
 
                                 <div id="app">
-                                    <Teacher></Teacher>
+                                    <teacher></teacher>
                                 </div>
 
 
@@ -31,7 +31,7 @@
                         <div class="section-dark my-work" id="my-work">
 
                             <div id="app">
-                                <ListDoubts></ListDoubts>
+                                <list-doubts></list-doubts>
                             </div>
 
                         </div>
