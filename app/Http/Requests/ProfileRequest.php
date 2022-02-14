@@ -13,7 +13,7 @@ class ProfileRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,11 +24,11 @@ class ProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'image' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             'name' => 'required|max:255',
             'lastname' => 'required|max:255',
-            'email' => 'required|max:255',
-            'telefon' => 'nullable|max:255'
+            'email' => 'required|email|max:255',
+            'phone' => 'nullable|string|max:15'
         ];
     }
 }
