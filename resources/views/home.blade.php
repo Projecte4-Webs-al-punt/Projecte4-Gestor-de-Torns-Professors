@@ -5,6 +5,7 @@
     <div class="main-content">
         @if (Auth::check())
             @if (Auth::user()->role == 'student')
+            <div id="app">
                 <div class="section-dark resume">
                     <div class="container">
                         <div
@@ -19,9 +20,9 @@
                             </div>
                             <div class="column is-10 has-text-centered is-offset-1">
 
-                                <div id="app">
+                            
                                     <teacher></teacher>
-                                </div>
+                               
 
 
                             </div>
@@ -30,13 +31,13 @@
 
                         <div class="section-dark my-work" id="my-work">
 
-                            <div id="app">
+                            
                                 <list-doubts></list-doubts>
-                            </div>
+             
 
                         </div>
                     </div>
-
+</div>
                     @endif
                     @else
                         <section class="hero is-medium has-text-centered">
