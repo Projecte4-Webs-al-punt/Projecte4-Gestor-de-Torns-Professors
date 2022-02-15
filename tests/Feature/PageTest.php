@@ -160,4 +160,20 @@ class PageTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    /**
+     * A basic feature test example.
+     *
+     * @return void
+     */
+    public function test_users()
+    {
+        $this->withoutMiddleware();
+        
+        $user = User::first();
+        
+        $response = $this->actingAs($user)->get('/users');
+
+        $response->assertStatus(200);
+    }
 }
