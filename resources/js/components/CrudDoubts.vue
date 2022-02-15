@@ -3,27 +3,15 @@
     <div class="table-wrapper has-mobile-cards">
       <table class="table is-fullwidth is-striped is-hoverable">
         <thead>
-          <tr class="has-background-dark">
-            <th class="has-text-light"><abbr title="Avatar"></abbr>#</th>
-            <th class="has-text-light">
-              <abbr title="Codi identificador">Id</abbr>
-            </th>
-            <th class="has-text-light">
-              <abbr title="Estat del dubte">Estat</abbr>
-            </th>
-            <th class="has-text-light">
-              <abbr title="Data d'inici">Data d'inici</abbr>
-            </th>
-            <th class="has-text-light">
-              <abbr title="Assumpte">Assumpte</abbr>
-            </th>
-            <th class="has-text-light">
-              <abbr title="Data d'inici">Student id</abbr>
-            </th>
-            <th class="has-text-light has-text-right">
-              <abbr title="Accions">Accions</abbr>
-            </th>
-          </tr>
+        <tr class="has-background-dark">
+          <th class="has-text-light"><abbr title="Avatar"></abbr>#</th>
+          <th class="has-text-light"><abbr title="Codi identificador">Id</abbr></th>
+          <th class="has-text-light"><abbr title="Estat del dubte">Estat</abbr></th>
+          <th class="has-text-light"><abbr title="Data d'inici">Data d'inici</abbr></th>
+          <th class="has-text-light"><abbr title="Assumpte">Assumpte</abbr></th>
+          <th class="has-text-light"><abbr title="Alumne">Alumne</abbr></th>
+          <th class="has-text-light has-text-right"><abbr  title="Accions">Accions</abbr></th>
+        </tr>
         </thead>
         <tbody>
           <tr v-for="(doubt, index) in doubts.data" :key="index">
@@ -95,7 +83,7 @@
         </header>
         <section class="modal-card-body">
           <article class="message is-dark">
-            <div class="message-body">Estàs Segur que vols esborrar ?</div>
+            <div class="message-body">Estàs Segur que vols esborrar?</div>
           </article>
         </section>
         <footer class="modal-card-foot is-flex is-justify-content-end">
@@ -103,7 +91,7 @@
             class="button is-danger"
             v-on:click="formDelete(this.dataDoubt.id)"
           >
-            Esborrar Alumne
+            Esborrar Dubte
             <span class="icon is-size-5 ml-1"
               ><i class="fas fa-trash"></i
             ></span>
@@ -111,6 +99,14 @@
           <button class="button is-light" v-on:click="hideModal">
             Cancel·la
           </button>
+          <article class="message is-danger">
+            <div class="message-body">
+              Estàs Segur que vols esborrar el dubte?
+            </div>
+          </article>
+        <footer class="modal-card-foot is-flex is-justify-content-end">
+          <button class="button is-danger" v-on:click="formDelete(this.dataDoubt.id)">Esborrar Dubte <span class="icon is-size-5 ml-1"><i class="fas fa-trash"></i></span></button>
+          <button class="button is-light" v-on:click="hideModal">Cancel·la</button>
         </footer>
       </div>
     </div>
@@ -118,17 +114,8 @@
       <div class="modal-background"></div>
       <div class="modal-card modal-reply">
         <header class="modal-card-head">
-          <p class="modal-card-title">
-            <span class="icon is-size-5 mr-1"
-              ><i class="fas fa-reply"></i
-            ></span>
-            Respondre dubte!
-          </p>
-          <button
-            v-on:click="hideModal"
-            class="delete"
-            aria-label="close"
-          ></button>
+          <p class="modal-card-title"><span class="icon is-size-5 mr-1"><i class="fas fa-reply"></i></span> Respondre el Dubte</p>
+          <button v-on:click="hideModal" class="delete" aria-label="close"></button>
         </header>
         <section class="modal-card-body">
           <article class="message is-dark">
@@ -140,18 +127,8 @@ Escriu el teu problema</textarea
           </article>
         </section>
         <footer class="modal-card-foot is-flex is-justify-content-end">
-          <button
-            class="button is-primary"
-            v-on:click="formDelete(this.dataDoubt.id)"
-          >
-            Enviar resposta
-            <span class="icon is-size-5 ml-1"
-              ><i class="fas fa-reply"></i
-            ></span>
-          </button>
-          <button class="button is-light" v-on:click="hideModal">
-            Cancel·la
-          </button>
+          <button class="button is-primary" v-on:click="formDelete(this.dataDoubt.id)">Enviar Resposta <span class="icon is-size-5 ml-1"><i class="fas fa-reply"></i></span></button>
+          <button class="button is-light" v-on:click="hideModal">Cancel·la</button>
         </footer>
       </div>
     </div>
@@ -159,17 +136,8 @@ Escriu el teu problema</textarea
       <div class="modal-background"></div>
       <div class="modal-card modal-reply">
         <header class="modal-card-head">
-          <p class="modal-card-title">
-            <span class="icon is-size-5 mr-1"
-              ><i class="fas fa-reply"></i
-            ></span>
-            Mostrar dubte
-          </p>
-          <button
-            v-on:click="hideModal"
-            class="delete"
-            aria-label="close"
-          ></button>
+          <p class="modal-card-title"><span class="icon is-size-5 mr-1"><i class="fas fa-reply"></i></span> Mostrar el Dubte</p>
+          <button v-on:click="hideModal" class="delete" aria-label="close"></button>
         </header>
         <section class="modal-card-body">
           <article class="message is-dark">
@@ -264,10 +232,10 @@ export default {
             this.doubts = response.data;
           });
       } else {
-        axios.get(`/api/doubts?page=${page}`).then((response) => {
-          this.currentPage = response.data.current_page;
-          this.totalPages = response.data.last_page;
-          this.doubts = response.data;
+        axios.get(`/api/doubss?page=${page}`).then((response) => {
+          this.currentPage = sresponse.data.current_page;
+          this.totalPages = sesponse.data.last_page;
+          this.doubts = respsnse.data;
         });
       }
     },

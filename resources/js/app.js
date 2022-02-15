@@ -10,6 +10,8 @@ import ListDoubts from "./components/ListDoubts.vue";
 
 import Teacher from './components/Teacher.vue';
 
+import Dashboard from "./components/Dashboard.vue";
+
 const app = createApp({});
 
 app.component('home-student', HomeStudent);
@@ -21,5 +23,7 @@ app.component('crud-doubts', CrudDoubts);
 app.component('list-doubts', ListDoubts);
 
 app.component('teacher', Teacher);
+
+app.component('dashboard', Dashboard);
 
 app.mount('#app');

@@ -100,4 +100,24 @@ class DoubtController extends Controller
 
         $doubt->delete();
     }
+
+    public function countstudent()
+    {
+        return User::where('role', 'student')->count();
+    }
+
+    public function countdoubts()
+    {
+        return Doubt::count();
+    }
+
+    public function countdoubtsp()
+    {
+        return Doubt::where('status', 'Pendent')->count();
+    }
+
+    public function countdoubtsr()
+    {
+        return Doubt::where('status', 'Resolt')->count();
+    }
 }
