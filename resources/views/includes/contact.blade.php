@@ -1,72 +1,50 @@
 <div class="main-content">
-        <div class="section-light contact" id="contact">
-            <div class="container">
-                <div
-                        class="columns is-multiline"
-                        data-aos="fade-in-up"
-                        data-aos-easing="linear"
-                >
-                    <div class="column is-12 about-me">
-                        <h1 class="title has-text-centered section-title">
-                            Formulari de contacte
-                        </h1>
+    <div class="section-light about-me">
+        <div class="container">
+            <div class="column is-12 about-me">
+                <h1 class="title has-text-centered section-title">Contacte</h1>
+            </div>
+            <div class="columns is-multiline">
+                <div class="column is-6"
+                     data-aos="fade-right">
+                    <form action="{{ route('send-contact') }}" method="POST">
+                        @csrf
+                    <div class="field">
+                        <label class="label m-2">Nom complet</label>
+                        <div class="control has-icons-left has-icons-right">
+                            <input name="name" class="input is-warning" type="text" placeholder="Escriu el teu nom complet...">
+                            <span class="icon is-small is-left">
+      <i class="fas fa-at"></i>
+    </span>
+                        </div>
                     </div>
-                    <div class="column is-8 is-offset-2">
-                        <form
-                                action="https://formspree.io/email@example.com"
-                                method="POST"
-                        >
-                            <div class="field">
-                                <label class="label">Name</label>
-                                <div class="control has-icons-left">
-                                    <input
-                                            class="input"
-                                            type="text"
-                                            placeholder="Ex. Jane Smith"
-                                            name="Name"
-                                    />
-                                    <span class="icon is-small is-left">
-                      <i class="fas fa-user"></i>
-                    </span>
-                                </div>
-                            </div>
-                            <div class="field">
-                                <label class="label">Email</label>
-                                <div class="control has-icons-left">
-                                    <input
-                                            class="input"
-                                            type="email"
-                                            placeholder="Ex. hello@arctheme.com"
-                                            name="Email"
-                                    />
-                                    <span class="icon is-small is-left">
-                      <i class="fas fa-envelope"></i>
-                    </span>
-                                </div>
-                            </div>
-                            <div class="field">
-                                <label class="label">Message</label>
-                                <div class="control">
-                    <textarea
-                            class="textarea"
-                            placeholder="Textarea"
-                            name="Message"
-                    ></textarea>
-                                </div>
-                            </div>
-                            <div class="field">
-                                <div class="control ">
-                                    <button class="button submit-button">
-                                        Submit&nbsp;&nbsp;
-                                        <i class="fas fa-paper-plane"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
+
+                    <div class="field ">
+                        <label class="label m-2">Correu electrònic</label>
+                        <div class="control has-icons-left has-icons-right">
+                            <input name="email" class="input is-warning" type="email" placeholder="Escriu el teu correu electronic...">
+                            <span class="icon is-small is-left">
+      <i class="fas fa-at"></i>
+    </span>
+                        </div>
                     </div>
+
+                    <div class="field">
+                        <div class="field">
+                            <label class="label m-2">Missatge</label>
+                            <div class="control">
+                                <textarea name="message" class="textarea is-warning" placeholder="Escriu el teu dubte, problema, recomenació..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="button is-fullwidth is-dark mt-5">Enviar contacte&nbsp;&nbsp;<i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+
+                <div class="column is-6 right-image mt-4" data-aos="fade-left">
+                    <img class="is-rounded" src="https://i.ibb.co/dW5yM55/Captura.png" alt="logo de l'aplicació" />
                 </div>
             </div>
         </div>
-        <!-- End Contact Content -->
     </div>
-    </div>
+</div>

@@ -46,16 +46,10 @@
                                 <h2 class="subtitle subtitled">
                                     Cansat d'estar tota l'estona donant voltes per tota la classe responent
                                     qualsevol dubte?<br>
-                                    Cansat d'estar tota l'estona amb el braç aixecat esperant que arribi el
-                                    professor?<br>
-                                    Amb tutory.cat aquests problemes s'han acabat per sempre.<br>
-                                    Com que la vida és massa curta. No dubtis més i utilitza Tutory.cat<br>
                                 </h2>
                                 <div>
                                     <a class="button is-warning" href="{{ route('contact') }}">Contacta amb
                                         Nosaltres</a>
-                                    <p class="content mt-2">Si trobes algun error a l'aplicació, no ho
-                                        dubtis més. Contacta amb Nosaltres.</p>
                                 </div>
                             </div>
                         </div>

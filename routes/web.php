@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
@@ -22,7 +23,7 @@ Route::get('/contact', [PageController::class, "contact"])->name("contact");
 
 Route::get('/about', [PageController::class, "about"])->name("about");
 
-Route::get('/test', [PageController::class, "test"])->name("test");
+Route::post('/send-contact', [ContactController::class, "send"])->name("send-contact");
 
 Route::get('/profile', [PageController::class, "profile"])->middleware('auth')->name("profile");
 

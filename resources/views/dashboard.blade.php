@@ -35,17 +35,21 @@
                         </a>
                     </div>
                     <div class="tile is-parent">
-                        <article class="tile is-child box danger">
+                        <a class="tile is-child box danger" href="/doubts?status=pendent">
+                        <article>
                             <p class="title">201</p>
                             <p class="subtitle"><i class="fas fa-exclamation-circle"></i> Dubtes no resolts</p>
                         </article>
+                        </a>
                     </div>
 
                     <div class="tile is-parent">
-                        <article class="tile is-child box success">
+                        <a class="tile is-child box success" href="/doubts?status=resolt">
+                        <article >
                             <p class="title">200</p>
                             <p class="subtitle"> <i class="fas fa-check-circle"></i> Dubtes resolts</p>
                         </article>
+                        </a>
                     </div>
                 </div>
 

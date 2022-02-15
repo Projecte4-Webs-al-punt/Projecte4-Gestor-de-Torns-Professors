@@ -22,8 +22,8 @@
                     <ul class="menu-list">
                         <li><a href="{{ route('users') }}">Total d'Alumnes</a></li>
                         <li><a href="{{ route('doubts') }}">Total de Dubtes</a></li>
-                        <li><a>Dubtes no Resolts</a></li>
-                        <li><a>Dubtes Resolts</a></li>
+                        <li><a href="/doubts?status=pendent">Dubtes no Resolts</a></li>
+                        <li><a href="/doubts?status=resolt">Dubtes Resolts</a></li>
                     </ul>
                 </div>
                 <div class="menu-category">
