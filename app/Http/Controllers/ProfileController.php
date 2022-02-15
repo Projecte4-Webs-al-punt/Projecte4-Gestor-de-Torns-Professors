@@ -18,20 +18,19 @@ class ProfileController extends Controller
     public function update(ProfileRequest $request)
     {
         //$path = $request->file('image')->store('public/avatar');
-        
+
         $user = Auth::user();
-        if($request->file('image') != null){
-        $user->image = basename($request->file('image')->storeAs(
-            'public/avatar',
-            $request->user()->id
-        ));
-    }
+        if ($request->file('image') != null) {
+            $user->image = basename($request->file('image')->storeAs(
+                'public/avatar',
+                $request->user()->id
+            ));
+        }
         $user->name = $request->input('name');
         $user->lastname = $request->input('lastname');
         $user->email = $request->input('email');
         $user->phone = $request->input('phone');
         $user->save();
-
-        return view("profile");
+        return redirect('/profile');
     }
 }
