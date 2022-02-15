@@ -104,6 +104,16 @@ class DoubtController extends Controller
 
     public function countdoubts()
     {
-        return 6;
+        return Doubt::count();
+    }
+
+    public function countdoubtsp()
+    {
+        return Doubt::where('status', 'Pendent')->count();
+    }
+
+    public function countdoubtsr()
+    {
+        return Doubt::where('status', 'Resolt')->count();
     }
 }

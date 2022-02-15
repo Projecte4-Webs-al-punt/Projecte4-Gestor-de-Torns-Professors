@@ -18,13 +18,13 @@
         </div>
         <div class="tile is-parent">
             <article class="tile is-child box danger">
-                <p class="title">201</p>
+                <p class="title">{{ this.countDoubtP }}</p>
                 <p class="subtitle"><i class="fas fa-exclamation-circle"></i> Dubtes no resolts</p>
             </article>
         </div>
         <div class="tile is-parent">
             <article class="tile is-child box success">
-                <p class="title">200</p>
+                <p class="title">{{ this.countDoubtR }}</p>
                 <p class="subtitle"> <i class="fas fa-check-circle"></i> Dubtes resolts</p>
             </article>
         </div>
@@ -47,6 +47,8 @@ export default {
     mounted() {
         this.setCountStudent();
         this.setCountDoubts();
+        this.setCountDoubtsP();
+        this.setCountDoubtsR();
     }, 
     methods: {
         setCountStudent() {
@@ -59,6 +61,18 @@ export default {
             axios.get('/api/countdoubts')
             .then((response) => {
                 this.countDoubt = response.data;
+            });
+        }, 
+        setCountDoubtsP() {
+            axios.get('/api/countdoubtsp')
+            .then((response) => {
+                this.countDoubtP = response.data;
+            });
+        }, 
+        setCountDoubtsR() {
+            axios.get('/api/countdoubtsr')
+            .then((response) => {
+                this.countDoubtR = response.data;
             });
         }
     }

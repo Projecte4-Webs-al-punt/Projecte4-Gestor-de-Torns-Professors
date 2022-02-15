@@ -41,3 +41,7 @@ Route::get('/teachers',[TeacherController::class,'list']);
 Route::get('/countstudent',[DoubtController::class,'countstudent']);
 
 Route::get('/countdoubts',[DoubtController::class,'countdoubts']);
+
+Route::get('/countdoubtsp',[DoubtController::class,'countdoubtsp']);
+
+Route::get('/countdoubtsr',[DoubtController::class,'countdoubtsr']);

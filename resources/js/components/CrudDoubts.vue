@@ -9,7 +9,7 @@
           <th class="has-text-light"><abbr title="Estat del dubte">Estat</abbr></th>
           <th class="has-text-light"><abbr title="Data d'inici">Data d'inici</abbr></th>
           <th class="has-text-light"><abbr title="Assumpte">Assumpte</abbr></th>
-          <th class="has-text-light"><abbr title="Data d'inici">Student id</abbr></th>
+          <th class="has-text-light"><abbr title="Alumne">Alumne</abbr></th>
           <th class="has-text-light has-text-right"><abbr  title="Accions">Accions</abbr></th>
         </tr>
         </thead>
@@ -50,14 +50,14 @@
           <button v-on:click="hideModal" class="delete" aria-label="close"></button>
         </header>
         <section class="modal-card-body">
-          <article class="message is-dark">
+          <article class="message is-danger">
             <div class="message-body">
-              Estàs Segur que vols esborrar ?
+              Estàs Segur que vols esborrar el dubte?
             </div>
           </article>
         </section>
         <footer class="modal-card-foot is-flex is-justify-content-end">
-          <button class="button is-danger" v-on:click="formDelete(this.dataDoubt.id)">Esborrar Alumne <span class="icon is-size-5 ml-1"><i class="fas fa-trash"></i></span></button>
+          <button class="button is-danger" v-on:click="formDelete(this.dataDoubt.id)">Esborrar Dubte <span class="icon is-size-5 ml-1"><i class="fas fa-trash"></i></span></button>
           <button class="button is-light" v-on:click="hideModal">Cancel·la</button>
         </footer>
       </div>
@@ -66,7 +66,7 @@
       <div class="modal-background"></div>
       <div class="modal-card modal-reply">
         <header class="modal-card-head">
-          <p class="modal-card-title"><span class="icon is-size-5 mr-1"><i class="fas fa-reply"></i></span> Respondre dubte!</p>
+          <p class="modal-card-title"><span class="icon is-size-5 mr-1"><i class="fas fa-reply"></i></span> Respondre el Dubte</p>
           <button v-on:click="hideModal" class="delete" aria-label="close"></button>
         </header>
         <section class="modal-card-body">
@@ -77,7 +77,7 @@
           </article>
         </section>
         <footer class="modal-card-foot is-flex is-justify-content-end">
-          <button class="button is-primary" v-on:click="formDelete(this.dataDoubt.id)">Enviar resposta <span class="icon is-size-5 ml-1"><i class="fas fa-reply"></i></span></button>
+          <button class="button is-primary" v-on:click="formDelete(this.dataDoubt.id)">Enviar Resposta <span class="icon is-size-5 ml-1"><i class="fas fa-reply"></i></span></button>
           <button class="button is-light" v-on:click="hideModal">Cancel·la</button>
         </footer>
       </div>
@@ -86,7 +86,7 @@
       <div class="modal-background"></div>
       <div class="modal-card modal-reply">
         <header class="modal-card-head">
-          <p class="modal-card-title"><span class="icon is-size-5 mr-1"><i class="fas fa-reply"></i></span> Mostrar dubte</p>
+          <p class="modal-card-title"><span class="icon is-size-5 mr-1"><i class="fas fa-reply"></i></span> Mostrar el Dubte</p>
           <button v-on:click="hideModal" class="delete" aria-label="close"></button>
         </header>
         <section class="modal-card-body">

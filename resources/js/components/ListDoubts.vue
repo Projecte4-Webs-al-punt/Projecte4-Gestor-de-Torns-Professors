@@ -18,7 +18,7 @@
 
                     </div>
                     <div class="media-content ">
-                      <p class="title m-2">Pregunta generica</p>
+                      <p class="title m-2">{{ doubt.matter }}</p>
                       <p class="subtitle is-6 m-2">Estat: {{ doubt.status }}</p>
                     </div>
                   </div>
@@ -38,10 +38,11 @@
       </div>
   <div>
     <div class="modal" id="modal">
-      <div class="modal-background"></div>
+      <div class="modal-background" @click="hidemodal"></div>
       <div class="modal-content">
         <div class="box">
-          {{ this.dataDoubt.message }}
+          <h2 class="title is-3 has-text-centered">{{ this.dataDoubt.matter }}</h2>
+          <p class="mt-3">{{ this.dataDoubt.message }}</p>
         </div>
       </div>
       <button class="modal-close" @click="hidemodal"></button>
