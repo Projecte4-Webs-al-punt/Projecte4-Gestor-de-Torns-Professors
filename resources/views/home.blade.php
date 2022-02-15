@@ -8,7 +8,31 @@
                     <home-student></home-student>
                 </div>
             @elseif (Auth::user()->role == 'teacher')
-                <div>Professor</div>
+
+                <section class="hero is-medium has-text-centered">
+                    <div class="hero-body">
+                        <div class="container">
+                            <div class="columns is-centered">
+                                <div data-aos="zoom-in-up" class="column is-8">
+                                    <h1 class="title is-1 mb-6">
+                                        Tutory.cat <span id="typewriter"></span>
+                                    </h1>
+                                    <div class="column">
+                                        <a href="{{ route("dashboard") }}">
+                                        <div class="card column m-3">
+                                            <div class="card-content">
+                                                <h2 class="subtitle has-text-dark is-4 mb-3">Panell d'Administració</h2>
+                                                <div class="content">
+                                                    <span class="icon is-size-1 mt-5"><i class="fad fa-user-lock"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
             @endif
         @else
             <section class="hero is-medium has-text-centered">
