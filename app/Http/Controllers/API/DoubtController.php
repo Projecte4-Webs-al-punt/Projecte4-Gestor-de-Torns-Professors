@@ -61,8 +61,8 @@ class DoubtController extends Controller
     }
     public function status($status)
     {
-        $doubts = Doubt::where('status', $status)->paginate(10);
-        return response()->json($doubts);
+        $doubt = Doubt::where('status', $status)->paginate(10);
+        return response()->json($doubt);
     }
 
     /**
