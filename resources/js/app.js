@@ -1,31 +1,29 @@
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
+import { createApp } from 'vue';
 
-require('./bootstrap');
+import HomeStudent from "./components/HomeStudent.vue";
 
-import { createApp } from 'vue'
+import CrudUsuaris from './components/CrudUsuaris.vue';
 
+import CrudDoubts from './components/CrudDoubts.vue';
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
+import ListDoubts from "./components/ListDoubts.vue";
 
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+import Teacher from './components/Teacher.vue';
 
-import Component from './components/ExampleComponent.vue';
+import Dashboard from "./components/Dashboard.vue";
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+const app = createApp({});
 
- 
+app.component('home-student', HomeStudent);
+
+app.component('crud-usuari', CrudUsuaris);
+
+app.component('crud-doubts', CrudDoubts);
+
+app.component('list-doubts', ListDoubts);
+
+app.component('teacher', Teacher);
+
+app.component('dashboard', Dashboard);
+
+app.mount('#app');
