@@ -5,6 +5,7 @@
         <div class="column is-8 is-offset-2">
             <!-- START ARTICLE -->
             <div class="card article">
+            <h1 class="title is-1 mb-6 has-text-centered">{{ $user->name }} {{ $user->lastname }}</h1>
                 <div class="card-content">
                     <div class="media">
                         <div class="media-content has-text-centered">
@@ -28,8 +29,8 @@
                                             <div class="row">
 
                                                 <div>
-                                                    <div>
-                                                        <div class="file has-name is-boxed">
+                                                    <div class="is-flex is-justify-content-center">
+                                                        <div class="file has-name is-boxed is-dark">
                                                             <label class="file-label">
                                                                 <input class="file-input" type="file" name="resume"
                                                                        type="file" name="image"
@@ -39,18 +40,14 @@
                                                             <i class="fas fa-upload"></i>
                                                           </span>
                                                           <span class="file-label">
-                                                            Choose a file…
+                                                            Puja una Imatge ...
                                                           </span>
                                                         </span>
                                                                 <span class="file-name">
-                                                          Puja la imatge des de aquí
+                                                          ...
                                                         </span>
                                                             </label>
                                                         </div>
-                                                        <div class="m-4"><label
-                                                                    class="labels">Rol: </label><span>{{ $user ->role }} </span>
-                                                        </div>
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -59,31 +56,31 @@
                                     <div class="col-md-5 border-right">
                                         <div class="p-3 py-5">
                                             <div class="mb-3">
-                                                <h4 class="text-right">Les teves dades</h4>
+                                                <h1 class="title is-3 has-text-centered">Dades Personals</h1>
                                             </div>
                                             <div class="row mt-2">
                                                 <div class="m-4"><label class="labels">Nom</label>
-                                                    <input type="text" class="input is-warning" id="name"
-                                                           placeholder="Jhon" value={{ $user->name }}>
+                                                    <input type="text" class="input is-dark" id="name"
+                                                           placeholder="Nom" value="{{ $user->name }}">
                                                 </div>
-                                                <div class="m-4"><label class="labels">Cognom</label>
-                                                    <input type="text" class="input is-warning" id="lastname"
+                                                <div class="m-4"><label class="labels">Cognoms</label>
+                                                    <input type="text" class="input is-dark" id="lastname"
                                                            value="{{ $user->lastname }}"
-                                                           placeholder="Doe"></div>
+                                                           placeholder="Cognoms"></div>
                                             </div>
                                             <div class="row mt-3">
-                                                <div class="m-4"><label class="labels">Email:</label>
-                                                    <input type="text" class="input is-warning" id="email"
-                                                           placeholder="alumne@correu.edu"
+                                                <div class="m-4"><label class="labels">Correu Electrònic</label>
+                                                    <input type="text" class="input is-dark" id="email"
+                                                           placeholder="exemple@cendrassos.net"
                                                            value="{{ $user->email }}">
                                                 </div>
-                                                <div class="m-4"><label class="labels">Telefon: </label>
-                                                    <input type="text" class="input is-warning" id="phone"
-                                                           placeholder="655420666"
+                                                <div class="m-4"><label class="labels">Telèfon</label>
+                                                    <input type="text" class="input is-dark" id="phone"
+                                                           placeholder="000 000 000"
                                                            value="{{ $user->phone }}"></div>
                                             </div>
                                             <div class="mt-5 text-center">
-                                                <button class="button is-fullwidth is-warning">Guardar</button>
+                                                <button class="button is-fullwidth is-dark">Guardar</button>
                                             </div>
                                         </div>
 
