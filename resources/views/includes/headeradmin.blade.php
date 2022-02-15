@@ -45,9 +45,6 @@
                                  <a class="navbar-item" href="{{ route('profile') }}">
                                      Perfil
                                  </a>
-                                 <a class="navbar-item">
-                                     Parametres
-                                 </a>
                                  <hr class="navbar-divider">
                                  <div class="navbar-item">
                                      <form method="POST" action="{{ route('logout') }}">
@@ -55,7 +52,7 @@
 
                                          <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                             <a>{{ __('Tanca la Sessió') }}</a>
+                                             {{ __('Tancar Sessió') }}
                                          </x-dropdown-link>
                                      </form>
                                  </div>
