@@ -27,26 +27,26 @@ Route::get('/about', [PageController::class, "about"])->name("about");
 
 Route::get('/test', [PageController::class, "test"])->name("test");
 
-Route::get('/profile', [PageController::class, "profile"])->name("profile");
+Route::get('/profile', [PageController::class, "profile"])->middleware('auth')->name("profile");
 
-Route::get('/dashboard', [PageController::class, "admin"])->middleware(['isTeacher'])->name('dashboard');
+Route::get('/dashboard', [PageController::class, "admin"])->middleware(['auth', 'isTeacher'])->name('dashboard');
 
-Route::get('/doubts', [PageController::class, "doubts"])->middleware(['isTeacher'])->name('doubts');
+Route::get('/doubts', [PageController::class, "doubts"])->middleware(['auth', 'isTeacher'])->name('doubts');
 
-Route::get('/question',[PageController::class,'question'])->name('question');
+Route::get('/question',[PageController::class,'question'])->middleware(['auth', 'isStudent'])->name('question');
 
-Route::get('/question-list',[PageController::class,'questionlist'])->name('questionlist');
+Route::get('/question-list',[PageController::class,'questionlist'])->middleware(['auth', 'isStudent'])->name('questionlist');
 
-Route::get('/doubts/user',[UserController::class,'indexStudent']);
+Route::get('/doubts/user',[UserController::class,'indexStudent'])->middleware(['auth', 'isStudent']);
 
-Route::post('/senddoubt',[UserController::class,'indexStudentAdd']);
+Route::post('/senddoubt',[UserController::class,'indexStudentAdd'])->middleware(['auth', 'isStudent']);
 
 /* Routes of users */
 
-Route::get('/users', [UserController::class, "index"])->middleware(['isTeacher'])->name("users");
+Route::get('/users', [UserController::class, "index"])->middleware(['auth', 'isTeacher'])->name("users");
 
-Route::delete('/users/{user}', [UserController::class, "destroy"])->name("delete");
+Route::delete('/users/{user}', [UserController::class, "destroy"])->middleware(['auth', 'isTeacher'])->name("delete");
 
-Route::post('/update',[ProfileController::class, "update"])->name("update");
+Route::post('/update',[ProfileController::class, "update"])->middleware(['auth'])->name("update");
 
 require __DIR__.'/auth.php';
