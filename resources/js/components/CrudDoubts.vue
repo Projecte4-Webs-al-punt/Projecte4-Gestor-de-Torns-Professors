@@ -18,7 +18,7 @@
               <abbr title="Assumpte">Assumpte</abbr>
             </th>
             <th class="has-text-light">
-              <abbr title="Data d'inici">Student id</abbr>
+              <abbr title="Alumne">Alumne</abbr>
             </th>
             <th class="has-text-light has-text-right">
               <abbr title="Accions">Accions</abbr>
@@ -95,7 +95,7 @@
         </header>
         <section class="modal-card-body">
           <article class="message is-dark">
-            <div class="message-body">Estàs Segur que vols esborrar ?</div>
+            <div class="message-body">Estàs Segur que vols esborrar el dubte?</div>
           </article>
         </section>
         <footer class="modal-card-foot is-flex is-justify-content-end">
@@ -103,7 +103,7 @@
             class="button is-danger"
             v-on:click="formDelete(this.dataDoubt.id)"
           >
-            Esborrar Alumne
+            Esborrar Dubte
             <span class="icon is-size-5 ml-1"
               ><i class="fas fa-trash"></i
             ></span>
@@ -122,7 +122,7 @@
             <span class="icon is-size-5 mr-1"
               ><i class="fas fa-reply"></i
             ></span>
-            Respondre dubte!
+            Respondre
           </p>
           <button
             v-on:click="hideModal"
@@ -133,8 +133,7 @@
         <section class="modal-card-body">
           <article class="message is-dark">
             <div class="message-body">
-              <textarea v-model="message" id="myeditorinstance">
-Escriu el teu problema</textarea
+              <textarea v-model="message" id="myeditorinstance">Escriu el teu problema</textarea
               >
             </div>
           </article>
@@ -144,7 +143,7 @@ Escriu el teu problema</textarea
             class="button is-primary"
             v-on:click="formDelete(this.dataDoubt.id)"
           >
-            Enviar resposta
+            Enviar
             <span class="icon is-size-5 ml-1"
               ><i class="fas fa-reply"></i
             ></span>
@@ -163,7 +162,7 @@ Escriu el teu problema</textarea
             <span class="icon is-size-5 mr-1"
               ><i class="fas fa-reply"></i
             ></span>
-            Mostrar dubte
+            Mostrar el Dubte
           </p>
           <button
             v-on:click="hideModal"
@@ -180,7 +179,7 @@ Escriu el teu problema</textarea
         </section>
         <footer class="modal-card-foot is-flex is-justify-content-end">
           <button class="button is-light" v-on:click="hideModal">
-            Cancel·la
+            Tanca el Missatge
           </button>
         </footer>
       </div>
