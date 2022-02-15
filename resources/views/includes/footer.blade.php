@@ -6,17 +6,17 @@
       <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
     </p>
     <div class="columns is-desktop is-centered">
-      <div class="column is-flex is-justify-content-center">
-        <img class="image is-128x128" src="https://i.ibb.co/jhch1hd/Senyal-de-la-Generalitat-de-Catalunya-svg.png">
+      <div class="column is-flex is-justify-content-center is-align-items-center">
+        <a href="https://web.gencat.cat/ca/inici/" target="_blank"><img class="image is-128x128" src="https://i.ibb.co/jhch1hd/Senyal-de-la-Generalitat-de-Catalunya-svg.png"></a>
       </div>
-      <div class="column is-flex is-justify-content-center">
-        <img class="image" src="https://i.ibb.co/L0NDZNJ/logo-dinahosting.png">
+      <div class="column is-flex is-justify-content-center is-align-items-center">
+        <a href="https://ca.dinahosting.com/" target="_blank"><img class="image" src="https://i.ibb.co/L0NDZNJ/logo-dinahosting.png"></a>
       </div>
-      <div class="column is-flex is-justify-content-center">
-        <img class="image" src="https://i.ibb.co/d2v8Kvn/logo-wapps.png">
+      <div class="column is-flex is-justify-content-center is-align-items-center">
+        <a href="https://wapps.cat/" target="_blank"><img class="image" src="https://i.ibb.co/d2v8Kvn/logo-wapps.png"></a>
       </div>
-      <div class="column is-flex is-justify-content-center">
-        <img class="image" src="https://i.ibb.co/THwftvW/88x31.png">
+      <div class="column is-flex is-justify-content-center is-align-items-center">
+        <a href="http://opensource.org/licenses/mit-license.php" target="_blank"><img class="image" src="https://i.ibb.co/THwftvW/88x31.png"></a>
       </div>
     </div>
   </div>
