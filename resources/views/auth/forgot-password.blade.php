@@ -36,8 +36,9 @@
                                     <div class="mb-4">
 
                                         <b>Has oblidat la teva Contrasenya?</b>
-                                        <p>
-                                        Si Has Oblidat la teva Contrasenya, posa el teu correu electrònic i t'enviarem un enllaç per reiniciar-la.</p>
+                                        <p><br>
+                                        Si has oblidat la teva contrasenya, posa el teu correu electrònic
+                                            i t'enviarem un enllaç per reiniciar-la.</p>
                                     </div>
                                 <!-- Email Address -->
                                     <div>
