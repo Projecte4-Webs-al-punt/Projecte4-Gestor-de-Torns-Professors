@@ -60,4 +60,104 @@ class PageTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    /**
+     * A basic feature test example.
+     *
+     * @return void
+     */
+    public function test_dashboard()
+    {
+        $this->withoutMiddleware();
+        
+        $user = User::first();
+        
+        $response = $this->actingAs($user)->get('/dashboard');
+
+        $response->assertStatus(200);
+    }
+
+    /**
+     * A basic feature test example.
+     *
+     * @return void
+     */
+    public function test_doubts()
+    {
+        $this->withoutMiddleware();
+        
+        $user = User::first();
+        
+        $response = $this->actingAs($user)->get('/doubts');
+
+        $response->assertStatus(200);
+    }
+
+    /**
+     * A basic feature test example.
+     *
+     * @return void
+     */
+    public function test_question()
+    {
+        $this->withoutMiddleware();
+        
+        $user = User::first();
+        
+        $response = $this->actingAs($user)->get('/question');
+
+        $response->assertStatus(200);
+    }
+
+    /**
+     * A basic feature test example.
+     *
+     * @return void
+     */
+    public function test_question_list()
+    {
+        $this->withoutMiddleware();
+        
+        $user = User::first();
+        
+        $response = $this->actingAs($user)->get('/question-list');
+
+        $response->assertStatus(200);
+    }
+
+    /**
+     * A basic feature test example.
+     *
+     * @return void
+     */
+    public function test_doubts_user()
+    {
+        $this->withoutMiddleware();
+        
+        $user = User::first();
+        
+        $response = $this->actingAs($user)->get('/doubts/user');
+
+        $response->assertStatus(200);
+    }
+
+    /**
+     * A basic feature test example.
+     *
+     * @return void
+     */
+    public function test_senddoubt()
+    {
+        $this->withoutMiddleware();
+        
+        $user = User::first();
+        
+        $response = $this->actingAs($user)->post('/senddoubt', [
+            "teacher" => 1, 
+            "subject" => "Prova", 
+            "message" => "Prova"
+        ]);
+
+        $response->assertStatus(200);
+    }
 }
