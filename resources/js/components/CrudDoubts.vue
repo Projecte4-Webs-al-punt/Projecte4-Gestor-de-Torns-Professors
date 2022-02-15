@@ -107,15 +107,31 @@
           <div class="level-item">
             <div class="buttons has-addons">
               <div v-for="item in this.totalPages" :key="item">
-                <button type="button" class="button is-warning" @click="list(item)" v-if="currentPage == item">{{ item }}</button>
-                <button type="button" class="button is-dark" @click="list(item)" v-else>{{ item }}</button>
+                <button
+                  type="button"
+                  class="button is-warning"
+                  @click="list(item)"
+                  v-if="currentPage == item"
+                >
+                  {{ item }}
+                </button>
+                <button
+                  type="button"
+                  class="button is-dark"
+                  @click="list(item)"
+                  v-else
+                >
+                  {{ item }}
+                </button>
               </div>
             </div>
           </div>
         </div>
         <div class="level-right">
           <div class="level-item">
-            <small class="is-size-5">Pàgina {{ currentPage }} de {{ totalPages }}</small>
+            <small class="is-size-5"
+              >Pàgina {{ currentPage }} de {{ totalPages }}</small
+            >
           </div>
         </div>
       </div>
@@ -128,23 +144,29 @@
 import axios from "axios";
 import pagination from "laravel-vue-pagination";
 
+let url = `/api/doubts?page=${page}`;
+let status = this.$attrs.status;
+
 export default {
   name: "CrudDoubts",
   components: {
-    pagination
+    pagination,
   },
   data() {
     return {
       doubts: {
         type: Object,
-        default: null
+        default: null,
       },
       currentPage: 0,
-      totalPages: 0
-    }
+      totalPages: 0,
+    };
   },
   mounted() {
     this.list();
+  },
+  created() {
+    //console.log(this.$attrs.status);
   },
   methods: {
     list(page = 1) {
@@ -221,6 +243,22 @@ export default {
             this.list();
           });
     },
+    list(page = 1, status) {
+      if (status == "pendent") {
+        axios.get(url).then((response) => {
+          this.currentPage = response.data.current_page;
+          this.totalPages = response.data.last_page;
+          this.doubts = response.data;
+        });
+      }else if (status == "resolt") {
+        axios.get(`/api/doubts?page=${page}`)
+          .then((response) => {
+            this.currentPage = response.data.current_page;
+            this.totalPages = response.data.last_page;
+            this.doubts = response.data;
+          });
+      }
+    },
   }
-}
+};
 </script>

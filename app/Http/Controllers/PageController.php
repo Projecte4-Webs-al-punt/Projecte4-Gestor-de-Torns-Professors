@@ -50,8 +50,9 @@ class PageController extends Controller
         return view("questionlist");
     }
 
-    public function doubts()
+    public function doubts(Request $request)
     {
-        return view("doubt.index");
+        $status=$request->get("status");
+        return view("doubt.index", ["status"=>$status]);
     }
 }

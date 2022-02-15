@@ -28,13 +28,14 @@ Route::post('/users/store',[UserController::class,'store']);
 
 Route::post('/users/update/{id}', [UserController::class, "update"]);
 
-Route::delete('/users/{id}', [UserController::class, "destroy"])->name("delete");
-
 Route::get('/doubts',[DoubtController::class,'index']);
 
 Route::get('/doubts/{id}',[DoubtController::class,'show']);
 
 Route::delete('/doubts/{id}', [DoubtController::class, "destroy"])->name("delete");
 
+Route::get('/doubts/status/{status}',[DoubtController::class,'status']);
+
+Route::get('/teachers',[TeacherController::class,'list']);
 
 Route::get('/teachers',[TeacherController::class,'list']);
