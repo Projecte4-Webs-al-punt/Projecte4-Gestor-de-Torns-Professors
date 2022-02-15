@@ -36,5 +36,8 @@ Route::get('/doubts/{id}',[DoubtController::class,'show']);
 
 Route::delete('/doubts/{id}', [DoubtController::class, "destroy"])->name("delete");
 
-
 Route::get('/teachers',[TeacherController::class,'list']);
+
+Route::get('/countstudent',[DoubtController::class,'countstudent']);
+
+Route::get('/countdoubts',[DoubtController::class,'countdoubts']);

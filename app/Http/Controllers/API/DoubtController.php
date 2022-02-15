@@ -96,4 +96,14 @@ class DoubtController extends Controller
 
         $doubt->delete();
     }
+
+    public function countstudent()
+    {
+        return User::where('role', 'student')->count();
+    }
+
+    public function countdoubts()
+    {
+        return 6;
+    }
 }
