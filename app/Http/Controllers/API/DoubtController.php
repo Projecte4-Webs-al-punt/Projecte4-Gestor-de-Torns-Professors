@@ -101,6 +101,18 @@ class DoubtController extends Controller
         $doubt->delete();
     }
 
+    public function reply(Request $request){
+        $id = $request['id'];
+        $reply = $request['reply'];
+        $doubt = Doubt::find($id);
+
+        $doubt->response = $reply;
+        $doubt->status = 'Resolt';
+
+        $doubt->save();
+    }
+    /*Juanjo ho podries haber fet amb un array una sola funció, aquí hi ha molta redundancia*/
+
     public function countstudent()
     {
         return User::where('role', 'student')->count();

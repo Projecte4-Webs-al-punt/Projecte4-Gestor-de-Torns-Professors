@@ -17,16 +17,21 @@
             </a>
         </div>
         <div class="tile is-parent">
-            <article class="tile is-child box danger">
+          <a class="tile is-child box danger" href="/doubts?status=pendent">
+          <article class="tile is-child box danger">
                 <p class="title">{{ this.countDoubtP }}</p>
                 <p class="subtitle"><i class="fas fa-exclamation-circle"></i> Dubtes no resolts</p>
             </article>
+          </a>
         </div>
-        <div class="tile is-parent">
-            <article class="tile is-child box success">
+
+      <div class="tile is-parent">
+        <a class="tile is-child box success" href="/doubts?status=resolt">
+        <article>
                 <p class="title">{{ this.countDoubtR }}</p>
                 <p class="subtitle"> <i class="fas fa-check-circle"></i> Dubtes resolts</p>
             </article>
+        </a>
         </div>
     </div>
 </template>
