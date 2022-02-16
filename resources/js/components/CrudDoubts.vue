@@ -101,7 +101,7 @@
         <footer class="modal-card-foot is-flex is-justify-content-end">
           <button
             class="button is-danger"
-            v-on:click="formDelete(this.dataDoubt.id)"
+            v-on:click="formDelete(this.doubts.id)"
           >
             Esborrar Dubte
             <span class="icon is-size-5 ml-1"
@@ -141,7 +141,7 @@
         <footer class="modal-card-foot is-flex is-justify-content-end">
           <button
             class="button is-primary"
-            v-on:click="formDelete(this.dataDoubt.id)"
+            v-on:click="formSend(this.doubts.id)"
           >
             Enviar
             <span class="icon is-size-5 ml-1"
@@ -288,6 +288,8 @@ export default {
 
           axios.get(`/api/doubts/${id}`).then((response) => {
             this.doubts = response.data[0];
+            const htmlreply = response.data[0]['response'];
+            tinymce.get("myeditorinstance").setContent(htmlreply)
             console.log(response.data[0]);
           });
         } else if (accions === "3") {
@@ -335,14 +337,10 @@ export default {
       });
     },
     formSend(id) {
-      console.log(1);
-      axios.delete(`/api/doubts/${id}`).then((response) => {
-        document
-          .getElementById("ModalDeleteDoubts")
-          .classList.remove("is-active");
-        this.openModal = false;
-        this.list();
-      });
+      const reply = tinymce.get("myeditorinstance").getContent();
+      console.log(reply);
+      axios.post(`/api/doubts/${id}`,{reply:reply,id:id}); {
+      };
     },
   },
 };

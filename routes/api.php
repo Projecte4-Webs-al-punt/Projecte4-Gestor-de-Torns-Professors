@@ -32,6 +32,8 @@ Route::get('/doubts',[DoubtController::class,'index']);
 
 Route::get('/doubts/{id}',[DoubtController::class,'show']);
 
+Route::post('/doubts/{id}', [DoubtController::class, "reply"])->name("reply");
+
 Route::delete('/doubts/{id}', [DoubtController::class, "destroy"])->name("delete");
 
 Route::get('/doubts/status/{status}',[DoubtController::class,'status']);

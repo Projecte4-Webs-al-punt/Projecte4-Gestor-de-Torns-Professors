@@ -41,8 +41,13 @@
       <div class="modal-background" @click="hidemodal"></div>
       <div class="modal-content">
         <div class="box">
-          <h2 class="title is-3 has-text-centered">{{ this.dataDoubt.matter }}</h2>
-          <p class="mt-3">{{ this.dataDoubt.message }}</p>
+          <article class="message">
+            <div class="message-header">
+              <p>{{ this.dataDoubt.matter }}</p>
+            </div>
+            <div id="message_tinymce" class="message-body mt-3">
+            </div>
+          </article>
         </div>
       </div>
       <button class="modal-close" @click="hidemodal"></button>
@@ -94,6 +99,13 @@ export default {
       axios.get(`/api/doubts/${ id }`)
           .then((response) => {
             this.dataDoubt = response.data[0];
+            var message = this.dataDoubt.response;
+            if (this.dataDoubt.status === "Resolt") {
+              if (typeof code_happened === 'undefined') {
+                window.code_happened = true;
+                document.getElementById("message_tinymce").innerHTML += message;
+              }
+            }
           });
     },
     hidemodal(){
