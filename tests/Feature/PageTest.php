@@ -58,7 +58,7 @@ class PageTest extends TestCase
         
         $response = $this->actingAs($user)->get('/profile');
 
-        $response->assertStatus(200);
+        $response->assertSee('Dades Personals');
     }
 
     /**
