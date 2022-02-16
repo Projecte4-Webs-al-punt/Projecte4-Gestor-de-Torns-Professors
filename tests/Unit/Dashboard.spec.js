@@ -7,6 +7,6 @@ describe('Dashboard.vue Test', () => {
     const wrapper = mount(Dashboard);
 
     // check the name of the component
-    expect(wrapper.vm.$options.name).toMatch('Dashboard');
+    expect(wrapper.text()).toContain('Alumnes');
   });
 });
