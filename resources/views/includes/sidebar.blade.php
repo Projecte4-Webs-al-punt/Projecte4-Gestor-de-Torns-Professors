@@ -5,19 +5,6 @@
         <aside class="sidebar">
             <nav class="menu">
                 <div class="menu-category">
-                    <header class="category-header">Parametres</header>
-                    <ul class="menu-list">
-                        <li><a>Parametres de la Pàgina</a></li>
-                        <li><a>Parametres Generals</a></li>
-                    </ul>
-                </div>
-                <div class="menu-category">
-                    <header class="category-header">Gestions</header>
-                    <ul class="menu-list">
-                        <li><a>Gestió d'Usuaris</a></li>
-                    </ul>
-                </div>
-                <div class="menu-category">
                     <header class="category-header">Components</header>
                     <ul class="menu-list">
                         <li><a href="{{ route('users') }}">Total d'Alumnes</a></li>

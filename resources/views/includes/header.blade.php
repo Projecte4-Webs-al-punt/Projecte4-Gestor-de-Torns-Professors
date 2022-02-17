@@ -51,7 +51,7 @@
                                  @endif
 
                                  <a class="navbar-item" href="{{ route('profile') }}">
-                                     Perfil
+                                    El Meu Perfil
                                  </a>
                                  <hr class="navbar-divider">
                                  <div class="navbar-item">

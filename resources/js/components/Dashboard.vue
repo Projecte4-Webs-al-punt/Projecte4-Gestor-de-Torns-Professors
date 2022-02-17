@@ -2,7 +2,7 @@
     <div class="tile is-ancestor">
         <div class="tile is-parent">
             <a class="tile is-child box accent" href="users">
-            <article >
+            <article class="tile is-child box accent">
                 <p class="title">{{ this.countStudent }}</p>
                 <p class="subtitle"><i class="fas fa-user"></i> Total Alumnes</p>
             </article>
@@ -10,7 +10,7 @@
         </div>
         <div class="tile is-parent">
             <a class="tile is-child box warning" href="doubts">
-            <article>
+            <article class="tile is-child box warning">
                 <p class="title">{{ this.countDoubt }}</p>
                 <p class="subtitle"><i class="far fa-question-circles"></i> Total Dubtes</p>
             </article>
@@ -18,16 +18,15 @@
         </div>
         <div class="tile is-parent">
           <a class="tile is-child box danger" href="/doubts?status=pendent">
-          <article class="tile is-child box danger">
+            <article class="tile is-child box danger">
                 <p class="title">{{ this.countDoubtP }}</p>
                 <p class="subtitle"><i class="fas fa-exclamation-circle"></i> Dubtes no Resolts</p>
             </article>
           </a>
         </div>
-
       <div class="tile is-parent">
         <a class="tile is-child box success" href="/doubts?status=resolt">
-        <article>
+            <article class="tile is-child box success">
                 <p class="title">{{ this.countDoubtR }}</p>
                 <p class="subtitle"> <i class="fas fa-check-circle"></i> Dubtes Resolts</p>
             </article>

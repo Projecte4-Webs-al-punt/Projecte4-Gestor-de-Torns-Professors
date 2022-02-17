@@ -4,6 +4,20 @@
             <div class="column is-12 about-me">
                 <h1 class="title has-text-centered section-title">Contacte</h1>
             </div>
+            @if(session('messageError'))
+                <article class="message is-danger">
+                    <div class="message-body">
+                        {{ session('messageError') }}
+                    </div>
+                </article>
+            @endif
+            @if(session('messageSuccess'))
+                <article class="message is-success">
+                    <div class="message-body">
+                        {{ session('messageSuccess') }}
+                    </div>
+                </article>
+            @endif
             <div class="columns is-multiline">
                 <div class="column is-6"
                      data-aos="fade-right">
@@ -14,7 +28,7 @@
                         <div class="control has-icons-left has-icons-right">
                             <input name="name" class="input is-warning" type="text" placeholder="Escriu el teu nom complet...">
                             <span class="icon is-small is-left">
-      <i class="fas fa-at"></i>
+                                <i class="fas fa-user"></i>
     </span>
                         </div>
                     </div>

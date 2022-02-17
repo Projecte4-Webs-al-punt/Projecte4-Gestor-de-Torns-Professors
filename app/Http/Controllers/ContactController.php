@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use Daw\Sessio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
+use function PHPUnit\Framework\isEmpty;
 
 class ContactController extends Controller
 {
@@ -13,11 +16,19 @@ class ContactController extends Controller
         $name = $request->input('name');
         $email = $request->input('email');
         $message = $request->input('message');
-        DB::table('contacts')->insert([
-            'name' => $name,
-            'email' => $email,
-            'message' => $message
-        ]);
-        return(view('contact')->with($data = "Ha hagut un missatge de error"));
+        
+        if (isset($name) || isset($email) || isset($message)) {
+            DB::table('contacts')->insert([
+                'name' => $name,
+                'email' => $email,
+                'message' => $message
+            ]);
+            session()->flash("messageSuccess", "Les dades s'han enviat correctament");
+        } else {
+            session()->flash("messageError", "Hi ha hagut un error en el enviament de dades");
+        }
+
+        return back();
+        return(view('contact'));
     }
 }
