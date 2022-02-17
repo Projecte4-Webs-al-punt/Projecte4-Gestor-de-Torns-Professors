@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use Daw\Sessio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,16 +17,18 @@ class ContactController extends Controller
         $email = $request->input('email');
         $message = $request->input('message');
         
-        if (isEmpty($name) || isEmpty($email) || isEmpty($message)) {
-            //
-        } else {
+        if (isset($name) || isset($email) || isset($message)) {
             DB::table('contacts')->insert([
                 'name' => $name,
                 'email' => $email,
                 'message' => $message
             ]);
+            session()->flash("messageSuccess", "Les dades s'han enviat correctament");
+        } else {
+            session()->flash("messageError", "Hi ha hagut un error en el enviament de dades");
         }
 
-        return(view('contact')->with($data = "Ha hagut un missatge de error"));
+        return back();
+        return(view('contact'));
     }
 }

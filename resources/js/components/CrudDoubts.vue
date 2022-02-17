@@ -131,6 +131,11 @@
           ></button>
         </header>
         <section class="modal-card-body">
+          <article id="alert-success-xavi-vallejo" class="message is-success is-hidden">
+            <div class="message-body">
+              <strong> La Resposta s'ha enviat correctament, </strong> Moltes Gracies per la Teva Col·laboració.
+            </div>
+          </article>
           <article class="message is-dark">
             <div class="message-body">
               <textarea v-model="message" id="myeditorinstance">Escriu el teu problema</textarea
@@ -172,8 +177,7 @@
         </header>
         <section class="modal-card-body">
           <article class="message is-dark">
-            <div class="message-body">
-              {{ this.doubts.message }}
+            <div class="message-body" id="message-show-dani-prados">
             </div>
           </article>
         </section>
@@ -256,7 +260,6 @@ export default {
         axios
           .get(`/api/doubts/status/${myArray[0]}?page=${page}`)
           .then((response) => {
-                      console.log('is');
 
             this.currentPage = response.data.current_page;
             this.totalPages = response.data.last_page;
@@ -281,7 +284,9 @@ export default {
             .classList.add("is-active");
           axios.get(`/api/doubts/${id}`).then((response) => {
             this.doubts = response.data[0];
-            console.log(response.data[0]);
+
+            document.getElementById("message-show-dani-prados").innerHTML = "";
+            document.getElementById("message-show-dani-prados").innerHTML = response.data[0].message;
           });
         } else if (accions === "2") {
           document.getElementById("ModalSendDoubt").classList.add("is-active");
@@ -289,8 +294,8 @@ export default {
           axios.get(`/api/doubts/${id}`).then((response) => {
             this.doubts = response.data[0];
             const htmlreply = response.data[0]['response'];
-            tinymce.get("myeditorinstance").setContent(htmlreply)
-            console.log(response.data[0]);
+            tinymce.get("myeditorinstance").setContent(htmlreply);
+            document.getElementById("alert-success-xavi-vallejo").classList.add("is-hidden");
           });
         } else if (accions === "3") {
           document
@@ -299,7 +304,6 @@ export default {
 
           axios.get(`/api/doubts/${id}`).then((response) => {
             this.doubts = response.data[0];
-            console.log(this.doubts);
           });
         }
       }
@@ -339,8 +343,12 @@ export default {
     formSend(id) {
       const reply = tinymce.get("myeditorinstance").getContent();
       console.log(reply);
-      axios.post(`/api/doubts/${id}`,{reply:reply,id:id}); {
-      };
+      axios.post(`/api/doubts/${id}`,{
+        reply:reply,
+        id:id
+        }).then((response) => {
+          document.getElementById("alert-success-xavi-vallejo").classList.remove("is-hidden");
+        });
     },
   },
 };
