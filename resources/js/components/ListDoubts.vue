@@ -22,12 +22,7 @@
                       <p class="subtitle is-6 m-2">Estat: {{ doubt.status }}</p>
                     </div>
                   </div>
-                  <div class="content" v-if="doubt.message.length > 50">
-                    {{ doubt.message.substring(0, 50) }} ...
-                  </div>
-                  <div class="content" v-else>
-                    {{ doubt.message }}
-                  </div>
+
                 </div>
 
               </div>
@@ -43,9 +38,11 @@
         <div class="box">
           <article class="message">
             <div class="message-header">
-              <p>{{ this.dataDoubt.matter }}</p>
+              <p><b> <i class="fas fa-reply"></i> Resposta a : </b> {{ this.dataDoubt.matter }}</p>
             </div>
+            <div class="content" v-if="dataDoubt.response =! ''">
             <div id="message_tinymce" class="message-body mt-3">
+            </div>
             </div>
           </article>
         </div>
@@ -98,13 +95,14 @@ export default {
       document.getElementById("modal").classList.add("is-active");
       axios.get(`/api/doubts/${ id }`)
           .then((response) => {
+            document.getElementById("message_tinymce").innerHTML = "";
             this.dataDoubt = response.data[0];
             var message = this.dataDoubt.response;
             if (this.dataDoubt.status === "Resolt") {
-              if (typeof code_happened === 'undefined') {
                 window.code_happened = true;
                 document.getElementById("message_tinymce").innerHTML += message;
-              }
+            }else{
+              document.getElementById("message_tinymce").innerText = "No hi cap resposta encara";
             }
           });
     },
