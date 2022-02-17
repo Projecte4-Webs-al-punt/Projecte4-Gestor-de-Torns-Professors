@@ -20,7 +20,7 @@
           <a class="tile is-child box danger" href="/doubts?status=pendent">
           <article class="tile is-child box danger">
                 <p class="title">{{ this.countDoubtP }}</p>
-                <p class="subtitle"><i class="fas fa-exclamation-circle"></i> Dubtes no resolts</p>
+                <p class="subtitle"><i class="fas fa-exclamation-circle"></i> Dubtes no Resolts</p>
             </article>
           </a>
         </div>
@@ -29,7 +29,7 @@
         <a class="tile is-child box success" href="/doubts?status=resolt">
         <article>
                 <p class="title">{{ this.countDoubtR }}</p>
-                <p class="subtitle"> <i class="fas fa-check-circle"></i> Dubtes resolts</p>
+                <p class="subtitle"> <i class="fas fa-check-circle"></i> Dubtes Resolts</p>
             </article>
         </a>
         </div>
@@ -60,24 +60,36 @@ export default {
             axios.get('/api/countstudent')
             .then((response) => {
                 this.countStudent = response.data;
+            })
+            .catch(error => {
+                //console.log(error);
             });
         }, 
         setCountDoubts() {
             axios.get('/api/countdoubts')
             .then((response) => {
                 this.countDoubt = response.data;
+            })
+            .catch(error => {
+                //console.log(error);
             });
         }, 
         setCountDoubtsP() {
             axios.get('/api/countdoubtsp')
             .then((response) => {
                 this.countDoubtP = response.data;
+            })
+            .catch(error => {
+                //console.log(error);
             });
         }, 
         setCountDoubtsR() {
             axios.get('/api/countdoubtsr')
             .then((response) => {
                 this.countDoubtR = response.data;
+            })
+            .catch(error => {
+                //console.log(error);
             });
         }
     }
