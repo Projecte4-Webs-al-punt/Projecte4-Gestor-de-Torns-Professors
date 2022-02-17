@@ -24,9 +24,11 @@ Route::get('/users',[UserController::class,'index']);
 
 Route::get('/users/{id}',[UserController::class,'show']);
 
-Route::post('/users/store',[UserController::class,'store']);
+Route::delete('/users/{id}',[UserController::class,'destroy']);
 
-Route::post('/users/update/{id}', [UserController::class, "update"]);
+Route::post('/users/store',[UserController::class,'store'])->name("store");
+
+Route::post('/users/update/{id}', [UserController::class, "update"])->name("update");
 
 Route::get('/doubts',[DoubtController::class,'index']);
 

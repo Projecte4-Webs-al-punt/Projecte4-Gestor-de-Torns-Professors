@@ -128,33 +128,33 @@
                 <div class="field">
                   <label class="label">Nom</label>
                   <div class="control">
-                    <input class="input" type="text" name="nomalumn" v-bind:value="this.dataUser.name" placeholder="Nom de l'Alumne">
+                    <input class="input" type="text" name="nomalumn" :value="this.dataUser.name" v-model="formcreatearray.name" placeholder="Nom de l'Alumne" >
                   </div>
                 </div>
                 <div class="field">
                   <label class="label">Cognoms</label>
                   <div class="control">
-                    <input class="input" type="text" name="cognomsalumn" v-bind:value="this.dataUser.lastname" placeholder="Cognoms de l'Alumne">
+                    <input class="input" type="text" name="cognomsalumn" :value="this.dataUser.lastname" v-model="formcreatearray.lastname" placeholder="Cognoms de l'Alumne">
                   </div>
                 </div>
                 <div class="field">
                   <label class="label">Correu Electronic</label>
                   <div class="control">
-                    <input class="input" type="email" name="emailalumn" v-bind:value="this.dataUser.email" placeholder="exemple@gmail.com">
+                    <input class="input" type="email" name="emailalumn" :value="this.dataUser.email" v-model="formcreatearray.email" placeholder="exemple@gmail.com">
                   </div>
                 </div>
                 <div class="field">
                   <label class="label">Telèfon</label>
                   <div class="control">
-                    <input class="input" type="text" name="phonealumn" v-bind:value="this.dataUser.phone" placeholder="000 000 000">
+                    <input class="input" type="text" name="phonealumn" :value="this.dataUser.phone" v-model="formcreatearray.phone" placeholder="000 000 000">
                   </div>
                 </div>
                 <div class="field">
                   <label class="label">Modalitat</label>
                   <div class="control">
                     <div class="select">
-                      <select name="modalityalumn">
-                        <option v-bind:value="this.dataUser.modality" selected>{{ this.dataUser.modality }}</option>
+                      <select name="modalityalumn" v-model="formcreatearray.modality">
+                        <option :value="this.dataUser.modality" v-if="selected">{{ this.dataUser.modality }}</option>
                         <option value="Presencial">Presencial</option>
                         <option value="Telemàtic">Telemàtic</option>
                         <option value="Híbrid">Híbrid</option>
@@ -164,7 +164,7 @@
                 </div>
             </section>
             <footer class="modal-card-foot is-flex is-justify-content-end">
-                <button class="button is-link" v-on:click="formUpdate">Desar els Canvis <span class="icon is-size-5 ml-1"><i class="fas fa-save"></i></span></button>
+                <button class="button is-link" v-on:click="formUpdate" >Desar els Canvis <span class="icon is-size-5 ml-1"><i class="fas fa-save"></i></span></button>
                 <button class="button is-light" v-on:click="hideModal">Cancel·la</button>
             </footer>
             </div>
@@ -214,7 +214,7 @@ export default {
       currentPage: 0, 
       totalPages: 0, 
       openModal: false, 
-      actionModal: '', 
+      actionModal: '',
       formcreatearray: {
         "name": '', 
         "lastname": '', 
@@ -248,7 +248,6 @@ export default {
           axios.get(`/api/users/${ id }`)
           .then((response) => {
             this.dataUser = response.data[0];
-            console.log(response.data[0]);
           });
         } else if (accions == "3") {
           document.getElementById("ModalEsborrarUsuaris").classList.add("is-active");
@@ -275,26 +274,39 @@ export default {
     }, 
     formDelete(id) {
       axios.delete(`/api/users/${ id }`)
-      .then((response) => {
+      .then(() => {
         document.getElementById("ModalEsborrarUsuaris").classList.remove("is-active");
         this.openModal = false;
         this.list();
       });
     }, 
-    formUpdate() {
-      //
+    formUpdate(id) {
+      
+      //console.log(this.formcreatearray);
+      axios.post(`/users/update/${ id }`, {
+        name: this.formcreatearray.name, 
+        lastname: this.formcreatearray.lastname, 
+        email: this.formcreatearray.email, 
+        phone: this.formcreatearray.phone, 
+        modality: this.formcreatearray.modality
+      }).then(() => {
+        document.getElementById("ModalEditarUsuaris").classList.remove("is-active");
+        this.openModal = false;
+        this.list();
+      });
     }, 
     formCreate() {
+      //console.log(this.formcreatearray);
       axios.post(`/api/users/store/`, {
-        "name": this.formcreatearray.name, 
-        "lastname": this.formcreatearray.lastname, 
-        "email": this.formcreatearray.email, 
-        "phone": this.formcreatearray.phone, 
-        "modality": this.formcreatearray.modality
-      }).then((response) => {
-        //document.getElementById("ModalCrearUsuaris").classList.remove("is-active");
-        //this.openModal = false;
-        //this.list();
+        name: this.formcreatearray.name, 
+        lastname: this.formcreatearray.lastname, 
+        email: this.formcreatearray.email, 
+        phone: this.formcreatearray.phone, 
+        modality: this.formcreatearray.modality
+      }).then(() => {
+        document.getElementById("ModalCrearUsuaris").classList.remove("is-active");
+        this.openModal = false;
+        this.list();
       });
     }
   }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -29,13 +30,12 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $name = $request->input("name", "");
-        $lastname = $request->input("lastname", "");
-        $email = $request->input("email", "");
-        $phone = $request->input("phone", "");
-        $modality = $request->input("modality", "");
+        $name = $request["name"];
+        $lastname = $request["lastname"];
+        $email = $request["email"];
+        $phone = $request["phone"];
+        $modality = $request["modality"];
 
-        dd($name . " " . $lastname . " " . $email . " " . $phone . " " . $modality);
     }
 
     /**
@@ -59,11 +59,19 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::findOrFail($id);
+        
+        $name = $request["name"];
+        $lastname = $request["lastname"];
+        $email = $request["email"];
+        $phone = $request["phone"];
+        $modality = $request["modality"];
 
-        $name = $request->input("nomalumn", $user->name);
-        $lastname = $request->input("cognomsalumn", $user->lastname);
-        $email = $request->input("emailalumn", $user->email);
-        $phone = $request->input("phonealumn", $user->phone);
+        $user -> name = $name;
+        $user -> lastname = $lastname;
+        $user -> email = $email;
+        $user -> phone = $phone;
+        $user -> modality = $modality;
+        $user->save();
     }
 
     /**
