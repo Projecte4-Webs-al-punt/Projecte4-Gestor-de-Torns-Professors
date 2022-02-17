@@ -38,7 +38,7 @@ In order to ensure that the Tutory.cat community is welcoming to all, please rev
 
 ## Security Vulnerabilities
 
-If you discover a security vulnerability within Tutory.cat, please send an e-mail to Juan José Gómez Villegas via [admin@tutory.cat](mailto:admin@tutory.cat). All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within Tutory.cat, please send an e-mail to the administrator via [admin@tutory.cat](mailto:admin@tutory.cat). All security vulnerabilities will be promptly addressed.
 
 ## License
 
