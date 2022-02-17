@@ -1,7 +1,18 @@
 <template>
   <div>
+    <article id="alert-error" class="message is-danger is-hidden">
+      <div class="message-body">
+        <strong> Hi ha hagut un error en el enviament de dades, </strong> revisa els camps introduits.
+      </div>
+    </article>
+    <article id="alert-success" class="message is-success is-hidden">
+      <div class="message-body">
+        <strong> Les dades s'han enviat correctament, </strong> espera la resposta del teu professor.
+      </div>
+    </article>
   <div class="columns">
     <div class="column is-6">
+
   <div class="select is-dark is-fullwidth">
     <select v-model="teacher">
       <option selected>Selecciona el Professor</option>
@@ -55,9 +66,16 @@ export default {
         subject: this.subject,
         message: this.message
       }).then(function (response) {
-        //append html
-        console.log(1);
-      });
+        if(response.status === 200){
+          document.getElementById("alert-success").classList.remove("is-hidden");
+          document.getElementById("alert-error").classList.add("is-hidden");
+        }
+      })
+    .catch(function (error) {
+      document.getElementById("alert-error").classList.remove("is-hidden");
+      document.getElementById("alert-success").classList.add("is-hidden");
+
+    });
       tinymce.get("myeditorinstance").setContent('');
       this.teacher = 'Selecciona el Professor';
       this.subject = '';

@@ -1,8 +1,4 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/css/style.css": "/css/style.css",
-    "/css/admin.css": "/css/admin.css",
-    "/css/app.css": "/css/app.css",
     "/js/tinymce/.npmignore": "/js/tinymce/.npmignore",
     "/js/tinymce/CHANGELOG.md": "/js/tinymce/CHANGELOG.md",
     "/js/tinymce/README.md": "/js/tinymce/README.md",
