@@ -88,10 +88,20 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
 
-        $name = $request->input("nomalumn", $user->name);
-        $lastname = $request->input("cognomsalumn", $user->lastname);
-        $email = $request->input("emailalumn", $user->email);
-        $phone = $request->input("phonealumn", $user->phone);
+        $name2 = $request->input("name", $user->name);
+        $lastname2 = $request->input("lastname", $user->lastname);
+        $email2 = $request->input("email", $user->email);
+        $phone2 = $request->input("phone", $user->phone);
+        $modality2 = $request->input("modality", $user->modality);
+
+        $user->name = $name2;
+        $user->lastname = $lastname2;
+        $user->email = $email2;
+        $user->phone = $phone2;
+        $user->modality = $modality2;
+        $user->save();
+
+        return $user;
     }
 
     /**
