@@ -5,6 +5,9 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -35,7 +38,32 @@ class UserController extends Controller
         $phone = $request->input("phone", "");
         $modality = $request->input("modality", "");
 
-        dd($name . " " . $lastname . " " . $email . " " . $phone . " " . $modality);
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'lastname' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'phone' => ['required', 'string', 'max:11'], 
+            'modality' => ['string', 'max:255']
+        ]);
+
+        $user = new User;
+        $user->name = $name;
+        $user->lastname = $lastname;
+        $user->email = $email;
+        $user->phone = $phone;
+        $user->modality = $modality;
+        $user->role = 'student';
+        $user->password = Hash::make('12345678');
+        $user->remember_token = Str::random(10);
+        $user->save();
+        
+        $usernew = User::where('role', 'student')->where('email', $email)->get();
+        
+        foreach ($usernew as $item) {
+            DB::table('students')->insert([
+                'user_id' => $item->id
+            ]);
+        }
     }
 
     /**
@@ -60,10 +88,20 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
 
-        $name = $request->input("nomalumn", $user->name);
-        $lastname = $request->input("cognomsalumn", $user->lastname);
-        $email = $request->input("emailalumn", $user->email);
-        $phone = $request->input("phonealumn", $user->phone);
+        $name2 = $request->input("name", $user->name);
+        $lastname2 = $request->input("lastname", $user->lastname);
+        $email2 = $request->input("email", $user->email);
+        $phone2 = $request->input("phone", $user->phone);
+        $modality2 = $request->input("modality", $user->modality);
+
+        $user->name = $name2;
+        $user->lastname = $lastname2;
+        $user->email = $email2;
+        $user->phone = $phone2;
+        $user->modality = $modality2;
+        $user->save();
+
+        return $user;
     }
 
     /**

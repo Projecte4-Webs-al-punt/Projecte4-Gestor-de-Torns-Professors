@@ -65,130 +65,129 @@
     </div>
 
     <div class="modal" id="ModalCrearUsuaris">
-            <div class="modal-background"></div>
-            <div class="modal-card">
-            <header class="modal-card-head">
-                <p class="modal-card-title"><span class="icon is-size-5 mr-1"><i class="fas fa-user-plus"></i></span> Afegir un Alumne Nou</p>
-                <button v-on:click="hideModal" class="delete" aria-label="close"></button>
-            </header>
-              <section class="modal-card-body">
-                <div class="field">
-                    <label class="label">Nom</label>
-                    <div class="control">
-                      <input class="input" type="text" name="nomalumn" v-model="formcreatearray.name" placeholder="Nom de l'Alumne">
-                    </div>
-                  </div>
-                  <div class="field">
-                    <label class="label">Cognoms</label>
-                    <div class="control">
-                      <input class="input" type="text" name="cognomsalumn" v-model="formcreatearray.lastname" placeholder="Cognoms de l'Alumne">
-                    </div>
-                  </div>
-                  <div class="field">
-                    <label class="label">Correu Electronic</label>
-                    <div class="control">
-                      <input class="input" type="email" name="emailalumn" v-model="formcreatearray.email" placeholder="exemple@gmail.com">
-                    </div>
-                  </div>
-                  <div class="field">
-                    <label class="label">Telèfon</label>
-                    <div class="control">
-                      <input class="input" type="text" name="phonealumn" v-model="formcreatearray.phone" placeholder="000 000 000">
-                    </div>
-                  </div>
-                  <div class="field">
-                    <label class="label">Modalitat</label>
-                    <div class="control">
-                      <div class="select">
-                        <select name="modalityalumn" v-model="formcreatearray.modality">
-                          <option value="Presencial">Presencial</option>
-                          <option value="Telemàtic">Telemàtic</option>
-                          <option value="Híbrid">Híbrid</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-              </section>
-              <footer class="modal-card-foot is-flex is-justify-content-end">
-                  <button class="button is-link" v-on:click="formCreate">Crear Alumne <span class="icon is-size-5 ml-1"><i class="fas fa-folder-plus"></i></span></button>
-                  <button class="button is-light" v-on:click="hideModal">Cancel·la</button>
-              </footer>
-            </div>
-        </div>
-        <div class="modal" id="ModalEditarUsuaris">
-            <div class="modal-background"></div>
-            <div class="modal-card">
-            <header class="modal-card-head">
-                <p class="modal-card-title"><span class="icon is-size-5 mr-1"><i class="fas fa-user-edit"></i></span> {{ this.dataUser.name }} {{ this.dataUser.lastname }}</p>
-                <button v-on:click="hideModal" class="delete" aria-label="close"></button>
-            </header>
-            <!-- <form v-bind:action="'/api/users/update/'+this.dataUser.id" method="POST"> -->
-              <section class="modal-card-body">
-                <input type="hidden" name="idalumn" v-bind:value="this.dataUser.id">
-                <div class="field">
-                  <label class="label">Nom</label>
-                  <div class="control">
-                    <input class="input" type="text" name="nomalumn" v-bind:value="this.dataUser.name" placeholder="Nom de l'Alumne">
-                  </div>
-                </div>
-                <div class="field">
-                  <label class="label">Cognoms</label>
-                  <div class="control">
-                    <input class="input" type="text" name="cognomsalumn" v-bind:value="this.dataUser.lastname" placeholder="Cognoms de l'Alumne">
-                  </div>
-                </div>
-                <div class="field">
-                  <label class="label">Correu Electronic</label>
-                  <div class="control">
-                    <input class="input" type="email" name="emailalumn" v-bind:value="this.dataUser.email" placeholder="exemple@gmail.com">
-                  </div>
-                </div>
-                <div class="field">
-                  <label class="label">Telèfon</label>
-                  <div class="control">
-                    <input class="input" type="text" name="phonealumn" v-bind:value="this.dataUser.phone" placeholder="000 000 000">
-                  </div>
-                </div>
-                <div class="field">
-                  <label class="label">Modalitat</label>
-                  <div class="control">
-                    <div class="select">
-                      <select name="modalityalumn">
-                        <option v-bind:value="this.dataUser.modality" selected>{{ this.dataUser.modality }}</option>
-                        <option value="Presencial">Presencial</option>
-                        <option value="Telemàtic">Telemàtic</option>
-                        <option value="Híbrid">Híbrid</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-            </section>
-            <footer class="modal-card-foot is-flex is-justify-content-end">
-                <button class="button is-link" v-on:click="formUpdate">Desar els Canvis <span class="icon is-size-5 ml-1"><i class="fas fa-save"></i></span></button>
-                <button class="button is-light" v-on:click="hideModal">Cancel·la</button>
-            </footer>
-            </div>
-        </div>
-        <div class="modal" id="ModalEsborrarUsuaris">
-            <div class="modal-background"></div>
-            <div class="modal-card">
-            <header class="modal-card-head">
-                <p class="modal-card-title"><span class="icon is-size-5 mr-1"><i class="fas fa-trash"></i></span> Avís!</p>
-                <button v-on:click="hideModal" class="delete" aria-label="close"></button>
-            </header>
+      <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+              <p class="modal-card-title"><span class="icon is-size-5 mr-1"><i class="fas fa-user-plus"></i></span> Afegir un Alumne Nou</p>
+              <button v-on:click="hideModal" class="delete" aria-label="close"></button>
+          </header>
             <section class="modal-card-body">
-                <article class="message is-dark">
-                  <div class="message-body">
-                    Estàs Segur que vols esborrar l'alumne {{ this.dataUser.name }} {{ this.dataUser.lastname }} ?
+              <div class="field">
+                <label class="label">Nom</label>
+                <div class="control">
+                  <input class="input" type="text" name="nomalumn" v-model="formcreatearray.name" placeholder="Nom de l'Alumne">
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Cognoms</label>
+                <div class="control">
+                  <input class="input" type="text" name="cognomsalumn" v-model="formcreatearray.lastname" placeholder="Cognoms de l'Alumne">
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Correu Electronic</label>
+                <div class="control">
+                  <input class="input" type="email" name="emailalumn" v-model="formcreatearray.email" placeholder="exemple@gmail.com">
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Telèfon</label>
+                <div class="control">
+                  <input class="input" type="text" name="phonealumn" v-model="formcreatearray.phone" placeholder="000 000 000">
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Modalitat</label>
+                <div class="control">
+                  <div class="select">
+                    <select name="modalityalumn" v-model="formcreatearray.modality">
+                      <option value="Presencial">Presencial</option>
+                      <option value="Telemàtic">Telemàtic</option>
+                      <option value="Híbrid">Híbrid</option>
+                    </select>
                   </div>
-                </article>
+                </div>
+              </div>
             </section>
             <footer class="modal-card-foot is-flex is-justify-content-end">
-                <button class="button is-danger" v-on:click="formDelete(this.dataUser.id)">Esborrar Alumne <span class="icon is-size-5 ml-1"><i class="fas fa-trash"></i></span></button>
+                <button class="button is-link" v-on:click="formCreate">Crear Alumne <span class="icon is-size-5 ml-1"><i class="fas fa-folder-plus"></i></span></button>
                 <button class="button is-light" v-on:click="hideModal">Cancel·la</button>
             </footer>
           </div>
       </div>
+      <div class="modal" id="ModalEditarUsuaris">
+          <div class="modal-background"></div>
+          <div class="modal-card">
+          <header class="modal-card-head">
+              <p class="modal-card-title"><span class="icon is-size-5 mr-1"><i class="fas fa-user-edit"></i></span> {{ this.dataUser.name }} {{ this.dataUser.lastname }}</p>
+              <button v-on:click="hideModal" class="delete" aria-label="close"></button>
+          </header>
+          <!-- <form v-bind:action="'/api/users/update/'+this.dataUser.id" method="POST"> -->
+            <section class="modal-card-body">
+              <input type="hidden" name="idalumn" v-model="this.dataUser.id">
+              <div class="field">
+                <label class="label">Nom</label>
+                <div class="control">
+                  <input class="input" type="text" name="nomalumn" v-model="this.dataUser.name" placeholder="Nom de l'Alumne">
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Cognoms</label>
+                <div class="control">
+                  <input class="input" type="text" name="cognomsalumn" v-model="this.dataUser.lastname" placeholder="Cognoms de l'Alumne">
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Correu Electronic</label>
+                <div class="control">
+                  <input class="input" type="email" name="emailalumn" v-model="this.dataUser.email" placeholder="exemple@gmail.com">
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Telèfon</label>
+                <div class="control">
+                  <input class="input" type="text" name="phonealumn" v-model="this.dataUser.phone" placeholder="000 000 000">
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Modalitat</label>
+                <div class="control">
+                  <div class="select">
+                    <select name="modalityalumn" v-model="this.dataUser.modality">
+                      <option value="Presencial">Presencial</option>
+                      <option value="Telemàtic">Telemàtic</option>
+                      <option value="Híbrid">Híbrid</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+          </section>
+          <footer class="modal-card-foot is-flex is-justify-content-end">
+              <button class="button is-link" v-on:click="formUpdate">Desar els Canvis <span class="icon is-size-5 ml-1"><i class="fas fa-save"></i></span></button>
+              <button class="button is-light" v-on:click="hideModal">Cancel·la</button>
+          </footer>
+          </div>
+      </div>
+      <div class="modal" id="ModalEsborrarUsuaris">
+          <div class="modal-background"></div>
+          <div class="modal-card">
+          <header class="modal-card-head">
+              <p class="modal-card-title"><span class="icon is-size-5 mr-1"><i class="fas fa-trash"></i></span> Avís!</p>
+              <button v-on:click="hideModal" class="delete" aria-label="close"></button>
+          </header>
+          <section class="modal-card-body">
+              <article class="message is-dark">
+                <div class="message-body">
+                  Estàs Segur que vols esborrar l'alumne {{ this.dataUser.name }} {{ this.dataUser.lastname }} ?
+                </div>
+              </article>
+          </section>
+          <footer class="modal-card-foot is-flex is-justify-content-end">
+              <button class="button is-danger" v-on:click="formDelete(this.dataUser.id)">Esborrar Alumne <span class="icon is-size-5 ml-1"><i class="fas fa-trash"></i></span></button>
+              <button class="button is-light" v-on:click="hideModal">Cancel·la</button>
+          </footer>
+        </div>
+    </div>
   </div>
 </template>
 
@@ -248,7 +247,6 @@ export default {
           axios.get(`/api/users/${ id }`)
           .then((response) => {
             this.dataUser = response.data[0];
-            console.log(response.data[0]);
           });
         } else if (accions == "3") {
           document.getElementById("ModalEsborrarUsuaris").classList.add("is-active");
@@ -278,11 +276,21 @@ export default {
       .then((response) => {
         document.getElementById("ModalEsborrarUsuaris").classList.remove("is-active");
         this.openModal = false;
-        this.list();
+        this.list(this.currentPage);
       });
     }, 
     formUpdate() {
-      //
+      axios.post(`/api/users/update/${ this.dataUser["id"] }`, {
+        "name": this.dataUser["name"], 
+        "lastname": this.dataUser["lastname"], 
+        "email": this.dataUser["email"], 
+        "phone": this.dataUser["phone"], 
+        "modality": this.dataUser["modality"]
+      }).then((response) => {
+        document.getElementById("ModalEditarUsuaris").classList.remove("is-active");
+        this.openModal = false;
+        this.list(this.currentPage);
+      });
     }, 
     formCreate() {
       axios.post(`/api/users/store/`, {
@@ -292,9 +300,9 @@ export default {
         "phone": this.formcreatearray.phone, 
         "modality": this.formcreatearray.modality
       }).then((response) => {
-        //document.getElementById("ModalCrearUsuaris").classList.remove("is-active");
-        //this.openModal = false;
-        //this.list();
+        document.getElementById("ModalCrearUsuaris").classList.remove("is-active");
+        this.openModal = false;
+        this.list(this.currentPage);
       });
     }
   }
