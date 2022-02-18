@@ -8,8 +8,15 @@
         "hot": "mix watch --hot",
         "prod": "npm run production",
         "production": "mix --production",
-        "test": "jest"
+        "test": "jest --env=jsdom"
     },
+    "jest": {
+        "moduleFileExtensions": ["js", "json", "vue"],
+        "transform": {
+          "^.+\\.js$": "babel-jest",
+          "^.+\\.vue$": "@vue/vue3-jest"
+        }
+    }, 
     "devDependencies": {
         "@popperjs/core": "^2.10.2",
         "@tailwindcss/forms": "^0.4.0",
