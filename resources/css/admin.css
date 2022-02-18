@@ -4,6 +4,21 @@ html {
 body {
     color: #fff;
 }
+@media screen and (max-width: 769px), print {
+
+    .sidebar {
+        display: none;
+    }
+    .navbar-brand{
+        display: none;
+    }
+    .main {
+     margin-left: 0px!important;
+    }
+    #NavbarDesktop{
+        display: none;
+    }
+}
 .sidebar {
     padding-left: calc(2rem - 0.75rem);
     padding-right: calc(2rem - 0.75rem);
@@ -33,6 +48,7 @@ body {
     bottom: 0;
     left: 0;
 }
+
 .main {
     margin-left: 13rem;
     position: relative;
@@ -54,16 +70,6 @@ body {
 .main header small {
     color: #949ba2;
     text-align: right;
-}
-.main:before {
-    content: "";
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    z-index: -2;
-    left: 0;
-    right: 0;
-    background-position: 50%, 50%;
 }
 .sidebar, .main {
     margin-top: 3.25rem;

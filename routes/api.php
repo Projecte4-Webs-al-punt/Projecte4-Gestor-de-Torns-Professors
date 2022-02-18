@@ -42,6 +42,9 @@ Route::get('/teachers',[TeacherController::class,'list']);
 
 Route::get('/teachers',[TeacherController::class,'list']);
 
+
+Route::get('/testuser',[UserController::class,'obtain']);
+
 Route::get('/countstudent',[DoubtController::class,'countstudent']);
 
 Route::get('/countdoubts',[DoubtController::class,'countdoubts']);
