@@ -11,7 +11,8 @@
                         <li><a href="{{ route('doubts') }}">Total de Dubtes</a></li>
                         <li><a href="/doubts?status=pendent">Dubtes no Resolts</a></li>
                         <li><a href="/doubts?status=resolt">Dubtes Resolts</a></li>
-                        <li><a href="/generate">Alumne a la pissarra</a></li>
+                        <br>
+                        <li><a href="/generate">Generador d'Alumnes</a></li>
                     </ul>
                 </div>
                 <div class="menu-category">

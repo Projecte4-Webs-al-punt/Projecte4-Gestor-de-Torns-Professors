@@ -118,7 +118,8 @@ class UserController extends Controller
 
         $user->delete();
     }
-    public function obtain(Request $request)
+
+    public function obtain()
     {
         //Obtenim el rang d'usuaris a provar
 

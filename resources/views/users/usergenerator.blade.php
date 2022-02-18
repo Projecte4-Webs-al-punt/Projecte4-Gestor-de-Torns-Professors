@@ -6,7 +6,7 @@
         <header class="is-clearfix">
 
             <div>
-                <h2 class="title is-3 has-text-dark has-text-centered-widescreen">Blackboard Student Generator </h2>
+                <h2 class="title is-3 has-text-dark has-text-centered-widescreen">Generador d'Alumnes a la Pissarra </h2>
             </div>
             <hr>
         </header>
