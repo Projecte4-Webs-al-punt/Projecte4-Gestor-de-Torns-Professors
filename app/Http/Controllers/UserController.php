@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Services\TutoryApiService;
 use App\Models\User;
 use App\Models\Doubt;
 
@@ -122,5 +123,22 @@ class UserController extends Controller
         $user -> delete();
 
         return redirect('/users');
+    }
+
+    public function obtain()
+    {
+        //Obtenim el rang d'usuaris a provar
+
+        $studentsCount['minUsers'] = User::all()->where('role','student')->min('id');
+
+        $studentsCount['maxUsers'] = Student::all()->count();
+
+        $studentsCount['maxUsers'] = $studentsCount['maxUsers'] + $studentsCount['minUsers'] - 1;
+
+        $idnumber = TutoryApiService::getNumber($studentsCount['minUsers'],$studentsCount['maxUsers']);
+
+        $nomusuari =  User::where('id', $idnumber)->first();
+
+        return $nomusuari;
     }
 }
