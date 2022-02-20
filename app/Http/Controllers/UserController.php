@@ -125,20 +125,9 @@ class UserController extends Controller
         return redirect('/users');
     }
 
-    public function obtain()
-    {
-        //Obtenim el rang d'usuaris a provar
+    public function usergenerator(){
 
-        $studentsCount['minUsers'] = User::all()->where('role','student')->min('id');
+        return view('users.usergenerator');
 
-        $studentsCount['maxUsers'] = Student::all()->count();
-
-        $studentsCount['maxUsers'] = $studentsCount['maxUsers'] + $studentsCount['minUsers'] - 1;
-
-        $idnumber = TutoryApiService::getNumber($studentsCount['minUsers'],$studentsCount['maxUsers']);
-
-        $nomusuari =  User::where('id', $idnumber)->first();
-
-        return $nomusuari;
     }
 }
