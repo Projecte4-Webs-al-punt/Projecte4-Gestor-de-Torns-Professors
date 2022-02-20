@@ -17,7 +17,7 @@
 import axios from "axios";
 
 export default {
-  name: 'Dashboard',
+  name: 'Randomstudent',
   methods: {
     generate() {
       axios.get('/api/testuser')
