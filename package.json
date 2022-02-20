@@ -11,12 +11,12 @@
         "test": "jest --env=jsdom"
     },
     "jest": {
-        "moduleFileExtensions": ["js", "json", "vue"],
+        "moduleFileExtensions": ["js", "json", "vue"], 
         "transform": {
           "^.+\\.js$": "babel-jest",
           "^.+\\.vue$": "@vue/vue3-jest"
         }
-    }, 
+    },
     "devDependencies": {
         "@popperjs/core": "^2.10.2",
         "@tailwindcss/forms": "^0.4.0",
@@ -40,8 +40,10 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.15.4",
+        "babel-jest": "^27.5.1",
         "font-awesome": "^4.7.0",
         "laravel-vue-pagination": "^2.3.1",
-        "test-utils": "^1.0.21"
+        "test-utils": "^1.1.1",
+        "vue3-jest": "^27.0.0-alpha.1"
     }
 }
