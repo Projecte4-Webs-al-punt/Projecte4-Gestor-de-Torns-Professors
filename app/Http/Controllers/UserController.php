@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Services\TutoryApiService;
 use App\Models\User;
 use App\Models\Doubt;
 
@@ -124,9 +125,20 @@ class UserController extends Controller
         return redirect('/users');
     }
 
-    public function usergenerator(){
+    public function obtain()
+    {
+        //Obtenim el rang d'usuaris a provar
 
-        return view('users.usergenerator');
+        $studentsCount['minUsers'] = User::all()->where('role','student')->min('id');
 
+        $studentsCount['maxUsers'] = Student::all()->count();
+
+        $studentsCount['maxUsers'] = $studentsCount['maxUsers'] + $studentsCount['minUsers'] - 1;
+
+        $idnumber = TutoryApiService::getNumber($studentsCount['minUsers'],$studentsCount['maxUsers']);
+
+        $nomusuari =  User::where('id', $idnumber)->first();
+
+        return $nomusuari;
     }
 }

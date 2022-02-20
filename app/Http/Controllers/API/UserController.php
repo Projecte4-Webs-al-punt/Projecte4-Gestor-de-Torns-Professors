@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Http\Services\TutoryApiService;
-use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Student;
+use App\Http\Services\TutoryApiService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -117,22 +117,5 @@ class UserController extends Controller
         $user = User::findOrFail($id);
 
         $user->delete();
-    }
-
-    public function obtain()
-    {
-        //Obtenim el rang d'usuaris a provar
-
-        $studentsCount['minUsers'] = User::all()->where('role','student')->min('id');
-
-        $studentsCount['maxUsers'] = Student::all()->count();
-
-        $studentsCount['maxUsers'] = $studentsCount['maxUsers'] + $studentsCount['minUsers'] - 1;
-
-        $idnumber = TutoryApiService::getNumber($studentsCount['minUsers'],$studentsCount['maxUsers']);
-
-        $nomusuari =  User::where('id', $idnumber)->first();
-
-        return $nomusuari;
     }
 }

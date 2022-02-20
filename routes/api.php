@@ -40,12 +40,11 @@ Route::delete('/doubts/{id}', [DoubtController::class, "destroy"])->name("delete
 
 Route::get('/doubts/status/{status}',[DoubtController::class,'status']);
 
-Route::get('/teachers',[TeacherController::class,'list']);
-
-Route::get('/teachers',[TeacherController::class,'list']);
-
-
 Route::get('/testuser',[UserController::class,'obtain']);
+
+Route::get('/teachers',[TeacherController::class,'list']);
+
+Route::get('/teachers',[TeacherController::class,'list']);
 
 Route::get('/countstudent',[DoubtController::class,'countstudent']);
 
