@@ -7,7 +7,7 @@
                 <div class="menu-category">
                     <header class="category-header">Components</header>
                     <ul class="menu-list">
-                        <li><a href="{{ route('users') }}">Total d'Alumnes</a></li>
+                        <li><a href="/users">Total d'Alumnes</a></li>
                         <li><a href="{{ route('doubts') }}">Total de Dubtes</a></li>
                         <li><a href="/doubts?status=pendent">Dubtes no Resolts</a></li>
                         <li><a href="/doubts?status=resolt">Dubtes Resolts</a></li>
