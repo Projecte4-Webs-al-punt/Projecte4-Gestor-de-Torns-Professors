@@ -43,7 +43,7 @@ Route::post('/senddoubt',[UserController::class,'indexStudentAdd'])->middleware(
 
 Route::get('/users', [UserController::class, "index"])->middleware(['auth', 'isTeacher'])->name("users");
 
-Route::get('/generate', [UserController::class, "usergenerator"])->middleware(['auth', 'isTeacher'])->name("users");
+Route::get('/generate', [UserController::class, "usergenerator"])->middleware(['auth', 'isTeacher'])->name("generate");
 
 Route::delete('/users/{user}', [UserController::class, "destroy"])->middleware(['auth', 'isTeacher'])->name("delete");
 

@@ -12,7 +12,7 @@
                         <li><a href="/doubts?status=pendent">Dubtes no Resolts</a></li>
                         <li><a href="/doubts?status=resolt">Dubtes Resolts</a></li>
                         <br>
-                        <li><a href="/generate">Generador d'Alumnes</a></li>
+                        <li><a href="{{ route('generate') }}">Generador d'Alumnes</a></li>
                     </ul>
                 </div>
                 <div class="menu-category">
